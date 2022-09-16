@@ -34,13 +34,8 @@ Route::get('/contact', function() {
 
 Route::get('/domaines', [App\Http\Controllers\DomainesController::class, 'index'])->name('Domaines Lists');
 
-Route::get('/domaines/show', function() {
-    return 'Show Domaine';
-});
+Route::get('/domaines/add', [App\Http\Controllers\DomainesController::class, 'add'])->name('Domaines Lists');
 
+Route::get('/domaines/show', [App\Http\Controllers\DomainesController::class, 'show'])->name('Domaine Show');
 
-Route::view('/domaines/add', 'back.domaines.add');
-
-Route::get('/domaines/edit', function() {
-    return view('back.domaines.edit');
-});
+Route::get('/domaines/edit', [App\Http\Controllers\DomainesController::class, 'show'])->name('Domaine Edit');
