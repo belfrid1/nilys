@@ -14,10 +14,11 @@ class DomaineController extends Controller
      */
     public function index()
     {
-        $domaines = Domaine::latest->paginate(5);
+        $domaines = Domaine::all();
 
         return view('back.domaines.index', compact('domaines'))
-            ->with('i',(request()->input('page',1) -1) * 5);
+//            ->with('i',(request()->input('page',1) -1) * 5)
+            ;
     }
 
     /**

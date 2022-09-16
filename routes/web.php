@@ -35,8 +35,9 @@ Route::get('/contact', function() {
 Route::get('/domaines', [App\Http\Controllers\DomaineController::class, 'index'])->name('domain.list');
 
 Route::get('/domaines/add', [App\Http\Controllers\DomaineController::class, 'create'])->name('domain.create');
+Route::get('/domaines/store', [App\Http\Controllers\DomaineController::class, 'store'])->name('domain.store');
 
 Route::get('/domaines/show', [App\Http\Controllers\DomaineController::class, 'show'])->name('domain.show');
 
 Route::get('/domaines/edit', [App\Http\Controllers\DomaineController::class, 'edit'])->name('domain.edit');
-Route::resource('domaines', App\Http\Controllers\DomaineController::class);
+//Route::resource('domaines', App\Http\Controllers\DomaineController::class);
