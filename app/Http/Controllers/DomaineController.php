@@ -14,7 +14,7 @@ class DomaineController extends Controller
      */
     public function index()
     {
-        //
+        return view('back.domaines.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class DomaineController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.domaines.add');
     }
 
     /**
@@ -46,7 +46,7 @@ class DomaineController extends Controller
      */
     public function show(Domaine $domaine)
     {
-        //
+        return view('back.domaines.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class DomaineController extends Controller
      */
     public function edit(Domaine $domaine)
     {
-        //
+        return view('back.domaines.edit');
     }
 
     /**
