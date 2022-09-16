@@ -34,7 +34,7 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                
+
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -70,7 +70,7 @@
 
                         <!--begin::Container-->
 							<div class="container">
-								
+
 								<!--begin::Form-->
 								<form class="mx-auto w-100 mw-600px pt-15 pb-10" novalidate="novalidate" id="kt_modal_create_project_form" method="post">
 									<!--begin::Type-->
@@ -83,7 +83,7 @@
 												<h1 class="fw-bold text-dark">Project Type</h1>
 												<!--end::Title-->
 												<!--begin::Description-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check out 
+												<div class="text-muted fw-semibold fs-4">If you need more info, please check out
 												<a href="#" class="link-primary fw-bold">FAQ Page</a></div>
 												<!--end::Description-->
 											</div>
@@ -151,7 +151,7 @@
 											<div class="d-flex justify-content-end">
 												<button type="button" class="btn btn-lg btn-primary" data-kt-element="type-next">
 													<span class="indicator-label">Project Settings</span>
-													<span class="indicator-progress">Please wait... 
+													<span class="indicator-progress">Please wait...
 													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 												</button>
 											</div>
