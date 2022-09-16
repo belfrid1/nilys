@@ -14,8 +14,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('authentification.login');
+Route::view('/login', 'authentification.login');
+
+Route::view('/', 'welcome');
+
+Route::view('dashboard', 'back.dashboard');
+
+Route::get('/popup-group', function() {
+    return 'Popup Group Lists';
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/popup', function() {
+    return 'Popup Lists';
+});
+
+Route::get('/contact', function() {
+    return 'Contact';
+});
+
+Route::get('/domaines', [App\Http\Controllers\DomainesController::class, 'index'])->name('Domaines Lists');
+
+Route::get('/domaines/show', function() {
+    return 'Show Domaine';
+});
+
+
+Route::view('/domaines/add', 'back.domaines.add');
+
+Route::get('/domaines/edit', function() {
+    return view('back.domaines.edit');
+});
