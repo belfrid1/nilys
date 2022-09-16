@@ -2,69 +2,8 @@
 
 
 @section("app_main")
-<!--begin::Main-->
-<form action="{{ route("domain.store") }}" enctype='multipart/form-data' method="post" id="form_config_store">
-    @csrf
-    <h3 class="page-title">
-        <a href="{{ route('domain.list') }}"
-           class="btn btn-xs grey-gallery btn-outline">Retour</a>
-        <button type="submit" class="btn btn-xs green">Enregistrer</button>
-    </h3>
-
-    <div class="full-height-content ">
-        <div class="full-height-content-body">
-            <div class="portlet light bg-inverse">
-                <div class="portlet-body">
-                    <div class="portlet light bordered">
-                        <div class="portlet-body">
-
-                            @if ($errors->any())
-                                <div class="alert alert-danger d-none" id="cvalerterror" role="alert">
-
-                                    @if($errors->first('name') )
-                                        <strong>{{ $errors->first('name') }}</strong><br>
-                                    @endif
-                                    @if($errors->first('desc') )
-                                        <strong>{{ $errors->first('desc') }}</strong><br>
-                                    @endif
-
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endif
-
-                            <div class="form-body" style="margin-bottom: 0%;padding-bottom: 0%">
-                                <div class="row">
 
 
-                                    <div class=" col-md-6">
-                                        <div class="form-group ">
-                                            <label for=""> Nom </label>
-                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control" autocomplete="off" required>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for=""> Description </label>
-                                            <input type="text" name="apikey" value="{{ old('desc') }}" class="form-control" autocomplete="off" required>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
 <!--end:::Main-->
 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
     <!--begin::Content wrapper-->

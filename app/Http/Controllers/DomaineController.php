@@ -45,7 +45,7 @@ class DomaineController extends Controller
         ]);
 
         Domaine::create($request->all());
-        return redirect()->route('back.domaines.index')
+        return redirect()->route('domain.list')
             ->with('success','Domaine created successfully.');
     }
 

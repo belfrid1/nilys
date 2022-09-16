@@ -18,14 +18,14 @@
     @section('meta-des') @endsection
 
     <link rel="canonical" href="" />
-    <link rel="shortcut icon" href="../../../assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
     @yield('stylesheets')
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link href="../../../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="../../../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
     <!--Begin::Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5FS8GGP');</script>
@@ -49,11 +49,11 @@
     <!--begin::Javascript-->
     <script>var hostUrl = "../../../assets/index.html";</script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="../../../assets/plugins/global/plugins.bundle.js"></script>
-    <script src="../../../assets/js/scripts.bundle.js"></script>
+    <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
+    <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Custom Javascript(used by this page)-->
-    <script src="../../../assets/js/custom/authentication/sign-in/general.js"></script>
+    <script src="{{asset('assets/js/custom/authentication/sign-in/general.js')}}"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>
