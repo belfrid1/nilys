@@ -39,3 +39,4 @@ Route::get('/domaines/add', [App\Http\Controllers\DomaineController::class, 'cre
 Route::get('/domaines/show', [App\Http\Controllers\DomaineController::class, 'show'])->name('domain.show');
 
 Route::get('/domaines/edit', [App\Http\Controllers\DomaineController::class, 'edit'])->name('domain.edit');
+Route::resource('domaines', App\Http\Controllers\DomaineController::class);

@@ -10,11 +10,14 @@ class DomaineController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return *\Illuminate\Http\Response*
      */
     public function index()
     {
-        return view('back.domaines.index');
+        $domaines = Domaine::latest->paginate(5);
+
+        return view('back.domaines.index', compact('domaines'))
+            ->with('i',(request()->input('page',1) -1) * 5);
     }
 
     /**
@@ -31,11 +34,18 @@ class DomaineController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return *\Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'apikey' => 'required',
+        ]);
+
+        Domaine::create($request->all());
+        return redirect()->route('back.domaines.index')
+            ->with('success','Domaine created successfully.');
     }
 
     /**
