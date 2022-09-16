@@ -20,6 +20,10 @@ Route::view('/', 'welcome');
 
 Route::view('dashboard', 'back.dashboard');
 
+Route::view('domaines', 'back.domaines.index');
+
+Route::view('domaines/add', 'back.domaines.add');
+
 Route::get('/popup-group', function() {
     return 'Popup Group Lists';
 });
@@ -32,11 +36,12 @@ Route::get('/contact', function() {
     return 'Contact';
 });
 
-Route::get('/domaines', [App\Http\Controllers\DomaineController::class, 'index'])->name('domain.list');
+// Route::get('/domaines', [App\Http\Controllers\DomaineController::class, 'index'])->name('domain.list');
 
-Route::get('/domaines/add', [App\Http\Controllers\DomaineController::class, 'create'])->name('domain.create');
+// Route::get('/domaines/add', [App\Http\Controllers\DomaineController::class, 'create'])->name('domain.create');
 
 Route::get('/domaines/show', [App\Http\Controllers\DomaineController::class, 'show'])->name('domain.show');
 
 Route::get('/domaines/edit', [App\Http\Controllers\DomaineController::class, 'edit'])->name('domain.edit');
-Route::resource('domaines', App\Http\Controllers\DomaineController::class);
+
+// Route::resource('domaines', App\Http\Controllers\DomaineController::class);
