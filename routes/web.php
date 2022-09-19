@@ -55,10 +55,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //    return 'Contact';
 //});
 //
- Route::get('/domaines', [App\Http\Controllers\DomaineController::class, 'index'])->name('domain.list');
- Route::get('/domaines/add', [App\Http\Controllers\DomaineController::class, 'create'])->name('domain.create');
- Route::post('/domaines/store', [App\Http\Controllers\DomaineController::class, 'store'])->name('domain.store');
- Route::get('/domaines/show', [App\Http\Controllers\DomaineController::class, 'show'])->name('domain.show');
- Route::get('/domaines/edit', [App\Http\Controllers\DomaineController::class, 'edit'])->name('domain.edit');
+ Route::get('/domains', [App\Http\Controllers\DomaineController::class, 'index'])->name('domain.list');
+ Route::get('/domains/add', [App\Http\Controllers\DomaineController::class, 'create'])->name('domain.create');
+ Route::post('/domains/store', [App\Http\Controllers\DomaineController::class, 'store'])->name('domain.store');
+ Route::get('/domains/show', [App\Http\Controllers\DomaineController::class, 'show'])->name('domain.show');
+ Route::get('/domains/edit', [App\Http\Controllers\DomaineController::class, 'edit'])->name('domain.edit');
 
 // Route::resource('domaines', App\Http\Controllers\DomaineController::class);

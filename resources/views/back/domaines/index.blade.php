@@ -12,7 +12,7 @@
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Domaines Lists</h1>
+                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">List of domains</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -27,7 +27,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Domaines</li>
+                        <li class="breadcrumb-item text-muted">Domains</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
@@ -60,7 +60,7 @@
                                     </svg>
                                 </span>
                                 <!--end::Svg Icon-->
-                                New Domaine
+                                New Domain
                             </a>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted bg-light">
-                                        <th class="ps-4 min-w-400px rounded-start">Domaine Name</th>
+                                        <th class="ps-4 min-w-400px rounded-start">Domain Name</th>
                                         <th class="min-w-425px">Api Key</th>
                                         <th class="min-w-300px text-end rounded-end">Actions</th>
                                     </tr>
@@ -87,7 +87,7 @@
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="symbol symbol-50px me-5">
-                                                    <img src="../assets/media/stock/600x400/img-26.jpg" class="" alt="" />
+{{--                                                    <img src="../assets/media/stock/600x400/img-26.jpg" class="" alt="" />--}}
                                                 </div>
                                                 <div class="d-flex justify-content-start flex-column">
                                                     <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $domaine->name }}</a>
@@ -159,7 +159,7 @@
             <!--begin::Copyright-->
             <div class="text-dark order-2 order-md-1">
                 <span class="text-muted fw-semibold me-1">2022&copy;</span>
-                <a href="https://keenthemes.com/" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+                <a href="#" target="_blank" class="text-gray-800 text-hover-primary">Themes</a>
             </div>
             <!--end::Copyright-->
             <!--begin::Menu-->
@@ -192,7 +192,7 @@
             <!--begin::Modal header-->
             <div class="modal-header">
                 <!--begin::Modal title-->
-                <h2>Create Domaine Name</h2>
+                <h2>Create Domain Name</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
