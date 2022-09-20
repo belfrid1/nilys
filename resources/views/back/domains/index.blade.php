@@ -320,11 +320,17 @@
 </div>
 <!--end::Modal - Create App-->
 @endsection
+@section('stylesheets')
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+
+@endsection
 
 
 @section('javascripts')
-    <script src="{{ asset('js/jquery.imgareaselect.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
     <script type="text/javascript">
             @if(Session::has('error'))
@@ -344,9 +350,5 @@
             hideDuration: 10000000,
         });
         @endif
-
     </script>
-
-
-
 @endsection

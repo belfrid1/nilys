@@ -49,7 +49,7 @@ class DomainController extends Controller
             ]
         );
         return redirect()->route('domain.index')
-            ->with('success','Domain created successfully.');
+            ->with(['success' => "Domain created successfully."]);
     }
 
     /**
