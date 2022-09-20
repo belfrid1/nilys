@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DomaineController;
+use App\Http\Controllers\DomainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +43,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::view('dashboard', 'back.dashboard');
 //
 //
-//Route::view('domaines/add', 'back.domaines.add');
+//Route::view('domains/add', 'back.domains.add');
 //
 //Route::get('/popup-group', function() {
 //    return 'Popup Group Lists';
@@ -55,10 +57,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //    return 'Contact';
 //});
 //
- Route::get('/domains', [App\Http\Controllers\DomaineController::class, 'index'])->name('domain.list');
- Route::get('/domains/add', [App\Http\Controllers\DomaineController::class, 'create'])->name('domain.create');
- Route::post('/domains/store', [App\Http\Controllers\DomaineController::class, 'store'])->name('domain.store');
- Route::get('/domains/show', [App\Http\Controllers\DomaineController::class, 'show'])->name('domain.show');
- Route::get('/domains/edit', [App\Http\Controllers\DomaineController::class, 'edit'])->name('domain.edit');
 
-// Route::resource('domaines', App\Http\Controllers\DomaineController::class);
+ Route::resource('domain',DomainController::class);
+// Route::get('/domains', [DomaineController::class, 'index'])->name('domain.list');
+// Route::get('/domains/add', [DomaineController::class, 'create'])->name('domain.create');
+// Route::post('/domains/store', [DomaineController::class, 'store'])->name('domain.store');
+// Route::get('/domains/show', [DomaineController::class, 'show'])->name('domain.show');
+// Route::get('/domains/edit', [DomaineController::class, 'edit'])->name('domain.edit');
+ Route::post('/domain/update/{id}', [DomainController::class, 'update'])->name('domain.update');
+ Route::get('/domain/delete/{id}', [DomainController::class, 'destroy'])->name('domain.delete');
+//
+

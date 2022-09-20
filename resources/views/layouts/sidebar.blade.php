@@ -55,7 +55,7 @@
                  <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="{{ route('domain.list')}}">
+                    <a class="menu-link" href="{{ route('domain.index')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/abstract/abs014.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -66,7 +66,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Domaines</span>
+                        <span class="menu-title">Domains</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

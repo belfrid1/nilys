@@ -31,9 +31,19 @@
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
+                    <!--message error begin-->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <!--message error end -->
                 </div>
                 <!--end::Page title-->
-
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -50,6 +60,7 @@
                             <span class="card-label fw-bold fs-3 mb-1">New Arrivals</span>
                             <span class="text-muted mt-1 fw-semibold fs-7">Over 500 new products</span>
                         </h3> -->
+
                         <div class="card-toolbar">
                             <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -63,6 +74,7 @@
                                 New Domain
                             </a>
                         </div>
+
                     </div>
                     <!--end::Header-->
                     <!--begin::Body-->
@@ -76,13 +88,13 @@
                                     <tr class="fw-bold text-muted bg-light">
                                         <th class="ps-4 min-w-400px rounded-start">Domain Name</th>
                                         <th class="min-w-425px">Api Key</th>
-                                        <th class="min-w-300px text-end rounded-end">Actions</th>
+                                        <th class="min-w-300px text-end rounded-end">Actions </th>
                                     </tr>
                                 </thead>
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody>
-                                @foreach($domaines as $domaine)
+                                @foreach($domains as $domaine)
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
@@ -100,17 +112,7 @@
                                             <span class="text-muted fw-semibold text-muted d-block fs-7"></span>
                                         </td>
                                         <td class="text-end">
-                                            <a href="/domaines/show" class="btn btn-icon btn-bg-light btn-active-color-primary  me-1">
-                                                <!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-                                                <span class="svg-icon svg-icon-3">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M17.5 11H6.5C4 11 2 9 2 6.5C2 4 4 2 6.5 2H17.5C20 2 22 4 22 6.5C22 9 20 11 17.5 11ZM15 6.5C15 7.9 16.1 9 17.5 9C18.9 9 20 7.9 20 6.5C20 5.1 18.9 4 17.5 4C16.1 4 15 5.1 15 6.5Z" fill="currentColor" />
-                                                            <path opacity="0.3" d="M17.5 22H6.5C4 22 2 20 2 17.5C2 15 4 13 6.5 13H17.5C20 13 22 15 22 17.5C22 20 20 22 17.5 22ZM4 17.5C4 18.9 5.1 20 6.5 20C7.9 20 9 18.9 9 17.5C9 16.1 7.9 15 6.5 15C5.1 15 4 16.1 4 17.5Z" fill="currentColor" />
-                                                        </svg>
-                                                    </span>
-                                                <!--end::Svg Icon-->
-                                            </a>
-                                            <a href="/domaines/edit" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1">
+                                            <a href="{{ route("domain.edit", $domaine) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1">
                                                 <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                 <span class="svg-icon svg-icon-3">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +122,10 @@
                                                     </span>
                                                 <!--end::Svg Icon-->
                                             </a>
-                                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger ">
+
+                                            <a href="{{ route('domain.delete',$domaine->id) }}"  class="btn btn-icon btn-bg-light btn-active-color-danger "
+                                               onclick="return confirm('Do you really want to remove this line?')">
+
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                 <span class="svg-icon svg-icon-3">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,6 +136,15 @@
                                                     </span>
                                                 <!--end::Svg Icon-->
                                             </a>
+
+{{--                                            <form   class="btn btn-icon btn-bg-light btn-active-color-danger " method="POST" action="{{ route('domain.destroy', $domaine) }}" >--}}
+{{--                                                <!-- CSRF token -->--}}
+{{--                                                @csrf--}}
+{{--                                                <!-- <input type="hidden" name="_method" value="DELETE"> -->--}}
+{{--                                                @method("DELETE")--}}
+{{--                                                <input  class="btn btn-icon btn-bg-light btn-active-color-danger fa-vine"  type="submit" value="">--}}
+{{--                                            </form>--}}
+                                            <!-- Formulaire pour supprimer un Post : "posts.destroy" -->
                                         </td>
                                     </tr>
                                 @endforeach
@@ -165,13 +179,13 @@
             <!--begin::Menu-->
             <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
                 <li class="menu-item">
-                    <a href="https://keenthemes.com/" target="_blank" class="menu-link px-2">About</a>
+                    <a href="#" target="_blank" class="menu-link px-2">About</a>
                 </li>
                 <li class="menu-item">
-                    <a href="https://devs.keenthemes.com/" target="_blank" class="menu-link px-2">Support</a>
+                    <a href="#" target="_blank" class="menu-link px-2">Support</a>
                 </li>
                 <li class="menu-item">
-                    <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+                    <a href="#" target="_blank" class="menu-link px-2">Purchase</a>
                 </li>
             </ul>
             <!--end::Menu-->
@@ -198,11 +212,11 @@
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                     <span class="svg-icon svg-icon-1">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
-									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
-								</svg>
-							</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+                        </svg>
+                    </span>
                     <!--end::Svg Icon-->
                 </div>
                 <!--end::Close-->
@@ -228,7 +242,7 @@
                                     <!--end::Icon-->
                                     <!--begin::Label-->
                                     <div class="stepper-label">
-                                        <h3 class="stepper-title">Add a new domaine</h3>
+                                        <h3 class="stepper-title">Add a new domain</h3>
                                         <div class="stepper-desc">Champs with label * is require </div>
                                     </div>
                                     <!--end::Label-->
@@ -256,25 +270,12 @@
                                     <div class="fv-row mb-10">
                                         <!--begin::Label-->
                                         <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                            <span class="required">Domaine Name</span>
+                                            <span class="required">Domain Name</span>
                                             <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your unique app name"></i>
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control" id="validationCustom01" name="name" placeholder="Domaine name" required>
-                                        <!--end::Input-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="fv-row mb-10">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                            <span class="required">Api Key</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your unique app name"></i>
-                                        </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input type="text" class="form-control" id="validationCustom02"  name="apikey" placeholder="Api key" required>
+                                        <input type="text" class="form-control" id="validationCustom01" name="name" placeholder="https://domaineName.com" required>
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
@@ -318,4 +319,34 @@
     <!--end::Modal dialog-->
 </div>
 <!--end::Modal - Create App-->
+@endsection
+
+
+@section('javascripts')
+    <script src="{{ asset('js/jquery.imgareaselect.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script type="text/javascript">
+            @if(Session::has('error'))
+            toastr.error('<b> {{ Session::get('error') }} !</b>', {
+            closeButton: true,
+            positionClass: "toast-top-right",
+            showDuration: 1000,
+            hideDuration: 10000000,
+        });
+            @endif
+
+            @if(Session::has('success'))
+            toastr.success('<b> {{ Session::get('success') }} !</b>', {
+            closeButton: true,
+            positionClass: "toast-top-right",
+            showDuration: 1000,
+            hideDuration: 10000000,
+        });
+        @endif
+
+    </script>
+
+
+
 @endsection
