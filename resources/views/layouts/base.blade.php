@@ -16,7 +16,7 @@
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="NILYS | NEWSLETTER" />
     <link rel="canonical" href="" />
-    <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.')}}" />
+    <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
