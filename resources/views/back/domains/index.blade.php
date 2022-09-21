@@ -117,23 +117,15 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="symbol symbol-50px me-5">
-                                                    <a href="{{ $domaine->name }}"  target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-6">
-                                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
-                                                        <span class="svg-icon svg-icon-2">
-                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor" />
-                                                                    <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor" />
-                                                                </svg>
-                                                            </span>
-                                                        <!--end::Svg Icon-->
-                                                    </a>
+                                            <div class="input-group">
+                                                <div class="input-group-text btn clipboard-btn bg-white"  data-clipboard-target="#api-key" id="btnGroupAddon">
+                                                    <span class="svg-icon svg-icon-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
+                                                            160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"/></svg>
+                                                    </span>
                                                 </div>
-                                                <div class="d-flex justify-content-start flex-column">
-                                                    <span class="text-dark fw-bold  d-block mb-1 fs-6">{{ $domaine->apikey  }}</span>
-
-                                                </div>
+                                                <input type="text" id="api-key" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="{{ $domaine->apikey  }}">
                                             </div>
                                         </td>
                                         <td class="text-center">
@@ -366,10 +358,27 @@
 
 
 @section('javascripts')
+
 {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>--}}
 
 
 <script type="text/javascript">
+    <script src="dist/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+    <script type="text/javascript">
+        let Clipboard = new ClipboardJS('.clipboard-btn');
+        Clipboard.on('success', function(e) {
+
+            toastr.success('<b> copied !</b>', {
+                closeButton: true,
+                positionClass: "toast-top-right",
+                showDuration: 1000,
+                hideDuration: 10000000,
+            });
+
+        e.clearSelection();
+        });
+
             @if(Session::has('error'))
             toastr.error('<b> {{ Session::get('error') }} !</b>', {
             closeButton: true,
@@ -396,4 +405,5 @@
         $('#kt_modal_create_app').modal('show');
         @endif
     </script>
+
 @endsection

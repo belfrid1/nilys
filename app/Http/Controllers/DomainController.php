@@ -38,7 +38,7 @@ class DomainController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|url|unique:domains'
+            'name' => 'required|regex:"^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$"|unique:domains'
         ]);
 
         $key = bin2hex(random_bytes(32));
