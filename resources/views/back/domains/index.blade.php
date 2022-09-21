@@ -32,15 +32,15 @@
                     </ul>
                     <!--end::Breadcrumb-->
                     <!--message error begin-->
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+{{--                    @if ($errors->any())--}}
+{{--                        <div class="alert alert-danger">--}}
+{{--                            <ul>--}}
+{{--                                @foreach ($errors->all() as $error)--}}
+{{--                                    <li>{{ $error }}</li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
                     <!--message error end -->
                 </div>
                 <!--end::Page title-->
@@ -292,6 +292,17 @@
                             <!--begin::Step 1-->
                             <div class="current" data-kt-stepper-element="content">
                                 <div class="w-100">
+                                    <!--message error begin-->
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                    <!--message error end -->
                                     <!--begin::Input group-->
                                     <div class="fv-row mb-10">
                                         <!--begin::Label-->
@@ -301,7 +312,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control" id="validationCustom01" name="name" placeholder="https://domaineName.com" required>
+                                        <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ old('name') }}" placeholder="https://domaineName.com" required>
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
@@ -358,7 +369,7 @@
 {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>--}}
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
             @if(Session::has('error'))
             toastr.error('<b> {{ Session::get('error') }} !</b>', {
             closeButton: true,
@@ -375,6 +386,14 @@
             showDuration: 1000,
             hideDuration: 10000000,
         });
+        @endif
+
+
+
+    </script>
+    <script type="text/javascript">
+        @if (count($errors) > 0)
+        $('#kt_modal_create_app').modal('show');
         @endif
     </script>
 @endsection
