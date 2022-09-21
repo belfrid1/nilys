@@ -37,6 +37,9 @@ class DomainController extends Controller
      */
     public function store(Request $request)
     {
+//        $check = checkdnsrr($request->name , "A");
+//        dd($check);
+
         $request->validate([
             'name' => 'required|regex:"^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$"|unique:domains'
         ]);
@@ -86,7 +89,7 @@ class DomainController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'name' => 'required|url|unique:domains'
+            'name' => 'required|regex:"^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$"|unique:domains'
         ]);
         $domain = Domain::find($id);
         $domain->update([

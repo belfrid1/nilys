@@ -118,14 +118,14 @@
                                         </td>
                                         <td>
                                             <div class="input-group">
-                                                <div class="input-group-text btn clipboard-btn bg-white"  data-clipboard-target="#api-key" id="btnGroupAddon">
+                                                <div class="input-group-text btn clipboard-btn bg-white"  data-clipboard-target="#api-key{{$domaine->id}}" id="btnGroupAddon">
                                                     <span class="svg-icon svg-icon-2">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                             <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
                                                             160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z"/></svg>
                                                     </span>
                                                 </div>
-                                                <input type="text" id="api-key" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="{{ $domaine->apikey  }}">
+                                                <input type="text" id="api-key{{$domaine->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="{{ $domaine->apikey }}">
                                             </div>
                                         </td>
                                         <td class="text-center">
@@ -185,31 +185,7 @@
     </div>
     <!--end::Content wrapper-->
     <!--begin::Footer-->
-    <div id="kt_app_footer" class="app-footer">
-        <!--begin::Footer container-->
-        <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
-            <!--begin::Copyright-->
-            <div class="text-dark order-2 order-md-1">
-                <span class="text-muted fw-semibold me-1">2022&copy;</span>
-                <a href="#" target="_blank" class="text-gray-800 text-hover-primary">Themes</a>
-            </div>
-            <!--end::Copyright-->
-            <!--begin::Menu-->
-            <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                <li class="menu-item">
-                    <a href="#" target="_blank" class="menu-link px-2">About</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" target="_blank" class="menu-link px-2">Support</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" target="_blank" class="menu-link px-2">Purchase</a>
-                </li>
-            </ul>
-            <!--end::Menu-->
-        </div>
-        <!--end::Footer container-->
-    </div>
+    @include('layouts.footer')
     <!--end::Footer-->
 </div>
 <!--end:::Main-->
