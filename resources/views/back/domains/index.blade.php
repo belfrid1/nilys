@@ -84,7 +84,7 @@
                         <!--begin::Table container-->
                         <div class="table-responsive">
                             <!--begin::Table-->
-                            <table id="table_domains" class="table align-middle gs-0 gy-4">
+                            <table id="table_domains" class="table gy-5 gs-7 border rounded align-middle gs-0 gy-4">
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted bg-light">
@@ -377,27 +377,42 @@
             hideDuration: 10000000,
         });
         @endif
+
+
+
+
+
     </script>
     <script type="text/javascript">
-        (function ($) {
-            $('#table_domains').dataTable({
-                pageLength: 5,
-                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Toutes']],
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
-                }
-            });
-            @if(Session::has('success'))
-            $(function () {
-                toastr.success('<b> {{ Session::get('success') }} !</b>', {
-                    closeButton: true,
-                    positionClass: "toast-top-right",
-                    showDuration: 1000,
-                    hideDuration: 10000000,
-                });
-            });
-            @endif
-        })(jQuery)
+
+
+        $("#table_domains").DataTable({
+            "language": {
+                "lengthMenu": "Show _MENU_",
+            },
+            "dom":
+                "<'row'" +
+                "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
+                "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+                ">" +
+
+                "<'table-responsive'tr>" +
+
+                "<'row'" +
+                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+                ">"
+        });
+
+
+
+            // $('#table_domains').dataTable({
+            //     "pageLength": 1,
+            //     "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'Toutes']],
+            //     "language": {
+            //         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            //     }
+            // });
     </script>
     <script type="text/javascript">
         @if (count($errors) > 0)
