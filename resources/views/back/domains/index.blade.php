@@ -82,7 +82,7 @@
                         <!--begin::Table container-->
                         <div class="table-responsive">
                             <!--begin::Table-->
-                            <table class="table align-middle gs-0 gy-4">
+                            <table id="table_domains" class="table align-middle gs-0 gy-4">
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted bg-light">
@@ -276,7 +276,7 @@
                                         <!--begin::Label-->
                                         <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
                                             <span class="required">Domain Name</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your unique app name"></i>
+                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your unique Domain name"></i>
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
@@ -327,7 +327,11 @@
 @endsection
 @section('stylesheets')
 
-{{--    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">--}}
+
+    <link href="{{ asset('assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}"
+          rel="stylesheet" type="text/css"/>
+
 
 
 @endsection
@@ -338,8 +342,8 @@
 {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>--}}
 
 
-<script type="text/javascript">
-    <script src="dist/clipboard.min.js"></script>
+<script type="text/javascript"></script>
+{{--    <script src="dist/clipboard.min.js"></script>--}}
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
     <script type="text/javascript">
         let Clipboard = new ClipboardJS('.clipboard-btn');
@@ -372,14 +376,31 @@
             hideDuration: 10000000,
         });
         @endif
-
-
-
+    </script>
+    <script type="text/javascript">
+        (function ($) {
+            $('#table_domains').dataTable({
+                pageLength: 5,
+                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Toutes']],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
+            @if(Session::has('success'))
+            $(function () {
+                toastr.success('<b> {{ Session::get('success') }} !</b>', {
+                    closeButton: true,
+                    positionClass: "toast-top-right",
+                    showDuration: 1000,
+                    hideDuration: 10000000,
+                });
+            });
+            @endif
+        })(jQuery)
     </script>
     <script type="text/javascript">
         @if (count($errors) > 0)
         $('#kt_modal_create_app').modal('show');
         @endif
     </script>
-
 @endsection
