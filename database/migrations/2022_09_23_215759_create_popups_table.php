@@ -15,6 +15,9 @@ class CreatePopupsTable extends Migration
     {
         Schema::create('popups', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('enable');
+            $table->boolean('default');
             $table->timestamps();
         });
     }

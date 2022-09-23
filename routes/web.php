@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\DomaineController;
 use App\Http\Controllers\DomainController;
+use App\Http\Controllers\PopupController;
 use App\Http\Controllers\PopupGroupController;
 use Illuminate\Support\Facades\Route;
 
@@ -75,4 +75,8 @@ Route::post('/popup-group/create', [PopupGroupController::class, 'create'])->nam
 Route::get('/popup-group/edit/{id}', [PopupGroupController::class, 'edit'])->name('group.edit');
 Route::post('/popup-group/update/{id}', [PopupGroupController::class, 'update'])->name('group.update');
 Route::get('/popup-group/delete/{id}', [PopupGroupController::class, 'destroy'])->name('group.delete');
+
+// popup all route
+Route::resource('popup', PopupController::class);
+
 
