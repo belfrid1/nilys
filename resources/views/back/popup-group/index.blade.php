@@ -12,7 +12,7 @@
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">List of domains</h1>
+                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">List of popup groups</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -27,7 +27,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Domains</li>
+                        <li class="breadcrumb-item text-muted">Popup Groups</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
@@ -72,7 +72,7 @@
                                     </svg>
                                 </span>
                                 <!--end::Svg Icon-->
-                                New Domain
+                                New Popup Groups
                             </a>
 
                         </div>
@@ -88,40 +88,25 @@
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted bg-light">
-                                        <th class="ps-4 min-w-325px rounded-start">Domain Name</th>
-                                        <th class="min-w-125px">Api Key</th>
+                                        <th class="ps-4 min-w-325px rounded-start">Group Name</th>
+                                        <th class="min-w-125px">Guid</th>
                                         <th class="min-w-150px text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody>
-                                    @foreach($domains as $domaine)
+                                    @foreach($popupGroups as $group)
                                     <tr>
                                         <td>
                                             <div class="">
-
-                                                <span class="text-dark fw-bold mb-1 mx-2">{{ $domaine->name }}</span>
-                                                <span class="ml-2">
-                                                    <a href="{{ $domaine->name }}" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-6" data-toggle="tooltip" data-placement="top" title="open">
-                                                        <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2022-09-15-053640/core/html/src/media/icons/duotune/arrows/arr036.svg-->
-                                                        <span class="svg-icon svg-icon-muted svg-icon-2">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <rect fill="currentColor" />
-                                                                <path opacity="0.3" d="M17 6H3C2.4 6 2 6.4 2 7V21C2 21.6 2.4 22 3 22H17C17.6 22 18 21.6 18 21V7C18 6.4 17.6 6 17 6Z" fill="currentColor" />
-                                                                <path d="M17.8 4.79999L9.3 13.3C8.9 13.7 8.9 14.3 9.3 14.7C9.5 14.9 9.80001 15 10 15C10.2 15 10.5 14.9 10.7 14.7L19.2 6.20001L17.8 4.79999Z" fill="currentColor" />
-                                                                <path opacity="0.3" d="M22 9.09998V3C22 2.4 21.6 2 21 2H14.9L22 9.09998Z" fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->
-                                                    </a>
-                                                </span>
+                                                <span class="text-dark fw-bold mb-1 mx-2">{{ $group->name }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="input-group">
-                                                <input type="text" id="api-key{{$domaine->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="{{ $domaine->apikey }}">
-                                                <div class="input-group-text btn btn-sm clipboard-btn bg-white" data-clipboard-target="#api-key{{$domaine->id}}" id="btnGroupAddon" data-toggle="tooltip" data-placement="top" title="copy">
+                                                <input type="text" id="guid{{$group->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="{{ $group->guid }}">
+                                                <div class="input-group-text btn btn-sm clipboard-btn bg-white" data-clipboard-target="#guid{{$group->id}}" id="btnGroupAddon" data-toggle="tooltip" data-placement="top" title="copy">
                                                     <span class="svg-icon svg-icon-2">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                             <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
@@ -132,7 +117,7 @@
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route("domain.edit", $domaine) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="edit">
+                                            <a href="{{ route('group.edit', $group) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="edit">
                                                 <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,7 +128,7 @@
                                                 <!--end::Svg Icon-->
                                             </a>
 
-                                            <a href="{{ route('domain.delete',$domaine->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
+                                            <a href="{{ route('group.delete',$group->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
 
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                 <span class="svg-icon svg-icon-3">
@@ -156,7 +141,7 @@
                                                 <!--end::Svg Icon-->
                                             </a>
 
-                                            {{-- <form   class="btn btn-icon btn-bg-light btn-active-color-danger " method="POST" action="{{ route('domain.destroy', $domaine) }}" >--}}
+                                            {{-- <form   class="btn btn-icon btn-bg-light btn-active-color-danger " method="POST" action="{{ route('group.destroy', $group) }}" >--}}
                                             {{-- <!-- CSRF token -->--}}
                                             {{-- @csrf--}}
                                             {{-- <!-- <input type="hidden" name="_method" value="DELETE"> -->--}}
@@ -193,7 +178,7 @@
 <!--end:::Main-->
 
 
-<!--begin::Modal - Create App-->
+<!--begin::Modal - Create New Popup Group-->
 <div class="modal fade" id="kt_modal_create_app" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-900px">
@@ -202,7 +187,7 @@
             <!--begin::Modal header-->
             <div class="modal-header">
                 <!--begin::Modal title-->
-                <h2>Create Domain Name</h2>
+                <h2>Create Popup Group</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
@@ -219,7 +204,7 @@
             </div>
             <!--end::Modal header-->
             <!--begin::Modal body-->
-            <div class="modal-body py-lg-10 px-lg-10">
+            <div class="modal-body py-lg-10 px-lg-10 ">
                 <!--begin::Stepper-->
                 <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_modal_create_app_stepper">
                     <!--begin::Aside-->
@@ -238,7 +223,7 @@
                                     <!--end::Icon-->
                                     <!--begin::Label-->
                                     <div class="stepper-label">
-                                        <h3 class="stepper-title">Add a new domain</h3>
+                                        <h3 class="stepper-title">Add a new popup group</h3>
                                         <div class="stepper-desc">Champs with label * is require </div>
                                     </div>
                                     <!--end::Label-->
@@ -257,7 +242,7 @@
                     <!--begin::Content-->
                     <div class="flex-row-fluid py-lg-5 px-lg-15">
                         <!--begin::Form-->
-                        <form class="form" id="" method="post" action="{{route('domain.store')}}">
+                        <form class="form" id="" method="post" action="{{route('group.create')}}">
                             @csrf
                             <!--begin::Step 1-->
                             <div class="current" data-kt-stepper-element="content">
@@ -274,15 +259,28 @@
                                     @endif
                                     <!--message error end -->
                                     <!--begin::Input group-->
-                                    <div class="fv-row mb-10">
+                                    <div class="fv-row  mb-10">
                                         <!--begin::Label-->
                                         <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                            <span class="required">Domain Name</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your unique Domain name"></i>
+                                            <span class="required">Popup Group Name</span>
+                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your Popup Group name"></i>
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ old('name') }}" placeholder="https://domaineName.com" required>
+                                        <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ old('name') }}" placeholder="Ex: Santé" required>
+                                        <!--end::Input-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="fv-row  mb-10">
+                                        <!--begin::Label-->
+                                        <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                            <span class="required">Popup Group Guid</span>
+                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your unique Popup Group guid"></i>
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" class="form-control" id="validationCustom01" name="guid" value="{{ old('guid') }}" placeholder="Ex: Santé" required>
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->

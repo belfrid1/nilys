@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DomaineController;
 use App\Http\Controllers\DomainController;
+use App\Http\Controllers\PopupGroupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,4 +68,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  Route::post('/domain/update/{id}', [DomainController::class, 'update'])->name('domain.update');
  Route::get('/domain/delete/{id}', [DomainController::class, 'destroy'])->name('domain.delete');
 //
+
+// Popup Group all route
+Route::resource('popup-groups', PopupGroupController::class);
+Route::post('/popup-group/create', [PopupGroupController::class, 'create'])->name('group.create');
+Route::get('/popup-group/edit', [PopupGroupController::class, 'edit'])->name('group.edit');
+Route::post('/popup-group/update/{id}', [PopupGroupController::class, 'update'])->name('group.update');
+Route::get('/popup-group/delete/{id}', [PopupGroupController::class, 'destroy'])->name('group.delete');
 
