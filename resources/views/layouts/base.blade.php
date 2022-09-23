@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular & Laravel by Keenthemes</title>
+    <title>Nilys  - Newsletter</title>
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />

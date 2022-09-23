@@ -75,7 +75,6 @@ class DomainController extends Controller
      */
     public function edit(Domain $domain)
     {
-
         return view('back.domains.edit',compact('domain'));
 
     }

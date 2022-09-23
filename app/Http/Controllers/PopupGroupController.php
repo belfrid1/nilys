@@ -53,9 +53,10 @@ class PopupGroupController extends Controller
      * @param  \App\Models\PopupGroup  $group
 
      */
-    public function edit(PopupGroup $group)
+    public function edit($id)
     {
 
+        $group = PopupGroup::find($id);
         return view('back.popup-group.edit', compact('group'));
     }
 
