@@ -63,7 +63,7 @@
 
                         <div class="card-toolbar">
 
-                            <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" data-toggle="tooltip" data-placement="top" title="Add new domain">
+                            <a href="{{route("popup.create")}}" class="btn btn-sm btn-light-primary"  data-toggle="tooltip" data-placement="top" title="Add new Popup">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,8 +88,10 @@
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted bg-light">
-                                        <th class="ps-4 min-w-325px rounded-start">Domain Name</th>
-                                        <th class="min-w-125px">Api Key</th>
+                                        <th class="ps-4 min-w-325px rounded-start">Popup Name</th>
+                                        <th class="min-w-125px">Enable (Yes/No)</th>
+                                        <th class="min-w-125px">Group Name </th>
+                                        <th class="min-w-125px">Default (Yes/No)</th>
                                         <th class="min-w-150px text-center">Actions</th>
                                     </tr>
                                 </thead>
@@ -116,6 +118,32 @@
                                                         <!--end::Svg Icon-->
                                                     </a>
                                                 </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group">
+                                                <input type="text" id="api-key{{$popup->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="">
+                                                <div class="input-group-text btn btn-sm clipboard-btn bg-white" data-clipboard-target="#api-key{{$popup->id}}" id="btnGroupAddon" data-toggle="tooltip" data-placement="top" title="copy">
+                                                    <span class="svg-icon svg-icon-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
+                                                            160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="input-group">
+                                                <input type="text" id="api-key{{$popup->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="">
+                                                <div class="input-group-text btn btn-sm clipboard-btn bg-white" data-clipboard-target="#api-key{{$popup->id}}" id="btnGroupAddon" data-toggle="tooltip" data-placement="top" title="copy">
+                                                    <span class="svg-icon svg-icon-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
+                                                            160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </td>
                                         <td>
@@ -168,7 +196,6 @@
 
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                                 <!--end::Table body-->
                             </table>

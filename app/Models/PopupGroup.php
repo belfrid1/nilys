@@ -12,4 +12,5 @@ class PopupGroup extends Model
     protected $fillable = [
         'name', 'guid'
     ];
+
 }

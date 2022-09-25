@@ -18,6 +18,8 @@ class CreatePopupsTable extends Migration
             $table->string('name');
             $table->boolean('enable');
             $table->boolean('default');
+            $table->unsignedBigInteger('popupgroup_id');
+            $table->foreign('popupgroup_id')->references('id')->on('popup_groups');
             $table->timestamps();
         });
     }
