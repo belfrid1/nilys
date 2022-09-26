@@ -74,7 +74,7 @@ Route::resource('groups', PopupGroupController::class);
 // Route::post('/popup-group/create', [PopupGroupController::class, 'create'])->name('group.create');
 // Route::get('/popup-group/edit/{id}', [PopupGroupController::class, 'edit'])->name('group.edit');
 Route::post('/groups/update/{id}', [PopupGroupController::class, 'update'])->name('groups.update');
-// Route::get('/popup-group/delete/{id}', [PopupGroupController::class, 'destroy'])->name('group.delete');
+Route::get('/groups/delete/{id}', [PopupGroupController::class, 'destroy'])->name('groups.delete');
 
 // popup all route
 Route::resource('popup', PopupController::class);
