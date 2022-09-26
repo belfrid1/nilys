@@ -72,7 +72,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="{{ route('popup-groups.index') }}">
+                    <a class="menu-link" href="{{ route('groups.index') }}">
                        <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
                             <span class="svg-icon svg-icon-2">
