@@ -18,7 +18,7 @@ class CreatePopupsTable extends Migration
             $table->string('name');
             $table->string('sujet')->nullable();
             $table->string('email')->nullable();
-            $table->string('popup_content');
+            $table->text('popup_content');
             $table->boolean('enable');
             $table->boolean('default');
             $table->unsignedBigInteger('popupgroup_id');

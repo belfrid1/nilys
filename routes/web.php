@@ -78,5 +78,7 @@ Route::get('/groups/delete/{id}', [PopupGroupController::class, 'destroy'])->nam
 
 // popup all route
 Route::resource('popup', PopupController::class);
+Route::get('/popup/delete/{id}', [PopupController::class, 'destroy'])->name('popup.delete');
+
 
 

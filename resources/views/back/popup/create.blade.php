@@ -113,7 +113,7 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <textarea id="content_id"  name="popup_content" class="form-control form-control-solid ps-12" rows="3" data-kt-element="input" placeholder="Type a popup content"></textarea>
+                                                    <textarea id="content_id"  name="popup_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a popup content"></textarea>
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -126,10 +126,9 @@
                                                         <label class="required fs-6 fw-semibold mb-2">Popup Group</label>
                                                         <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popop_group" required>
                                                             <option value="">Select popup group...</option>
-{{--                                                            @foreach($popupgroups as $popupgroup)--}}
-                                                            <option value="1">group name</option>
-{{--                                                            <option value="{{$popupgroup->id}}">{{$popupgroup->name}}</option>--}}
-{{--                                                            @endforeach--}}
+                                                            @foreach($popupgroups as $popupgroup)
+                                                            <option value="{{$popupgroup->id}}">{{$popupgroup->name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <!--end::Col-->
