@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Domain;
 use App\Models\PopupGroup;
 use Illuminate\Http\Request;
 
@@ -41,17 +42,17 @@ class PopupGroupController extends Controller
 
         $request->validate([
             'name' => 'required|unique:popup_groups',
-            'guid' => 'required|unique:popup_groups'
         ]);
 
+        $guid = bin2hex(random_bytes(32));
 
         PopupGroup::create(
             [
                 'name' => $request->name,
-                'guid' => $request->guid
+                'guid' => $guid
             ]
         );
-        return redirect()->route('popup-groups.index')
+        return redirect()->route('groups.index')
             ->with(['success' => "Popup Group created successfully."]);
     }
 

@@ -105,18 +105,6 @@
                                             </div>
                                             <!--end::Input group-->
 
-                                            <!--begin::Input group-->
-                                            <div class="fv-row mb-10">
-                                                <!--begin::Label-->
-                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                    <span>API KEY</span>
-                                                </label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" value="{{ $group->guid ?? '' }}" readonly class="form-control" name="guid">
-                                                <!--end::Input-->
-                                            </div>
-                                            <!--end::Input group-->
                                         </div>
                                     </div>
                                     <!--end::Step 1-->
