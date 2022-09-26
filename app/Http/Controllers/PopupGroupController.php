@@ -20,13 +20,21 @@ class PopupGroupController extends Controller
         ;
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     */
+    public function create()
+    {
+        return  view("back.popup-group.create");
+    }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function create(Request $request)
+    public function store(Request $request)
     {
         //        $check = checkdnsrr($request->name , "A");
         //        dd($check);
@@ -46,6 +54,21 @@ class PopupGroupController extends Controller
         return redirect()->route('popup-groups.index')
             ->with(['success' => "Popup Group created successfully."]);
     }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Popup  $popup
+     * @return \Illuminate\Http\Response
+     */
+    public function show(PopupGroup $group)
+    {
+        //
+    }
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -69,16 +92,14 @@ class PopupGroupController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'name' => 'required|unique:popup_groups',
-            'guid' => 'required|unique:popup_groups'
+            'name' => 'required|unique:popup_groups'
         ]);
         $group = PopupGroup::find($id);
         $group->update([
-            'name' => $request->name,
-            'guid' => $request->guid
+            'name' => $request->name
         ]);
 
-        return redirect()->route('popup-groups.index')->with(['success' => "Update successfully completed"]);
+        return redirect()->route('groups.index')->with(['success' => "Update successfully completed"]);
     }
 
 

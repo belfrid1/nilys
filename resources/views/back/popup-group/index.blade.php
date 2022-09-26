@@ -63,7 +63,7 @@
 
                         <div class="card-toolbar">
 
-                            <a href="#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" data-toggle="tooltip" data-placement="top" title="Add new domain">
+                            <a href="{{route("groups.create")}}" class="btn btn-sm btn-light-primary" data-placement="top" title="Add new domain">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +117,7 @@
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('group.edit', $group->id) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="edit">
+                                            <a href="{{ route('groups.edit', $group->id) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="edit">
                                                 <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,7 @@
                                                 <!--end::Svg Icon-->
                                             </a>
 
-                                            <a href="{{ route('group.delete',$group->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
+                                            <a href="{{ route('groups.destroy',$group->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
 
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                 <span class="svg-icon svg-icon-3">
@@ -242,7 +242,7 @@
                     <!--begin::Content-->
                     <div class="flex-row-fluid py-lg-5 px-lg-15">
                         <!--begin::Form-->
-                        <form class="form" id="" method="post" action="{{route('group.create')}}">
+                        <form class="form" id="" method="post" action="{{route('groups.store')}}">
                             @csrf
                             <!--begin::Step 1-->
                             <div class="current" data-kt-stepper-element="content">
