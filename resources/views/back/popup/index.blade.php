@@ -105,59 +105,29 @@
 
                                                 <span class="text-dark fw-bold mb-1 mx-2">{{ $popup->name }}</span>
                                                 <span class="ml-2">
-                                                    <a href="{{ $popup->name }}" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-6" data-toggle="tooltip" data-placement="top" title="open">
-                                                        <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2022-09-15-053640/core/html/src/media/icons/duotune/arrows/arr036.svg-->
-                                                        <span class="svg-icon svg-icon-muted svg-icon-2">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <rect fill="currentColor" />
-                                                                <path opacity="0.3" d="M17 6H3C2.4 6 2 6.4 2 7V21C2 21.6 2.4 22 3 22H17C17.6 22 18 21.6 18 21V7C18 6.4 17.6 6 17 6Z" fill="currentColor" />
-                                                                <path d="M17.8 4.79999L9.3 13.3C8.9 13.7 8.9 14.3 9.3 14.7C9.5 14.9 9.80001 15 10 15C10.2 15 10.5 14.9 10.7 14.7L19.2 6.20001L17.8 4.79999Z" fill="currentColor" />
-                                                                <path opacity="0.3" d="M22 9.09998V3C22 2.4 21.6 2 21 2H14.9L22 9.09998Z" fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->
-                                                    </a>
+{{--                                                    <a href="{{ $popup->name }}" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-6" data-toggle="tooltip" data-placement="top" title="open">--}}
+{{--                                                        <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2022-09-15-053640/core/html/src/media/icons/duotune/arrows/arr036.svg-->--}}
+{{--                                                        <span class="svg-icon svg-icon-muted svg-icon-2">--}}
+{{--                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                                <rect fill="currentColor" />--}}
+{{--                                                                <path opacity="0.3" d="M17 6H3C2.4 6 2 6.4 2 7V21C2 21.6 2.4 22 3 22H17C17.6 22 18 21.6 18 21V7C18 6.4 17.6 6 17 6Z" fill="currentColor" />--}}
+{{--                                                                <path d="M17.8 4.79999L9.3 13.3C8.9 13.7 8.9 14.3 9.3 14.7C9.5 14.9 9.80001 15 10 15C10.2 15 10.5 14.9 10.7 14.7L19.2 6.20001L17.8 4.79999Z" fill="currentColor" />--}}
+{{--                                                                <path opacity="0.3" d="M22 9.09998V3C22 2.4 21.6 2 21 2H14.9L22 9.09998Z" fill="currentColor" />--}}
+{{--                                                            </svg>--}}
+{{--                                                        </span>--}}
+{{--                                                        <!--end::Svg Icon-->--}}
+{{--                                                    </a>--}}
                                                 </span>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="input-group">
-                                                <input type="text" id="api-key{{$popup->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="">
-                                                <div class="input-group-text btn btn-sm clipboard-btn bg-white" data-clipboard-target="#api-key{{$popup->id}}" id="btnGroupAddon" data-toggle="tooltip" data-placement="top" title="copy">
-                                                    <span class="svg-icon svg-icon-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                            <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
-                                                            160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                            </div>
+                                            <span class="badge badge-light-success">YES</span>
                                         </td>
                                         <td>
-                                            <div class="input-group">
-                                                <input type="text" id="api-key{{$popup->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="">
-                                                <div class="input-group-text btn btn-sm clipboard-btn bg-white" data-clipboard-target="#api-key{{$popup->id}}" id="btnGroupAddon" data-toggle="tooltip" data-placement="top" title="copy">
-                                                    <span class="svg-icon svg-icon-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                            <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
-                                                            160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                            </div>
+
                                         </td>
                                         <td>
-                                            <div class="input-group">
-                                                <input type="text" id="api-key{{$popup->id}}" class=" fw-bold border-0 d-block mb-1 fs-6 form-control" aria-label="Input group example" aria-describedby="btnGroupAddon" disable value="">
-                                                <div class="input-group-text btn btn-sm clipboard-btn bg-white" data-clipboard-target="#api-key{{$popup->id}}" id="btnGroupAddon" data-toggle="tooltip" data-placement="top" title="copy">
-                                                    <span class="svg-icon svg-icon-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                            <path d="M224 0c-35.3 0-64 28.7-64 64V288c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H224zM64
-                                                            160c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H288c35.3 0 64-28.7 64-64V384H288v64H64V224h64V160H64z" />
-                                                        </svg>
-                                                    </span>
-                                                </div>
-                                            </div>
+                                            <span class="badge badge-light-success">Defaut - YES</span>
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route("popup.edit", $popup) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="edit">
@@ -171,7 +141,7 @@
                                                 <!--end::Svg Icon-->
                                             </a>
 
-                                            <a href="{{ route('popup.delete',$popup->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
+                                            <a href="{{ route('popup.destroy',$popup->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
 
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                 <span class="svg-icon svg-icon-3">

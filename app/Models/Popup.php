@@ -9,7 +9,7 @@ class Popup extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','enable','default'];
+    protected $fillable = ['name','email','sujet','popup_content','popupgroup_id','enable','default'];
 
     public function popupgroup(){
         return $this->belongsTo(PopupGroup::class);

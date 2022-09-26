@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Popup;
+use App\Models\PopupGroup;
+use App\Models\Site;
 use Illuminate\Http\Request;
 
 class PopupController extends Controller
@@ -15,7 +17,10 @@ class PopupController extends Controller
     {
         $popups = Popup::all();
 
-        return view('back.popup.index', compact('popups'));
+        $popupgroups = PopupGroup::all();
+
+
+        return view('back.popup.index', compact('popups','popupgroups'));
     }
 
     /**
@@ -31,11 +36,26 @@ class PopupController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+
+        request()->validate([
+            'name' => 'required|string|max:255|unique:popups',
+            'popup_content' => 'required|string',
+            'popop_group' => 'required',
+        ]);
+
+
+        $popup = Popup::create([
+            'name' => $request->name,
+            'popup_content' => $request->popup_content,
+            'popupgroup_id' => $request->popop_group,
+            'default' => $request->boolean('default'),
+            'enable' => $request->boolean('enable'),
+
+        ]);
+        return redirect(route('popup.index',$popup->id))->with(['success' => "Popup create successfully"]);
     }
 
     /**

@@ -113,7 +113,7 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <textarea id="content_id" class="form-control form-control-solid ps-12" rows="3" data-kt-element="input" placeholder="Type a popup content"></textarea>
+                                                    <textarea id="content_id"  name="popup_content" class="form-control form-control-solid ps-12" rows="3" data-kt-element="input" placeholder="Type a popup content"></textarea>
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -124,13 +124,12 @@
                                                     <!--begin::Col-->
                                                     <div class="col-md-6 fv-row">
                                                         <label class="required fs-6 fw-semibold mb-2">Popup Group</label>
-                                                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popop_group">
+                                                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popop_group" required>
                                                             <option value="">Select popup group...</option>
-                                                            <option value="1">Group 1</option>
-                                                            <option value="2">Robert Doe</option>
-                                                            <option value="3">Niel Owen</option>
-                                                            <option value="4">Olivia Wild</option>
-                                                            <option value="5">Sean Bean</option>
+{{--                                                            @foreach($popupgroups as $popupgroup)--}}
+                                                            <option value="1">group name</option>
+{{--                                                            <option value="{{$popupgroup->id}}">{{$popupgroup->name}}</option>--}}
+{{--                                                            @endforeach--}}
                                                         </select>
                                                     </div>
                                                     <!--end::Col-->
@@ -144,14 +143,14 @@
                                                     <div class="col-md-6 fv-row">
                                                         <!--begin::Label-->
                                                         <div class="me-5">
-                                                            <label class="fs-6 fw-semibold">Adding Users by Team Members</label>
-                                                            <div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+                                                            <label class="fs-6 fw-semibold">Default Popup</label>
+                                                            <div class="fs-7 fw-semibold text-muted">Check to define the default popup of selected group</div>
                                                         </div>
                                                         <!--end::Label-->
                                                         <!--begin::Switch-->
-                                                        <label class="form-check form-switch form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="1" checked="checked" />
-                                                            <span class="form-check-label fw-semibold text-muted">Allowed</span>
+                                                        <label class="form-check form-check-custom form-check-solid me-10">
+                                                            <input class="form-check-input" type="checkbox" name="default" checked="checked" />
+                                                            <span class="form-check-label fw-semibold text-muted">Checked</span>
                                                         </label>
                                                         <!--end::Switch-->
                                                     </div>
@@ -160,13 +159,13 @@
                                                     <div class="col-md-6 fv-row">
                                                         <!--begin::Label-->
                                                         <div class="me-5">
-                                                            <label class="fs-6 fw-semibold">Adding Users by Team Members</label>
-                                                            <div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+                                                            <label class="fs-6 fw-semibold">Enable (Yes/No)</label>
+                                                            <div class="fs-7 fw-semibold text-muted">Enable this popup</div>
                                                         </div>
                                                         <!--end::Label-->
                                                         <!--begin::Switch-->
                                                         <label class="form-check form-switch form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="1" checked="checked" />
+                                                            <input class="form-check-input" name="enable" type="checkbox"  checked="checked" />
                                                             <span class="form-check-label fw-semibold text-muted">Allowed</span>
                                                         </label>
                                                         <!--end::Switch-->
@@ -199,7 +198,8 @@
                                                         <!--end::Svg Icon-->
                                                     </span>
                                                     <span class="indicator-progress">Please wait...
-                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                    </span>
                                                 </button>
                                             </div>
                                             <!--end::Wrapper-->
