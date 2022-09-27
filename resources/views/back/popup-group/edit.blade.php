@@ -122,68 +122,49 @@
                                             </div>
                                             <!--end::Input group-->
 
-                                        </div>
-                                        <!--bloc conditions begin-->
-                                        <div class="col">
-                                            <div class="d-flex justify-content-between">
-                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                    <span class="">Conditions</span>
-                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Bloc to add new condition"></i>
-                                                </label>
-                                                <span id="add_condition_btn" class="btn btn-sm btn-primary mr-0">Add Condition</span>
+                                            <!--begin::Notice-->
+                                            <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6">
+                                                <!--begin::Icon-->
+                                                <!--begin::Svg Icon | path: icons/duotune/general/gen048.svg-->
+                                                <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="currentColor" />
+															<path d="M10.5606 11.3042L9.57283 10.3018C9.28174 10.0065 8.80522 10.0065 8.51412 10.3018C8.22897 10.5912 8.22897 11.0559 8.51412 11.3452L10.4182 13.2773C10.8099 13.6747 11.451 13.6747 11.8427 13.2773L15.4859 9.58051C15.771 9.29117 15.771 8.82648 15.4859 8.53714C15.1948 8.24176 14.7183 8.24176 14.4272 8.53714L11.7002 11.3042C11.3869 11.6221 10.874 11.6221 10.5606 11.3042Z" fill="currentColor" />
+														</svg>
+													</span>
+                                                <!--end::Svg Icon-->
+                                                <!--end::Icon-->
+                                                <!--begin::Wrapper-->
+                                                <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                                    <!--begin::Content-->
+                                                    <div class="mb-3 mb-md-0 fw-semibold">
+                                                        <h4 class="text-gray-900 fw-bold">Script</h4>
+                                                        <div class="fs-6 text-gray-700 pe-7">
+                                                            <textarea readonly name="" id="" cols="70" rows="10">
+                                                                <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                                                                    <li class="menu-item">
+                                                                        <a href="https://keenthemes.com/" target="_blank" class="menu-link px-2">About</a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a href="https://devs.keenthemes.com/" target="_blank" class="menu-link px-2">Support</a>
+                                                                    </li>
+                                                                    <li class="menu-item">
+                                                                        <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Content-->
+                                                </div>
+                                                <!--end::Wrapper-->
                                             </div>
-                                            <table id="MyTable" class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Group popup</th>
-                                                        <th scope="col">Url Filter</th>
-                                                        <th scope="col"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="tbody">
-                                                    <tr>
-                                                        <td>
-                                                            <select class="form-select" aria-label="Default select example">
-                                                                <option selected>----Popups----</option>
-                                                                <option value="1">Popup 1</option>
-                                                                <option value="2">Popup 2</option>
-                                                                <option value="3">Popup 3</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 50px"></textarea>
-                                                                <label for="floatingTextarea2">url</label>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
-
-                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
-                                                                <span class="svg-icon svg-icon-3">
-                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
-                                                                        <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor" />
-                                                                        <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor" />
-                                                                    </svg>
-                                                                </span>
-                                                                <!--end::Svg Icon-->
-                                                            </a>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!--bloc conditions end-->
-                                    </div>
-                                    <!--end::Step 1-->
-
-                                    <!--begin::Actions-->
-                                    <div class="d-flex flex-stack pt-10">
-                                        <!--begin::Wrapper-->
-                                        <div>
-                                            <button class="btn btn-lg btn-primary" type="submit">
+                                            <!--end::Notice-->
+                                            <!--begin::Actions-->
+                                            <div class="d-flex flex-stack pt-10">
+                                                <!--begin::Wrapper-->
+                                                <div>
+                                                    <button class="btn btn-lg btn-primary" type="submit">
                                                 <span class="indicator-label">
                                                     <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2022-09-15-053640/core/html/src/media/icons/duotune/general/gen055.svg-->
                                                     <span class="svg-icon svg-icon-2x">
@@ -196,55 +177,47 @@
                                                     <!--end::Svg Icon-->
                                                     Edit
                                                 </span>
-                                                <span class="indicator-progress">Please wait...
+                                                        <span class="indicator-progress">Please wait...
                                                     <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                            </button>
+                                                    </button>
+                                                </div>
+                                                <!--end::Wrapper-->
+                                            </div>
+                                            <!--end::Actions-->
+
                                         </div>
-                                        <!--end::Wrapper-->
+                                        <!--bloc conditions begin-->
+                                        <div class="col">
+                                            <div class="d-flex justify-content-between">
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="">Conditions</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Select popup and add url filter to save a condition"></i>
+                                                </label>
+                                                <span id="add_condition_btn" class="btn btn-sm btn-primary mr-0">Add Condition</span>
+                                            </div>
+                                            <table id="MyTable" class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Group popup</th>
+                                                        <th scope="col">Url Filter</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbody">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--bloc conditions end-->
                                     </div>
-                                    <!--end::Actions-->
+                                    <!--end::Step 1-->
+
+
                                 </form>
                                 <!--end::Form-->
                             </div>
                             <!--end::Content-->
-                            <!--begin::Notice-->
-                            <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6">
-                                <!--begin::Icon-->
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen048.svg-->
-                                <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="currentColor" />
-															<path d="M10.5606 11.3042L9.57283 10.3018C9.28174 10.0065 8.80522 10.0065 8.51412 10.3018C8.22897 10.5912 8.22897 11.0559 8.51412 11.3452L10.4182 13.2773C10.8099 13.6747 11.451 13.6747 11.8427 13.2773L15.4859 9.58051C15.771 9.29117 15.771 8.82648 15.4859 8.53714C15.1948 8.24176 14.7183 8.24176 14.4272 8.53714L11.7002 11.3042C11.3869 11.6221 10.874 11.6221 10.5606 11.3042Z" fill="currentColor" />
-														</svg>
-													</span>
-                                <!--end::Svg Icon-->
-                                <!--end::Icon-->
-                                <!--begin::Wrapper-->
-                                <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
-                                    <!--begin::Content-->
-                                    <div class="mb-3 mb-md-0 fw-semibold">
-                                        <h4 class="text-gray-900 fw-bold">Script</h4>
-                                        <div class="fs-6 text-gray-700 pe-7">
-                                            <textarea readonly name="" id="" cols="131" rows="10">
-                                                <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                                                    <li class="menu-item">
-                                                        <a href="https://keenthemes.com/" target="_blank" class="menu-link px-2">About</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="https://devs.keenthemes.com/" target="_blank" class="menu-link px-2">Support</a>
-                                                    </li>
-                                                    <li class="menu-item">
-                                                        <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-                                                    </li>
-                                                </ul>
-                                            </textarea>
-                                        </div>
-                                    </div>
-                                    <!--end::Content-->
-                                </div>
-                                <!--end::Wrapper-->
-                            </div>
-                            <!--end::Notice-->
+
                         </div>
                         <!--end::Table container-->
                     </div>
