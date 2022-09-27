@@ -87,6 +87,8 @@ class DomainController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         request()->validate([
             'name' => 'required|regex:"^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$"|unique:domains'
         ]);

@@ -56,13 +56,9 @@
                     <div class="card mb-5 mb-xl-8">
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5">
-                            <!-- <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">New Arrivals</span>
-                                <span class="text-muted mt-1 fw-semibold fs-7">Over 500 new products</span>
-                            </h3> -->
 
                             <div class="card-toolbar">
-                                <a href="{{route('popup.index')}}" class="btn btn-sm btn-light-primary">
+                                <a href="{{route('popup.index')}}" class="btn btn-sm btn-light-primary m-2">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -74,7 +70,20 @@
                                     <!--end::Svg Icon-->
                                     List Popup
                                 </a>
+                                <a href="{{route("popup.create")}}" class="btn btn-sm btn-light-primary"  data-toggle="tooltip" data-placement="top" title="Add new Popup">
+                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="currentColor" />
+                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                    <!--end::Svg Icon-->
+                                    New Popup
+                                </a>
+
                             </div>
+
 
                         </div>
                         <!--end::Header-->
@@ -90,19 +99,70 @@
                                         <!--begin::Step 1-->
                                         <div class="current" data-kt-stepper-element="content">
                                             <div class="w-100">
+
                                                 <!--begin::Input group-->
-                                                <div class="fv-row mb-10">
-                                                    <!--begin::Label-->
-                                                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                        <span class="required">Popup Name</span>
-                                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify  unique Popup name"></i>
-                                                    </label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" value="{{ $popup->name ?? ''}}" class="form-control form-control-solid ps-12" id="" name="name" placeholder="" required>
-                                                    <!--end::Input-->
+                                                <div class="row g-9 mb-8">
+                                                    <!--begin::Col-->
+                                                    <div class="col-md-6 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                            <span class="required">Popup Name</span>
+                                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify  unique Popup name"></i>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" value="{{ $popup->name ?? ''}}" class="form-control form-control-solid ps-12" id="" name="name" placeholder="" required>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Col-->
+                                                    <!--begin::Col-->
+                                                    <div class="col-md-6 fv-row">
+                                                        <label class="required fs-6 fw-semibold mb-2">Popup Group</label>
+                                                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popup_group" required>
+                                                            <option value="">Select popup group...</option>
+                                                            @foreach($popupgroups as $popupgroup)
+                                                                <option value="{{$popupgroup->id}}" @if($popupgroup->id === $popup->popupgroup_id) selected @endif>{{$popupgroup->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <!--end::Col-->
                                                 </div>
                                                 <!--end::Input group-->
+
+
+                                                <!--begin::Input group-->
+                                                <div class="row g-9 mb-8">
+                                                    <!--begin::Col-->
+                                                    <div class="col-md-6 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                            <span class="required">Popup Subject</span>
+                                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify  Popup subject"></i>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" value="{{ $popup->subject ?? ''}}" class="form-control form-control-solid ps-12" id="" name="subject" placeholder="">
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Col-->
+                                                    <!--begin::Col-->
+                                                    <div class="col-md-6 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                            <span class="required">Email</span>
+                                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify Popup Email"></i>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" value="{{ $popup->email ?? ''}}" class="form-control form-control-solid ps-12" id="" name="email" placeholder="" >
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Col-->
+                                                </div>
+                                                <!--end::Input group-->
+
+
+
 
                                                 <!--begin::Input group-->
                                                 <div class="fv-row mb-10">
@@ -113,28 +173,13 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <textarea id="content_id"  name="popup_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a popup content"> {{ $popup->popup_content ?? ''}}</textarea>
+                                                    <textarea id="content_id"  name="popup_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a popup content" required> {{ $popup->popup_content ?? ''}}</textarea>
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
 
 
-                                                <!--begin::Input group-->
-                                                <div class="row g-9 mb-8">
-                                                    <!--begin::Col-->
-                                                    <div class="col-md-6 fv-row">
-                                                        <label class="required fs-6 fw-semibold mb-2">Popup Group</label>
-                                                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popop_group" required>
-                                                            <option value="">Select popup group...</option>
-                                                            @foreach($popupgroups as $popupgroup)
-                                                                <option value="{{$popupgroup->id}}" @if($popupgroup->id === $popup->popupgroup_id) selected @endif>{{$popupgroup->name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <!--end::Col-->
 
-                                                </div>
-                                                <!--end::Input group-->
 
                                                 <!--begin::Input group-->
                                                 <div class="row g-9 mb-8">
@@ -233,14 +278,7 @@
     <script src="{{ asset('assets/plugins/custom/ckeditor4/ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'content_id', {
-            height: 600,
-            filebrowserImageBrowseUrl: '/file-manager?type=Images',
-            filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
-            filebrowserBrowseUrl: '/file-manager?type=Files',
-            filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
-        } );
-        CKEDITOR.replace( 'desc_en', {
-            height: 600,
+            height: 300,
             filebrowserImageBrowseUrl: '/file-manager?type=Images',
             filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
             filebrowserBrowseUrl: '/file-manager?type=Files',
@@ -253,7 +291,7 @@
         toastr.error('<b> {{ Session::get('error') }} !</b>', {
             closeButton: true,
             positionClass: "toast-top-right",
-            showDuration: 1000,
+            showDuration: 2000,
             hideDuration: 10000000,
         });
         @endif

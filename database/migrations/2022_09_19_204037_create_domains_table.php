@@ -17,6 +17,8 @@ class CreateDomainsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('apikey');
+
+            \App\Models\Domain::addSlugColumn($table);
             $table->timestamps();
         });
     }

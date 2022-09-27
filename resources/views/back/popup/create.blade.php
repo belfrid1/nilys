@@ -90,19 +90,38 @@
                                         <!--begin::Step 1-->
                                         <div class="current" data-kt-stepper-element="content">
                                             <div class="w-100">
+
                                                 <!--begin::Input group-->
-                                                <div class="fv-row mb-10">
-                                                    <!--begin::Label-->
-                                                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                        <span class="required">Popup Name</span>
-                                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify  unique Popup name"></i>
-                                                    </label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" value="{{ $popup->name ?? ''}}" class="form-control form-control-solid ps-12" id="" name="name" placeholder="" required>
-                                                    <!--end::Input-->
+                                                <div class="row g-9 mb-8">
+                                                    <!--begin::Col-->
+                                                    <div class="col-md-6 fv-row">
+                                                        <!--begin::Label-->
+                                                        <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                            <span class="required">Popup Name</span>
+                                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify  unique Popup name"></i>
+                                                        </label>
+                                                        <!--end::Label-->
+                                                        <!--begin::Input-->
+                                                        <input type="text" value="{{ old('name') }}" class="form-control form-control-solid ps-12" id="" name="name" placeholder="" required>
+                                                        <!--end::Input-->
+                                                    </div>
+                                                    <!--end::Col-->
+                                                    <!--begin::Col-->
+                                                    <div class="col-md-6 fv-row">
+                                                        <label class="required fs-6 fw-semibold mb-2">Popup Group</label>
+
+                                                        <select class="form-select form-select-solid"  data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popop_group" required>
+                                                            <option value="">Select popup group...</option>
+                                                            @foreach($popupgroups as $popupgroup)
+                                                                <option  value="{{$popupgroup->id}}" @if(old('popop_group') == $popupgroup->id ) selected @endif>{{$popupgroup->name}}  </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <!--end::Col-->
+
                                                 </div>
                                                 <!--end::Input group-->
+
 
                                                 <!--begin::Input group-->
                                                 <div class="fv-row mb-10">
@@ -113,28 +132,13 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <textarea id="content_id"  name="popup_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a popup content"></textarea>
+                                                    <textarea id="content_id"  name="popup_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a popup content" required>{{ old('popup_content') }}</textarea>
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
 
 
-                                                <!--begin::Input group-->
-                                                <div class="row g-9 mb-8">
-                                                    <!--begin::Col-->
-                                                    <div class="col-md-6 fv-row">
-                                                        <label class="required fs-6 fw-semibold mb-2">Popup Group</label>
-                                                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popop_group" required>
-                                                            <option value="">Select popup group...</option>
-                                                            @foreach($popupgroups as $popupgroup)
-                                                            <option value="{{$popupgroup->id}}">{{$popupgroup->name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <!--end::Col-->
 
-                                                </div>
-                                                <!--end::Input group-->
 
                                                 <!--begin::Input group-->
                                                 <div class="row g-9 mb-8">
@@ -148,7 +152,7 @@
                                                         <!--end::Label-->
                                                         <!--begin::Switch-->
                                                         <label class="form-check form-check-custom form-check-solid me-10">
-                                                            <input class="form-check-input" type="checkbox" name="default" checked="checked" />
+                                                            <input class="form-check-input" type="checkbox" name="default" />
                                                             <span class="form-check-label fw-semibold text-muted">Checked</span>
                                                         </label>
                                                         <!--end::Switch-->
@@ -164,7 +168,7 @@
                                                         <!--end::Label-->
                                                         <!--begin::Switch-->
                                                         <label class="form-check form-switch form-check-custom form-check-solid">
-                                                            <input class="form-check-input" name="enable" type="checkbox"  checked="checked" />
+                                                            <input class="form-check-input" name="enable" type="checkbox" @if(old('enable') === true) checked="checked" @endif />
                                                             <span class="form-check-label fw-semibold text-muted">Allowed</span>
                                                         </label>
                                                         <!--end::Switch-->
@@ -232,14 +236,7 @@
     <script src="{{ asset('assets/plugins/custom/ckeditor4/ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'content_id', {
-            height: 600,
-            filebrowserImageBrowseUrl: '/file-manager?type=Images',
-            filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
-            filebrowserBrowseUrl: '/file-manager?type=Files',
-            filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
-        } );
-        CKEDITOR.replace( 'desc_en', {
-            height: 600,
+            height: 400,
             filebrowserImageBrowseUrl: '/file-manager?type=Images',
             filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
             filebrowserBrowseUrl: '/file-manager?type=Files',

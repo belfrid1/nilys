@@ -17,6 +17,8 @@ class CreatePopupGroupsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('guid');
+
+            \App\Models\PopupGroup::addSlugColumn($table);
             $table->timestamps();
         });
     }

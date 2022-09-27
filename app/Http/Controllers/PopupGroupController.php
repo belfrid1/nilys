@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Domain;
+use App\Models\Popup;
 use App\Models\PopupGroup;
 use Illuminate\Http\Request;
 
@@ -77,10 +78,11 @@ class PopupGroupController extends Controller
      * @param  \App\Models\PopupGroup  $group
 
      */
-    public function edit($id)
+    public function edit($slug)
     {
 
-        $group = PopupGroup::find($id);
+        $group = PopupGroup::firstWhere('slug',$slug);
+
         return view('back.popup-group.edit', compact('group'));
     }
 
@@ -110,10 +112,15 @@ class PopupGroupController extends Controller
      * @param  \App\Models\PopupGroup  $domain
 
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $popupGroup = PopupGroup::find($id);
-        $popupGroup->delete();
+        $popupGroup = PopupGroup::where('slug',$slug);
+        try {
+            $popupGroup->delete();
+        }catch (\Exception $exceptione){
+            return redirect()->back()->with(['error' => $exceptione->getMessage()]);
+        }
+
         // Redirection route "posts.index"
         return redirect()->back()->with(['success' => "Deletion successfully completed"]);
     }

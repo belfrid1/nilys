@@ -7,6 +7,7 @@ use App\Models\Popup;
 use App\Models\PopupGroup;
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class PopupController extends Controller
 {
@@ -48,6 +49,22 @@ class PopupController extends Controller
             'popop_group' => 'required',
         ]);
 
+        if($request->default){
+           $old_default_popups =  Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->get();
+           foreach ($old_default_popups as $old_default_popup ){
+               $old_default_popup->update([
+                   'default' => false
+               ]);
+           }
+        }else{
+
+            $old_default_popupsNB = Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->count();
+            if($old_default_popupsNB == 0 ) {
+                return back()
+                    ->withInput($request->input())
+                    ->with(['error' => "Please define a default popup for the selected group"]);
+            }
+        }
 
         $popup = Popup::create([
             'name' => $request->name,
@@ -57,7 +74,7 @@ class PopupController extends Controller
             'enable' => $request->boolean('enable'),
 
         ]);
-        return redirect(route('popup.index',$popup->id))->with('success', "Popup create successfully");
+        return redirect(route('popup.index'))->with('success', "Popup create successfully");
     }
 
     /**
@@ -90,14 +107,38 @@ class PopupController extends Controller
      */
     public function update(Request $request,$id)
     {
+
         request()->validate([
-            'name' => 'required|regex:"^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$"|unique:domains'
+            'name' => 'required|string|max:255'
         ]);
-        $domain = Domain::find($id);
-        $domain->update([
+
+
+        if($request->default){
+            $old_default_popups =  Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->get();
+            foreach ($old_default_popups as $old_default_popup ){
+                $old_default_popup->update([
+                    'default' => false
+                ]);
+            }
+        }else{
+
+            $old_default_popupsNB = Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->count();
+            if($old_default_popupsNB == 0 ) {
+                return back()
+                    ->withInput($request->input())
+                    ->with(['error' => "Please define a default popup for the selected group"]);
+            }
+        }
+
+        $popup = Popup::find($id);
+        $popup->update([
             'name' => $request->name,
+            'popup_content' => $request->popup_content,
+            'popupgroup_id' => $request->popup_group,
+            'default' => $request->boolean('default'),
+            'enable' => $request->boolean('enable'),
         ]);
-        return redirect()->route('domain.index')->with(['success' => "Update successfully completed"]);
+        return redirect()->route('popup.index')->with(['success' => "Popup Update successfully completed"]);
     }
 
     /**
