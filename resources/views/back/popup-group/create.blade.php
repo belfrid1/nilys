@@ -164,28 +164,27 @@
         filebrowserBrowseUrl: '/file-manager?type=Files',
         filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
     });
-
 </script>
+@if(Session::has('error'))
 <script type="text/javascript">
-    @if(Session::has('error'))
-    toastr.error('<b> {{ Session::get('
-        error ') }} !</b>', {
-            closeButton: true,
-            positionClass: "toast-top-right",
-            showDuration: 1000,
-            hideDuration: 10000000,
-        });
-    @endif
-
-    @if(Session::has('success'))
-    toastr.success('<b> {{ Session::get('
-        success ') }} !</b>', {
-            closeButton: true,
-            positionClass: "toast-top-right",
-            showDuration: 1000,
-            hideDuration: 10000000,
-        });
-    @endif
+    toastr.error(`<b> {{session('error') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
 </script>
+@endif
+@if(Session::has('success'))
+
+<script type="text/javascript">
+    toastr.success(`<b> {{ session('success') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
+</script>
+@endif
 
 @endsection

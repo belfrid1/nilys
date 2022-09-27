@@ -110,14 +110,14 @@
                                                 <!--begin::Label-->
                                                 <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
                                                     <span class="">Popup Group Guid</span>
-{{--                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your Popup Group name"></i>--}}
+                                                    {{-- <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your Popup Group name"></i>--}}
                                                 </label>
                                                 <!--end::Label-->
                                                 <!--begin::Input col-lg-4 fw-semibold text-muted-->
                                                 <label class="d-flex align-items-center fs-5 text-muted">
                                                     {{ $group->guid ?? ''}}
                                                 </label>
-{{--                                                <input type="text" class="form-control" id="" name="guid" value="" placeholder="Guid" readonly required>--}}
+                                                {{-- <input type="text" class="form-control" id="" name="guid" value="" placeholder="Guid" readonly required>--}}
                                                 <!--end::Input-->
                                             </div>
                                             <!--end::Input group-->
@@ -309,6 +309,29 @@
 
 
 </script>
+@endif
+@if(Session::has('error'))
+<script type="text/javascript">
+    toastr.error(`<b> {{ session('error') }} !</b>`, {
+            closeButton: true,
+            positionClass: "toast-top-right",
+            showDuration: 2000,
+            hideDuration: 10000000,
+        });
+</script>
+@endif
+
+@if(Session::has('success'))
+
+<script type="text/javascript">
+    toastr.success(`<b> {{ session('success') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
+</script>
+@endif
 
 
 
