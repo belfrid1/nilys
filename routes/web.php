@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\PopupController;
 use App\Http\Controllers\PopupGroupController;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return redirect(\route('home'));
 });
@@ -59,14 +61,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //});
 //
 
- Route::resource('domain',DomainController::class);
+Route::resource('domain', DomainController::class);
 // Route::get('/domains', [DomaineController::class, 'index'])->name('domain.list');
 // Route::get('/domains/add', [DomaineController::class, 'create'])->name('domain.create');
 // Route::post('/domains/store', [DomaineController::class, 'store'])->name('domain.store');
 // Route::get('/domains/show', [DomaineController::class, 'show'])->name('domain.show');
 // Route::get('/domains/edit', [DomaineController::class, 'edit'])->name('domain.edit');
- Route::post('/domain/update/{id}', [DomainController::class, 'update'])->name('domain.update');
- Route::get('/domain/delete/{id}', [DomainController::class, 'destroy'])->name('domain.delete');
+Route::post('/domain/update/{id}', [DomainController::class, 'update'])->name('domain.update');
+Route::get('/domain/delete/{id}', [DomainController::class, 'destroy'])->name('domain.delete');
 //
 
 // Popup Group all route
@@ -80,3 +82,5 @@ Route::get('/groups/delete/{id}', [PopupGroupController::class, 'destroy'])->nam
 Route::resource('popup', PopupController::class);
 
 
+// contact all route
+Route::resource('contact', ContactController::class);
