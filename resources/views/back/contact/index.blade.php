@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('app_main')
-    <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter442.min.css" />
+    <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter.min.css" />
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
         <!--begin::Content wrapper-->
@@ -165,7 +165,7 @@
     </script>
 
     <!-- src="" -->
-    <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
+    <script src="https://kidevs.xyz/nilys/v1/kknewsletter.min.js" id="kknewsletter442" data-api-domain="Localhost"
         data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
         data-popup-group-guid="XXX-GROUP23-234434"></script>
 @endsection
