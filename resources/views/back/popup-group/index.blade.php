@@ -357,27 +357,28 @@
 
         e.clearSelection();
     });
-
-    @if(Session::has('error'))
-    toastr.error('<b> {{ Session::get('
-        error ') }} !</b>', {
-            closeButton: true,
-            positionClass: "toast-top-right",
-            showDuration: 1000,
-            hideDuration: 10000000,
-        });
-    @endif
-
-    @if(Session::has('success'))
-    toastr.success('<b> {{ Session::get('
-        success ') }} !</b>', {
-            closeButton: true,
-            positionClass: "toast-top-right",
-            showDuration: 1000,
-            hideDuration: 10000000,
-        });
-    @endif
 </script>
+@if(Session::has('error'))
+<script type="text/javascript">
+    toastr.error(`<b> {{session('error') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
+</script>
+@endif
+@if(Session::has('success'))
+
+<script type="text/javascript">
+    toastr.success(`<b> {{ session('success') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
+</script>
+@endif
 <script type="text/javascript">
     $("#table_domains").DataTable({
         "language": {
@@ -406,9 +407,9 @@
     //     }
     // });
 </script>
+@if(count($errors) > 0)
 <script type="text/javascript">
-    @if(count($errors) > 0)
     $('#kt_modal_create_app').modal('show');
-    @endif
 </script>
+@endif
 @endsection

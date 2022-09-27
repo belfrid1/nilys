@@ -67,19 +67,15 @@ Route::resource('domain', DomainController::class);
 // Route::post('/domains/store', [DomaineController::class, 'store'])->name('domain.store');
 // Route::get('/domains/show', [DomaineController::class, 'show'])->name('domain.show');
 // Route::get('/domains/edit', [DomaineController::class, 'edit'])->name('domain.edit');
-<<<<<<< HEAD
+
 Route::post('/domain/update/{id}', [DomainController::class, 'update'])->name('domain.update');
 Route::get('/domain/delete/{id}', [DomainController::class, 'destroy'])->name('domain.delete');
-=======
- Route::post('/domain/update/{domain}', [DomainController::class, 'update'])->name('domain.update');
- Route::get('/domain/delete/{domain}', [DomainController::class, 'destroy'])->name('domain.delete');
->>>>>>> ffd76c989fded6f6ecb8de0a60f6b777f22d2b4a
+
+
 //
 
 // Popup Group all route
 Route::resource('groups', PopupGroupController::class);
-// Route::post('/popup-group/create', [PopupGroupController::class, 'create'])->name('group.create');
-// Route::get('/popup-group/edit/{id}', [PopupGroupController::class, 'edit'])->name('group.edit');
 Route::post('/groups/update/{slug}', [PopupGroupController::class, 'update'])->name('groups.update');
 Route::get('/groups/delete/{slug}', [PopupGroupController::class, 'destroy'])->name('groups.delete');
 
