@@ -67,12 +67,9 @@ Route::resource('domain', DomainController::class);
 // Route::post('/domains/store', [DomaineController::class, 'store'])->name('domain.store');
 // Route::get('/domains/show', [DomaineController::class, 'show'])->name('domain.show');
 // Route::get('/domains/edit', [DomaineController::class, 'edit'])->name('domain.edit');
-<<<<<<< HEAD
 Route::post('/domain/update/{id}', [DomainController::class, 'update'])->name('domain.update');
 Route::get('/domain/delete/{id}', [DomainController::class, 'destroy'])->name('domain.delete');
-=======
 
->>>>>>> 45e7430b20228f659b4b88f1477839748a5b3c97
 Route::post('/domain/update/{domain}', [DomainController::class, 'update'])->name('domain.update');
 Route::get('/domain/delete/{domain}', [DomainController::class, 'destroy'])->name('domain.delete');
 //
