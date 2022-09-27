@@ -91,17 +91,6 @@
                                     <!--begin::Step 1-->
                                     <div class="current row" data-kt-stepper-element="content">
                                         <div class="col">
-                                            <!--message error begin-->
-                                            @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                            @endif
-                                            <!--message error end -->
                                             <!--begin::Input group-->
                                             <div class="fv-row  mb-10">
                                                 <!--begin::Label-->
@@ -134,12 +123,16 @@
                                             <!--end::Input group-->
 
                                         </div>
+                                        <!--bloc conditions begin-->
                                         <div class="col">
                                             <div class="d-flex justify-content-between">
-                                                <h4 class="text-muted">Conditions</h4>
-                                                <button class="btn btn-sm btn-primary mr-0">Add Condition</button>
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="">Conditions</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Bloc to add new condition"></i>
+                                                </label>
+                                                <span id="add_condition_btn" class="btn btn-sm btn-primary mr-0">Add Condition</span>
                                             </div>
-                                            <table class="table table-striped">
+                                            <table id="MyTable" class="table table-striped">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Group popup</th>
@@ -147,7 +140,7 @@
                                                         <th scope="col"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbody">
                                                     <tr>
                                                         <td>
                                                             <select class="form-select" aria-label="Default select example">
@@ -177,43 +170,15 @@
                                                                 <!--end::Svg Icon-->
                                                             </a>
 
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <select class="form-select" aria-label="Default select example">
-                                                                <option selected>----Popups----</option>
-                                                                <option value="1">Popup 1</option>
-                                                                <option value="2">Popup 2</option>
-                                                                <option value="3">Popup 3</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 50px"></textarea>
-                                                                <label for="floatingTextarea2">url</label>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
-
-                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
-                                                                <span class="svg-icon svg-icon-3">
-                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
-                                                                        <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor" />
-                                                                        <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor" />
-                                                                    </svg>
-                                                                </span>
-                                                                <!--end::Svg Icon-->
-                                                            </a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <!--bloc conditions end-->
                                     </div>
                                     <!--end::Step 1-->
+
                                     <!--begin::Actions-->
                                     <div class="d-flex flex-stack pt-10">
                                         <!--begin::Wrapper-->
@@ -321,6 +286,57 @@
             hideDuration: 10000000,
         });
     @endif
+
+
+
+    // Denotes total number of rows.
+    var rowIdx = 0;
+
+    // jQuery button click event to add a row.
+    $('#add_condition_btn').on('click', function () {
+        console.log('add condition');
+        // Adding a row inside the tbody.
+        $('#tbody').append(`<tr id="R${++rowIdx}">
+          <td>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>----Popups----</option>
+                <option value="1">Popup 1</option>
+                <option value="2">Popup 2</option>
+                <option value="3">Popup 3</option>
+            </select>
+          </td>
+            <td>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 50px"></textarea>
+                    <label for="floatingTextarea2">url</label>
+                </div>
+            </td>
+           <td>
+                <a href="#" id="condition_rm_btn" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                    <span class="svg-icon svg-icon-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
+                            <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor" />
+                            <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </a>
+
+            </td>
+           </tr>`);
+    });
+
+
+    $("#MyTable").on("click", "#condition_rm_btn", function() {
+        $(this).closest("tr").remove();
+    });
+
+
+
 </script>
+
+
 
 @endsection

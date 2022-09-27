@@ -67,13 +67,9 @@ Route::resource('domain', DomainController::class);
 // Route::post('/domains/store', [DomaineController::class, 'store'])->name('domain.store');
 // Route::get('/domains/show', [DomaineController::class, 'show'])->name('domain.show');
 // Route::get('/domains/edit', [DomaineController::class, 'edit'])->name('domain.edit');
-<<<<<<< HEAD
-Route::post('/domain/update/{id}', [DomainController::class, 'update'])->name('domain.update');
-Route::get('/domain/delete/{id}', [DomainController::class, 'destroy'])->name('domain.delete');
-=======
+
  Route::post('/domain/update/{domain}', [DomainController::class, 'update'])->name('domain.update');
  Route::get('/domain/delete/{domain}', [DomainController::class, 'destroy'])->name('domain.delete');
->>>>>>> ffd76c989fded6f6ecb8de0a60f6b777f22d2b4a
 //
 
 // Popup Group all route
