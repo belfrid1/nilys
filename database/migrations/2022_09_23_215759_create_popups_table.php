@@ -15,14 +15,16 @@ class CreatePopupsTable extends Migration
     {
         Schema::create('popups', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('sujet')->nullable();
+            $table->string('name')->unique();
+            $table->string('subject')->nullable();
             $table->string('email')->nullable();
-            $table->string('popup_content');
+            $table->text('popup_content');
             $table->boolean('enable');
             $table->boolean('default');
             $table->unsignedBigInteger('popupgroup_id');
             $table->foreign('popupgroup_id')->references('id')->on('popup_groups');
+            \App\Models\Popup::addSlugColumn($table);
+
             $table->timestamps();
         });
     }

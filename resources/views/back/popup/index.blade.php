@@ -102,7 +102,6 @@
                                     <tr>
                                         <td>
                                             <div class="">
-
                                                 <span class="text-dark fw-bold mb-1 mx-2">{{ $popup->name }}</span>
                                                 <span class="ml-2">
 {{--                                                    <a href="{{ $popup->name }}" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-6" data-toggle="tooltip" data-placement="top" title="open">--}}
@@ -121,13 +120,22 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <span class="badge badge-light-success">YES</span>
+                                            @if($popup->enable )
+                                                <span class="badge badge-light-success">Enable</span>
+                                            @else
+                                                <span class="badge badge-light-danger">Disable</span>
+                                            @endif
+
                                         </td>
-                                        <td>
+                                        <td >
+                                           {{ $popup->popupgroup->name }}
 
                                         </td>
                                         <td>
-                                            <span class="badge badge-light-success">Defaut - YES</span>
+                                            @if($popup->default )
+                                                <span class="badge badge-light-success">Default - YES</span>
+                                            @endif
+
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route("popup.edit", $popup) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="edit">
@@ -141,7 +149,7 @@
                                                 <!--end::Svg Icon-->
                                             </a>
 
-                                            <a href="{{ route('popup.destroy',$popup->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
+                                            <a href="{{ route('popup.delete',$popup->id) }}" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
 
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                 <span class="svg-icon svg-icon-3">

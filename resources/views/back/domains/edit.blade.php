@@ -173,7 +173,7 @@
         toastr.error('<b> {{ Session::get('error') }} !</b>', {
             closeButton: true,
             positionClass: "toast-top-right",
-            showDuration: 1000,
+            showDuration: 2000,
             hideDuration: 10000000,
         });
         @endif

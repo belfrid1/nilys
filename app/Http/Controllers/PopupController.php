@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Domain;
 use App\Models\Popup;
 use App\Models\PopupGroup;
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class PopupController extends Controller
 {
@@ -29,7 +31,8 @@ class PopupController extends Controller
      */
     public function create()
     {
-        return  view("back.popup.create");
+        $popupgroups = PopupGroup::all();
+        return  view("back.popup.create", compact('popupgroups'));
     }
 
     /**
@@ -42,10 +45,26 @@ class PopupController extends Controller
 
         request()->validate([
             'name' => 'required|string|max:255|unique:popups',
-            'popup_content' => 'required|string',
+            'popup_content' => 'required',
             'popop_group' => 'required',
         ]);
 
+        if($request->default){
+           $old_default_popups =  Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->get();
+           foreach ($old_default_popups as $old_default_popup ){
+               $old_default_popup->update([
+                   'default' => false
+               ]);
+           }
+        }else{
+
+            $old_default_popupsNB = Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->count();
+            if($old_default_popupsNB == 0 ) {
+                return back()
+                    ->withInput($request->input())
+                    ->with(['error' => "Please define a default popup for the selected group"]);
+            }
+        }
 
         $popup = Popup::create([
             'name' => $request->name,
@@ -55,7 +74,7 @@ class PopupController extends Controller
             'enable' => $request->boolean('enable'),
 
         ]);
-        return redirect(route('popup.index',$popup->id))->with(['success' => "Popup create successfully"]);
+        return redirect(route('popup.index'))->with('success', "Popup create successfully");
     }
 
     /**
@@ -73,11 +92,11 @@ class PopupController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Popup  $popup
-     * @return \Illuminate\Http\Response
      */
     public function edit(Popup $popup)
     {
-        //
+        $popupgroups = PopupGroup::all();
+        return  view("back.popup.edit", compact('popupgroups','popup'));
     }
 
     /**
@@ -85,21 +104,53 @@ class PopupController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Popup  $popup
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Popup $popup)
+    public function update(Request $request,$id)
     {
-        //
+
+        request()->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+
+        if($request->default){
+            $old_default_popups =  Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->get();
+            foreach ($old_default_popups as $old_default_popup ){
+                $old_default_popup->update([
+                    'default' => false
+                ]);
+            }
+        }else{
+
+            $old_default_popupsNB = Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->count();
+            if($old_default_popupsNB == 0 ) {
+                return back()
+                    ->withInput($request->input())
+                    ->with(['error' => "Please define a default popup for the selected group"]);
+            }
+        }
+
+        $popup = Popup::find($id);
+        $popup->update([
+            'name' => $request->name,
+            'popup_content' => $request->popup_content,
+            'popupgroup_id' => $request->popup_group,
+            'default' => $request->boolean('default'),
+            'enable' => $request->boolean('enable'),
+        ]);
+        return redirect()->route('popup.index')->with(['success' => "Popup Update successfully completed"]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Popup  $popup
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(Popup $popup)
+    public function destroy($id)
     {
-        //
+        $popuptodelete = Popup::find($id);
+        $popuptodelete->delete();
+        // Redirection route "posts.index"
+        return redirect()->back()->with(['success' => "Deletion successfully completed"]);
     }
 }

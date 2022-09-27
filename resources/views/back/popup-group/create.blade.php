@@ -100,23 +100,11 @@
                                                 </label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" value="{{ $group->name ?? '' }}" class="form-control" id="validationCustom01" name="name" placeholder="group popup name" required>
+                                                <input type="text" value="{{old('name')}}" class="form-control" id="validationCustom01" name="name" placeholder="group popup name" required>
                                                 <!--end::Input-->
                                             </div>
                                             <!--end::Input group-->
 
-                                            <!--begin::Input group-->
-                                            <div class="fv-row mb-10">
-                                                <!--begin::Label-->
-                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                    <span>API KEY</span>
-                                                </label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" value="{{ $group->guid ?? '' }}" readonly class="form-control" name="guid">
-                                                <!--end::Input-->
-                                            </div>
-                                            <!--end::Input group-->
                                         </div>
                                     </div>
                                     <!--end::Step 1-->
@@ -170,19 +158,13 @@
 <script src="{{ asset('assets/plugins/custom/ckeditor4/ckeditor/ckeditor.js') }}"></script>
 <script>
     CKEDITOR.replace('content_id', {
-        height: 600,
+        height: 400,
         filebrowserImageBrowseUrl: '/file-manager?type=Images',
         filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
         filebrowserBrowseUrl: '/file-manager?type=Files',
         filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
     });
-    CKEDITOR.replace('desc_en', {
-        height: 600,
-        filebrowserImageBrowseUrl: '/file-manager?type=Images',
-        filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
-        filebrowserBrowseUrl: '/file-manager?type=Files',
-        filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
-    });
+
 </script>
 <script type="text/javascript">
     @if(Session::has('error'))
