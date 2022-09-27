@@ -91,17 +91,6 @@
                                     <!--begin::Step 1-->
                                     <div class="current row" data-kt-stepper-element="content">
                                         <div class="col">
-                                            <!--message error begin-->
-                                            @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                            @endif
-                                            <!--message error end -->
                                             <!--begin::Input group-->
                                             <div class="fv-row  mb-10">
                                                 <!--begin::Label-->
@@ -121,25 +110,29 @@
                                                 <!--begin::Label-->
                                                 <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
                                                     <span class="">Popup Group Guid</span>
-{{--                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your Popup Group name"></i>--}}
+                                                    {{-- <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify your Popup Group name"></i>--}}
                                                 </label>
                                                 <!--end::Label-->
                                                 <!--begin::Input col-lg-4 fw-semibold text-muted-->
                                                 <label class="d-flex align-items-center fs-5 text-muted">
                                                     {{ $group->guid ?? ''}}
                                                 </label>
-{{--                                                <input type="text" class="form-control" id="" name="guid" value="" placeholder="Guid" readonly required>--}}
+                                                {{-- <input type="text" class="form-control" id="" name="guid" value="" placeholder="Guid" readonly required>--}}
                                                 <!--end::Input-->
                                             </div>
                                             <!--end::Input group-->
 
                                         </div>
+                                        <!--bloc conditions begin-->
                                         <div class="col">
                                             <div class="d-flex justify-content-between">
-                                                <h4 class="text-muted">Conditions</h4>
-                                                <button class="btn btn-sm btn-primary mr-0">Add Condition</button>
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="">Conditions</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Bloc to add new condition"></i>
+                                                </label>
+                                                <span id="add_condition_btn" class="btn btn-sm btn-primary mr-0">Add Condition</span>
                                             </div>
-                                            <table class="table table-striped">
+                                            <table id="MyTable" class="table table-striped">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Group popup</th>
@@ -147,7 +140,7 @@
                                                         <th scope="col"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="tbody">
                                                     <tr>
                                                         <td>
                                                             <select class="form-select" aria-label="Default select example">
@@ -177,43 +170,15 @@
                                                                 <!--end::Svg Icon-->
                                                             </a>
 
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <select class="form-select" aria-label="Default select example">
-                                                                <option selected>----Popups----</option>
-                                                                <option value="1">Popup 1</option>
-                                                                <option value="2">Popup 2</option>
-                                                                <option value="3">Popup 3</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <div class="form-floating">
-                                                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 50px"></textarea>
-                                                                <label for="floatingTextarea2">url</label>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
-
-                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
-                                                                <span class="svg-icon svg-icon-3">
-                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
-                                                                        <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor" />
-                                                                        <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor" />
-                                                                    </svg>
-                                                                </span>
-                                                                <!--end::Svg Icon-->
-                                                            </a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <!--bloc conditions end-->
                                     </div>
                                     <!--end::Step 1-->
+
                                     <!--begin::Actions-->
                                     <div class="d-flex flex-stack pt-10">
                                         <!--begin::Wrapper-->
@@ -247,11 +212,11 @@
                                 <!--begin::Icon-->
                                 <!--begin::Svg Icon | path: icons/duotune/general/gen048.svg-->
                                 <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="currentColor" />
-															<path d="M10.5606 11.3042L9.57283 10.3018C9.28174 10.0065 8.80522 10.0065 8.51412 10.3018C8.22897 10.5912 8.22897 11.0559 8.51412 11.3452L10.4182 13.2773C10.8099 13.6747 11.451 13.6747 11.8427 13.2773L15.4859 9.58051C15.771 9.29117 15.771 8.82648 15.4859 8.53714C15.1948 8.24176 14.7183 8.24176 14.4272 8.53714L11.7002 11.3042C11.3869 11.6221 10.874 11.6221 10.5606 11.3042Z" fill="currentColor" />
-														</svg>
-													</span>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="currentColor" />
+                                        <path d="M10.5606 11.3042L9.57283 10.3018C9.28174 10.0065 8.80522 10.0065 8.51412 10.3018C8.22897 10.5912 8.22897 11.0559 8.51412 11.3452L10.4182 13.2773C10.8099 13.6747 11.451 13.6747 11.8427 13.2773L15.4859 9.58051C15.771 9.29117 15.771 8.82648 15.4859 8.53714C15.1948 8.24176 14.7183 8.24176 14.4272 8.53714L11.7002 11.3042C11.3869 11.6221 10.874 11.6221 10.5606 11.3042Z" fill="currentColor" />
+                                    </svg>
+                                </span>
                                 <!--end::Svg Icon-->
                                 <!--end::Icon-->
                                 <!--begin::Wrapper-->
@@ -301,26 +266,79 @@
 
 
 @section('javascripts')
+
 <script type="text/javascript">
-    @if(Session::has('error'))
-    toastr.error('<b> {{ Session::get('
-        error ') }} !</b>', {
+
+
+    // Denotes total number of rows.
+    var rowIdx = 0;
+
+    // jQuery button click event to add a row.
+    $('#add_condition_btn').on('click', function() {
+        console.log('add condition');
+        // Adding a row inside the tbody.
+        $('#tbody').append(`<tr id="R${++rowIdx}">
+          <td>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>----Popups----</option>
+                <option value="1">Popup 1</option>
+                <option value="2">Popup 2</option>
+                <option value="3">Popup 3</option>
+            </select>
+          </td>
+            <td>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 50px"></textarea>
+                    <label for="floatingTextarea2">url</label>
+                </div>
+            </td>
+           <td>
+                <a href="#" id="condition_rm_btn" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                    <span class="svg-icon svg-icon-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
+                            <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor" />
+                            <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </a>
+
+            </td>
+           </tr>`);
+    });
+
+
+    $("#MyTable").on("click", "#condition_rm_btn", function() {
+        $(this).closest("tr").remove();
+    });
+
+</script>
+@endif
+@if(Session::has('error'))
+<script type="text/javascript">
+    toastr.error(`<b> {{ session('error') }} !</b>`, {
             closeButton: true,
             positionClass: "toast-top-right",
             showDuration: 2000,
             hideDuration: 10000000,
         });
-    @endif
-
-    @if(Session::has('success'))
-    toastr.success('<b> {{ Session::get('
-        success ') }} !</b>', {
-            closeButton: true,
-            positionClass: "toast-top-right",
-            showDuration: 1000,
-            hideDuration: 10000000,
-        });
-    @endif
 </script>
+@endif
+
+@if(Session::has('success'))
+
+<script type="text/javascript">
+    toastr.success(`<b> {{ session('success') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
+</script>
+@endif
+
+
 
 @endsection

@@ -63,7 +63,7 @@
 
                         <div class="card-toolbar">
 
-                            <a href="{{route("popup.create")}}" class="btn btn-sm btn-light-primary"  data-toggle="tooltip" data-placement="top" title="Add new Popup">
+                            <a href="{{route("popup.create")}}" class="btn btn-sm btn-light-primary" data-toggle="tooltip" data-placement="top" title="Add new Popup">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                 <span class="svg-icon svg-icon-2">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,36 +104,36 @@
                                             <div class="">
                                                 <span class="text-dark fw-bold mb-1 mx-2">{{ $popup->name }}</span>
                                                 <span class="ml-2">
-{{--                                                    <a href="{{ $popup->name }}" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-6" data-toggle="tooltip" data-placement="top" title="open">--}}
-{{--                                                        <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2022-09-15-053640/core/html/src/media/icons/duotune/arrows/arr036.svg-->--}}
-{{--                                                        <span class="svg-icon svg-icon-muted svg-icon-2">--}}
-{{--                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                                                <rect fill="currentColor" />--}}
-{{--                                                                <path opacity="0.3" d="M17 6H3C2.4 6 2 6.4 2 7V21C2 21.6 2.4 22 3 22H17C17.6 22 18 21.6 18 21V7C18 6.4 17.6 6 17 6Z" fill="currentColor" />--}}
-{{--                                                                <path d="M17.8 4.79999L9.3 13.3C8.9 13.7 8.9 14.3 9.3 14.7C9.5 14.9 9.80001 15 10 15C10.2 15 10.5 14.9 10.7 14.7L19.2 6.20001L17.8 4.79999Z" fill="currentColor" />--}}
-{{--                                                                <path opacity="0.3" d="M22 9.09998V3C22 2.4 21.6 2 21 2H14.9L22 9.09998Z" fill="currentColor" />--}}
-{{--                                                            </svg>--}}
-{{--                                                        </span>--}}
-{{--                                                        <!--end::Svg Icon-->--}}
-{{--                                                    </a>--}}
+                                                    {{-- <a href="{{ $popup->name }}" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-6" data-toggle="tooltip" data-placement="top" title="open">--}}
+                                                    {{-- <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2022-09-15-053640/core/html/src/media/icons/duotune/arrows/arr036.svg-->--}}
+                                                    {{-- <span class="svg-icon svg-icon-muted svg-icon-2">--}}
+                                                    {{-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+                                                    {{-- <rect fill="currentColor" />--}}
+                                                    {{-- <path opacity="0.3" d="M17 6H3C2.4 6 2 6.4 2 7V21C2 21.6 2.4 22 3 22H17C17.6 22 18 21.6 18 21V7C18 6.4 17.6 6 17 6Z" fill="currentColor" />--}}
+                                                    {{-- <path d="M17.8 4.79999L9.3 13.3C8.9 13.7 8.9 14.3 9.3 14.7C9.5 14.9 9.80001 15 10 15C10.2 15 10.5 14.9 10.7 14.7L19.2 6.20001L17.8 4.79999Z" fill="currentColor" />--}}
+                                                    {{-- <path opacity="0.3" d="M22 9.09998V3C22 2.4 21.6 2 21 2H14.9L22 9.09998Z" fill="currentColor" />--}}
+                                                    {{-- </svg>--}}
+                                                    {{-- </span>--}}
+                                                    {{-- <!--end::Svg Icon-->--}}
+                                                    {{-- </a>--}}
                                                 </span>
                                             </div>
                                         </td>
                                         <td>
                                             @if($popup->enable )
-                                                <span class="badge badge-light-success">Enable</span>
+                                            <span class="badge badge-light-success">Enable</span>
                                             @else
-                                                <span class="badge badge-light-danger">Disable</span>
+                                            <span class="badge badge-light-danger">Disable</span>
                                             @endif
 
                                         </td>
-                                        <td >
-                                           {{ $popup->popupgroup->name }}
+                                        <td>
+                                            {{ $popup->popupgroup->name }}
 
                                         </td>
                                         <td>
                                             @if($popup->default )
-                                                <span class="badge badge-light-success">Default - YES</span>
+                                            <span class="badge badge-light-success">Default - YES</span>
                                             @endif
 
                                         </td>
@@ -231,27 +231,28 @@
 
         e.clearSelection();
     });
-
-    @if(Session::has('error'))
-    toastr.error('<b> {{ Session::get('
-        error ') }} !</b>', {
-            closeButton: true,
-            positionClass: "toast-top-right",
-            showDuration: 1000,
-            hideDuration: 10000000,
-        });
-    @endif
-
-    @if(Session::has('success'))
-    toastr.success('<b> {{ Session::get('
-        success ') }} !</b>', {
-            closeButton: true,
-            positionClass: "toast-top-right",
-            showDuration: 1000,
-            hideDuration: 10000000,
-        });
-    @endif
 </script>
+@if(Session::has('error'))
+<script type="text/javascript">
+    toastr.error(`<b> {{session('error') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
+</script>
+@endif
+@if(Session::has('success'))
+
+<script type="text/javascript">
+    toastr.success(`<b> {{ session('success') }} !</b>`, {
+        closeButton: true,
+        positionClass: "toast-top-right",
+        showDuration: 1000,
+        hideDuration: 10000000,
+    });
+</script>
+@endif
 <script type="text/javascript">
     $("#table_popup").DataTable({
         "language": {
@@ -280,9 +281,11 @@
     //     }
     // });
 </script>
+
+@if(count($errors) > 0)
 <script type="text/javascript">
-    @if(count($errors) > 0)
     $('#kt_modal_create_app').modal('show');
-    @endif
 </script>
+@endif
+
 @endsection
