@@ -141,17 +141,15 @@
                                                         <h4 class="text-gray-900 fw-bold">Script</h4>
                                                         <div class="fs-6 text-gray-700 pe-7">
                                                             <textarea readonly name="" id="" cols="70" rows="10">
-                                                                <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                                                                    <li class="menu-item">
-                                                                        <a href="https://keenthemes.com/" target="_blank" class="menu-link px-2">About</a>
-                                                                    </li>
-                                                                    <li class="menu-item">
-                                                                        <a href="https://devs.keenthemes.com/" target="_blank" class="menu-link px-2">Support</a>
-                                                                    </li>
-                                                                    <li class="menu-item">
-                                                                        <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-                                                                    </li>
-                                                                </ul>
+                                                                <-- Script css -->
+                                                                 <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter.min.css" />
+
+                                                                <-- Script js -->
+
+                                                                <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
+                                                                    data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
+                                                                    data-popup-group-guid="XXX-GROUP23-234434">
+                                                                </script>
                                                             </textarea>
                                                         </div>
                                                     </div>
@@ -269,18 +267,19 @@
     $('#add_condition_btn').on('click', function () {
         console.log('add condition');
         // Adding a row inside the tbody.
-        $('#tbody').append(`<tr id="R${++rowIdx}">
+        $('#tbody').append(`<tr id="cond_row${++rowIdx}">
           <td>
             <select class="form-select" aria-label="Default select example">
                 <option selected>----Popups----</option>
-                <option value="1">Popup 1</option>
-                <option value="2">Popup 2</option>
-                <option value="3">Popup 3</option>
+                @foreach($popups as $popup)
+                <option value="{{$popup->slug}}"> {{$popup->name}}</option>
+                @endforeach
+
             </select>
           </td>
             <td>
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 50px"></textarea>
+                    <textarea id="url_cond_text${++rowIdx}" class="form-control url_cond_text" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 50px"></textarea>
                     <label for="floatingTextarea2">url</label>
                 </div>
             </td>
@@ -306,10 +305,14 @@
         $(this).closest("tr").remove();
     });
 
+    $('.url_cond_text').on('change',function() {
+        var dInput = this.value;
+        console.log(dInput);
 
+    });
 
 </script>
-@endif
+
 @if(Session::has('error'))
 <script type="text/javascript">
     toastr.error(`<b> {{ session('error') }} !</b>`, {

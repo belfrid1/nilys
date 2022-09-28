@@ -151,7 +151,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="contact">
+                    <a class="menu-link" href="{{route('contact.index')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/abstract/abs014.svg-->
                             <span class="svg-icon svg-icon-2">

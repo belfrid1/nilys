@@ -80,10 +80,10 @@ class PopupGroupController extends Controller
      */
     public function edit($slug)
     {
-
+        $popups = Popup::all();
         $group = PopupGroup::firstWhere('slug',$slug);
 
-        return view('back.popup-group.edit', compact('group'));
+        return view('back.popup-group.edit', compact('group','popups'));
     }
 
     /**

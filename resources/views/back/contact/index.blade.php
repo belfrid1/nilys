@@ -103,44 +103,44 @@
 
 
     <!--begin::Modal - Create App-->
-    <div class="modal fade" id="kt_modal_newsletter" tabindex="-1" aria-hidden="true">
-        <!--begin::Modal dialog-->
-        <div class="modal-dialog modal-dialog-centered  col-lg-6 offset-lg-3" id="newsletter-bbloc442">
-            <!--begin::Modal content-->
-            <div class="modal-content">
-                <!-- Line progress -->
-                <div class="progress-bar">
-                    <div class="progress-bar-value"></div>
-                </div>
-                <!--begin::Modal body-->
-                <div class="modal-body py-lg-10 px-lg-10">
-                    <!--begin::Stepper-->
-                    <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid">
-                        <!--begin::Aside-->
-                        <div class="w-100 ">
-                            <!--begin::Nav-->
-                            <form method="GET" action="#">
-                                <h2>Newsletter</h2>
-                                <p>Want to get updates to your mailbox? 📬 <br>Subscribe to our newsletter!</p>
-                                <p class="statut-reponse">Message de retour test</p>
-                                <input name="kknewsletter442-name" id="kknewsletter442-name" type="text" required
-                                    placeholder="Your name" />
-                                <input name="kknewsletter442-email" id="kknewsletter442-email" type="email" required
-                                    placeholder="Your email address" class="email" />
-                                <button class="submit">Subscribe</button>
-                                <span class="newsletter-close">x</span>
-                            </form>
-                            <!--end::Nav-->
-                        </div>
-                    </div>
-                    <!--end::Stepper-->
-                </div>
-                <!--end::Modal body-->
-            </div>
-            <!--end::Modal content-->
-        </div>
-        <!--end::Modal dialog-->
-    </div>
+{{--    <div class="modal fade" id="kt_modal_newsletter" tabindex="-1" aria-hidden="true">--}}
+{{--        <!--begin::Modal dialog-->--}}
+{{--        <div class="modal-dialog modal-dialog-centered  col-lg-6 offset-lg-3" id="newsletter-bbloc442">--}}
+{{--            <!--begin::Modal content-->--}}
+{{--            <div class="modal-content">--}}
+{{--                <!-- Line progress -->--}}
+{{--                <div class="progress-bar">--}}
+{{--                    <div class="progress-bar-value"></div>--}}
+{{--                </div>--}}
+{{--                <!--begin::Modal body-->--}}
+{{--                <div class="modal-body py-lg-10 px-lg-10">--}}
+{{--                    <!--begin::Stepper-->--}}
+{{--                    <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid">--}}
+{{--                        <!--begin::Aside-->--}}
+{{--                        <div class="w-100 ">--}}
+{{--                            <!--begin::Nav-->--}}
+{{--                            <form method="GET" action="#">--}}
+{{--                                <h2>Newsletter</h2>--}}
+{{--                                <p>Want to get updates to your mailbox? 📬 <br>Subscribe to our newsletter!</p>--}}
+{{--                                <p class="statut-reponse">Message de retour test</p>--}}
+{{--                                <input name="kknewsletter442-name" id="kknewsletter442-name" type="text" required--}}
+{{--                                    placeholder="Your name" />--}}
+{{--                                <input name="kknewsletter442-email" id="kknewsletter442-email" type="email" required--}}
+{{--                                    placeholder="Your email address" class="email" />--}}
+{{--                                <button class="submit">Subscribe</button>--}}
+{{--                                <span class="newsletter-close">x</span>--}}
+{{--                            </form>--}}
+{{--                            <!--end::Nav-->--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!--end::Stepper-->--}}
+{{--                </div>--}}
+{{--                <!--end::Modal body-->--}}
+{{--            </div>--}}
+{{--            <!--end::Modal content-->--}}
+{{--        </div>--}}
+{{--        <!--end::Modal dialog-->--}}
+{{--    </div>--}}
 @endsection
 
 @section('stylesheets')
@@ -165,7 +165,8 @@
     </script>
 
     <!-- src="" -->
-    <script src="https://kidevs.xyz/nilys/v1/kknewsletter.min.js" id="kknewsletter442" data-api-domain="Localhost"
+    <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
         data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
-        data-popup-group-guid="XXX-GROUP23-234434"></script>
+        data-popup-group-guid="XXX-GROUP23-234434">
+    </script>
 @endsection
