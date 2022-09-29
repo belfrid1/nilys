@@ -111,10 +111,10 @@
                                                 <div class="col-md-6 fv-row">
                                                     <label class="required fs-6 fw-semibold mb-2">Popup Group</label>
 
-                                                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popop_group" required>
+                                                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a popup group" name="popup_group" required>
                                                         <option value="">Select popup group...</option>
                                                         @foreach($popupgroups as $popupgroup)
-                                                        <option value="{{$popupgroup->id}}" @if(old('popop_group')==$popupgroup->id ) selected @endif>{{$popupgroup->name}} </option>
+                                                        <option value="{{$popupgroup->id}}" @if(old('popup_group')==$popupgroup->id ) selected @endif>{{$popupgroup->name}} </option>
                                                         @endforeach
                                                     </select>
                                                 </div>

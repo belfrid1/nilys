@@ -80,14 +80,18 @@ class PopupGroupController extends Controller
      */
     public function edit($slug)
     {
-        $popups = Popup::all();
+
+        //get group id with slug
+        $groupId = PopupGroup::firstwhere('slug',$slug)->id;
+
+        //get all popups of group
+        $popups = Popup::where('popupgroup_id',$groupId)->get();
         $group = PopupGroup::firstWhere('slug',$slug);
 
         return view('back.popup-group.edit', compact('group','popups'));
     }
 
-    /**
-     * Update the specified resource in storage.
+    /**, specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\PopupGroup  $group

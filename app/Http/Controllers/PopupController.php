@@ -46,10 +46,11 @@ class PopupController extends Controller
         request()->validate([
             'name' => 'required|string|max:255|unique:popups',
             'popup_content' => 'required',
-            'popop_group' => 'required',
+            'popup_group' => 'required',
         ]);
 
         if($request->default){
+
            $old_default_popups =  Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->get();
            foreach ($old_default_popups as $old_default_popup ){
                $old_default_popup->update([
@@ -69,7 +70,7 @@ class PopupController extends Controller
         $popup = Popup::create([
             'name' => $request->name,
             'popup_content' => $request->popup_content,
-            'popupgroup_id' => $request->popop_group,
+            'popupgroup_id' => $request->popup_group,
             'default' => $request->boolean('default'),
             'enable' => $request->boolean('enable'),
 
@@ -114,6 +115,7 @@ class PopupController extends Controller
 
 
         if($request->default){
+            dd($request->default);
             $old_default_popups =  Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->get();
             foreach ($old_default_popups as $old_default_popup ){
                 $old_default_popup->update([

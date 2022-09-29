@@ -134,6 +134,8 @@
                                         <td>
                                             @if($popup->default )
                                             <span class="badge badge-light-success">Default - YES</span>
+                                            @else
+                                                <span class="badge badge-light-danger">NO</span>
                                             @endif
 
                                         </td>

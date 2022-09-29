@@ -139,18 +139,20 @@
                                                     <!--begin::Content-->
                                                     <div class="mb-3 mb-md-0 fw-semibold">
                                                         <h4 class="text-gray-900 fw-bold">Script</h4>
-                                                        <div class="fs-6 text-gray-700 pe-7">
-                                                            <textarea readonly name="" id="" cols="70" rows="10">
-                                                                <-- Script css -->
-                                                                 <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter.min.css" />
+                                                        <div class="fs-6 text-bg-danger-700 pe-7">
+                                                            <pre>
+                                                                <code class="html">
 
-                                                                <-- Script js -->
+                                                                    <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter.min.css" />
 
-                                                                <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
-                                                                    data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
-                                                                    data-popup-group-guid="XXX-GROUP23-234434">
-                                                                </script>
-                                                            </textarea>
+
+                                                                    <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
+                                                                        data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
+                                                                        data-popup-group-guid="XXX-GROUP23-234434">
+                                                                    </script>
+                                                                </code>
+                                                            </pre>
+
                                                         </div>
                                                     </div>
                                                     <!--end::Content-->
@@ -194,13 +196,6 @@
                                                 <span id="add_condition_btn" class="btn btn-sm btn-primary mr-0">Add Condition</span>
                                             </div>
                                             <table id="MyTable" class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Group popup</th>
-                                                        <th scope="col">Url Filter</th>
-                                                        <th scope="col"></th>
-                                                    </tr>
-                                                </thead>
                                                 <tbody id="tbody">
 
                                                 </tbody>
@@ -235,6 +230,9 @@
 
 @endsection
 
+@section('stylesheets')
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+@endsection
 
 @section('javascripts')
 <script type="text/javascript">
@@ -336,6 +334,7 @@
 </script>
 @endif
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
 
 
 @endsection
