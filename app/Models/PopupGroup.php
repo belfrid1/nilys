@@ -15,4 +15,5 @@ class PopupGroup extends Model
         'name', 'guid','slug'
     ];
 
+
 }
