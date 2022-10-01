@@ -206,9 +206,9 @@
                                     </div>
                                     <!--end::Step 1-->
                                     <!--begin::Actions-->
-                                    <div class="d-flex flex-stack pt-10">
+                                    <div class="d-flex flex-end pt-10">
                                         <!--begin::Wrapper-->
-                                        <div>
+                                        <div class="">
                                             <button class="btn btn-lg btn-primary" type="submit">
                                                 <span class="indicator-label">
                                                     <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2022-09-15-053640/core/html/src/media/icons/duotune/general/gen055.svg-->

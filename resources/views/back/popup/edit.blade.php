@@ -248,7 +248,7 @@
                                     </div>
                                     <!--end::Step 1-->
                                     <!--begin::Actions-->
-                                    <div class="d-flex flex-stack pt-10">
+                                    <div class="d-flex flex-end pt-10">
                                         <!--begin::Wrapper-->
                                         <div>
                                             <button class="btn btn-lg btn-primary" type="submit">
