@@ -17,11 +17,11 @@
         </div>
         <!--end::sidebar mobile toggle-->
         <!--begin::Mobile logo-->
-        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="index.html" class="d-lg-none">
-                <img alt="Logo" src="assets/media/logos/default-small.svg" class="h-30px" />
-            </a>
-        </div>
+{{--        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">--}}
+{{--            <a href="index.html" class="d-lg-none">--}}
+{{--                <img alt="Logo" src="assets/media/logos/default-small.svg" class="h-30px" />--}}
+{{--            </a>--}}
+{{--        </div>--}}
         <!--end::Mobile logo-->
         <!--begin::Header wrapper-->
         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
@@ -53,9 +53,9 @@
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
                                 <div class="d-flex flex-column">
-                                    <div class="fw-bold d-flex align-items-center fs-5">Max Smith
-                                        <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                    <div class="fw-bold d-flex align-items-center fs-5">Admin Nilys
+                                        <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">admin</span></div>
+                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">admin@nilys.com</a>
                                 </div>
                                 <!--end::Username-->
                             </div>
@@ -71,173 +71,69 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="apps/projects/list.html" class="menu-link px-5">
-                                <span class="menu-text">My Projects</span>
+                            <a href="{{route('settings.index')}}" class="menu-link px-5">
+                                <span class="menu-text">Parametres</span>
                                 <span class="menu-badge">
-													<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-												</span>
+                                    <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
+                                </span>
                             </a>
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start">
-                            <a href="#" class="menu-link px-5">
-                                <span class="menu-title">My Subscription</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <!--begin::Menu sub-->
-                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/referrals.html" class="menu-link px-5">Referrals</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/billing.html" class="menu-link px-5">Billing</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/statements.html" class="menu-link px-5">Payments</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i></a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu separator-->
-                                <div class="separator my-2"></div>
-                                <!--end::Menu separator-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <div class="menu-content px-3">
-                                        <label class="form-check form-switch form-check-custom form-check-solid">
-                                            <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                            <span class="form-check-label text-muted fs-7">Notifications</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!--end::Menu item-->
-                            </div>
-                            <!--end::Menu sub-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        <div class="menu-item px-5">
-                            <a href="account/statements.html" class="menu-link px-5">My Statements</a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu separator-->
                         <div class="separator my-2"></div>
                         <!--end::Menu separator-->
                         <!--begin::Menu item-->
-                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start">
-                            <a href="#" class="menu-link px-5">
-												<span class="menu-title position-relative">Language
-												<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-												<img class="w-15px h-15px rounded-1 ms-2" src="{{asset('assets/media/flags/united-states.svg')}}" alt="" /></span></span>
-                            </a>
-                            <!--begin::Menu sub-->
-                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/settings.html" class="menu-link d-flex px-5 active">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="{{asset('assets/media/flags/united-states.svg')}}" alt="" />
-													</span>English</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="{{asset('assets/media/flags/spain.svg')}}" alt="" />
-													</span>Spanish</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="{{asset('assets/media/flags/germany.svg')}}" alt="" />
-													</span>German</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="{{asset('assets/media/flags/japan.svg')}}" alt="" />
-													</span>Japanese</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="{{asset('assets/media/flags/france.svg')}}" alt="" />
-													</span>French</a>
-                                </div>
-                                <!--end::Menu item-->
-                            </div>
-                            <!--end::Menu sub-->
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
                         <div class="menu-item px-5 my-1">
-                            <a href="account/settings.html" class="menu-link px-5">Account Settings</a>
-                        </div>
-                        <!--end::Menu item-->
-                        <!--begin::Menu item-->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                            <div class="menu-item px-5">
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                </div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                        <div class="menu-item px-5">
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                {{--                            <a href="authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Logout</a>--}}
                             </div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-{{--                            <a href="authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Logout</a>--}}
                         </div>
+                        <!--end::Menu item-->
+                        <!--begin::Menu item-->
+{{--                        @guest--}}
+{{--                            @if (Route::has('login'))--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
+
+{{--                            @if (Route::has('register'))--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
+{{--                        @else--}}
+{{--                            <li class="nav-item dropdown">--}}
+{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+{{--                                    {{ Auth::user()->name }}--}}
+{{--                                </a>--}}
+
+{{--                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">--}}
+{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
+{{--                                       onclick="event.preventDefault();--}}
+{{--                                                     document.getElementById('logout-form').submit();">--}}
+{{--                                        {{ __('Logout') }}--}}
+{{--                                    </a>--}}
+
+{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+{{--                                        @csrf--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                        @endguest--}}
+
 
                         <!--end::Menu item-->
                     </div>
@@ -250,11 +146,11 @@
                     <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_header_menu_toggle">
                         <!--begin::Svg Icon | path: icons/duotune/text/txt001.svg-->
                         <span class="svg-icon svg-icon-1">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z" fill="currentColor" />
-												<path opacity="0.3" d="M21 16H3C2.4 16 2 15.6 2 15V14C2 13.4 2.4 13 3 13H21C21.6 13 22 13.4 22 14V15C22 15.6 21.6 16 21 16ZM14 20V19C14 18.4 13.6 18 13 18H3C2.4 18 2 18.4 2 19V20C2 20.6 2.4 21 3 21H13C13.6 21 14 20.6 14 20Z" fill="currentColor" />
-											</svg>
-										</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z" fill="currentColor" />
+                                <path opacity="0.3" d="M21 16H3C2.4 16 2 15.6 2 15V14C2 13.4 2.4 13 3 13H21C21.6 13 22 13.4 22 14V15C22 15.6 21.6 16 21 16ZM14 20V19C14 18.4 13.6 18 13 18H3C2.4 18 2 18.4 2 19V20C2 20.6 2.4 21 3 21H13C13.6 21 14 20.6 14 20Z" fill="currentColor" />
+                            </svg>
+                        </span>
                         <!--end::Svg Icon-->
                     </div>
                 </div>

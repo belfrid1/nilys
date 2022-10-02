@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\PopupController;
 use App\Http\Controllers\PopupGroupController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,3 +90,6 @@ Route::get('/popup/delete/{popup}', [PopupController::class, 'destroy'])->name('
 // contact all route
 Route::resource('contact', ContactController::class);
 Route::get('public/contact/create', [ContactController::class, "create"]);
+
+
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
