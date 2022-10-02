@@ -6,6 +6,7 @@ use App\Models\Domain;
 use App\Models\Popup;
 use App\Models\PopupGroup;
 use Illuminate\Http\Request;
+use Nette\Utils\ArrayList;
 
 class PopupGroupController extends Controller
 {
@@ -98,10 +99,20 @@ class PopupGroupController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($request->selects) {
+            for ($i = 0; $i < count($request->selects); $i++) {
+                // $urls = explode("\n", $request->textareas[$i]);
+                $conditions = array($request->selects[$i] => ''.$request->textareas[$i]);
+
+
+            }
+        }
+        dd($conditions);
         request()->validate([
             'name' => 'required|unique:popup_groups'
         ]);
         $group = PopupGroup::find($id);
+
         $group->update([
             'name' => $request->name
         ]);
