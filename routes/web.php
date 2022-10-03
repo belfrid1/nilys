@@ -89,7 +89,16 @@ Route::get('/popup/delete/{popup}', [PopupController::class, 'destroy'])->name('
 
 // contact all route
 Route::resource('contact', ContactController::class);
-Route::get('public/contact/create', [ContactController::class, "create"]);
+Route::get('contact/sent-mail', [ContactController::class, "send_mail"])->name("contact.send_mail");
+
+//api for contact
+Route::get('public/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
+Route::get('public/api/test', [App\Http\Controllers\Api\ContactController::class, "test"]);
+
+
+
 
 
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+
+

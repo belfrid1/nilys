@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Domain;
 use App\Models\Popup;
 use App\Models\PopupGroup;
-use App\Models\Site;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 
 class PopupController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +24,6 @@ class PopupController extends Controller
         $popups = Popup::all();
 
         $popupgroups = PopupGroup::all();
-
 
         return view('back.popup.index', compact('popups','popupgroups'));
     }

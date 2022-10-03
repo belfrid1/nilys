@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('domain');
             $table->string('url');
+            $table->boolean('status');
             $table->string('popup_guid');
             $table->string('popupgroup_guid');
             $table->timestamps();
