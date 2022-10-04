@@ -12,6 +12,6 @@ class SettingEmail extends Model
     use Sluggable;
 
     protected $fillable = [
-        'subject', 'content','slug','apikey','secretkey','host','port','username','password','from_address'
+        'subject', 'content','slug','apikey','secretkey','host','encryption','mailer','port','username','password','from_address'
     ];
 }

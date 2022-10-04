@@ -74,7 +74,7 @@
                             <a href="{{route('settings.index')}}" class="menu-link px-5">
                                 <span class="menu-text">Parametres</span>
                                 <span class="menu-badge">
-                                    <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
+{{--                                    <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>--}}
                                 </span>
                             </a>
                         </div>

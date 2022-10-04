@@ -100,7 +100,30 @@ Route::get('public/api/test', [App\Http\Controllers\Api\ContactController::class
 //all settings route
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
-Route::get('/settings/edit/setting-mail', [SettingsController::class, 'editSettingMail'])->name('edit.setting_mail');
+Route::get('/settings/edit/setting_mail', [SettingsController::class, 'editSettingMail'])->name('edit.setting_mail');
+Route::get('/settings/edit/setting_api', [SettingsController::class, 'editSettingApi'])->name('edit.setting_api');
 
 
 
+// mail route
+Route::get('send-mail', function () {
+
+
+
+    $details = [
+
+        'title' => 'Mail from ItSolutionStuff.com',
+
+        'body' => 'This is for testing email using smtp'
+
+    ];
+
+
+
+    \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\NilysMail($details));
+
+
+
+    dd("Email is Sent.");
+
+});
