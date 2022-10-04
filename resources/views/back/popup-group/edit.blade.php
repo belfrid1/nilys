@@ -162,10 +162,10 @@
                                                         <pre style="white-space: pre-line;">
                                                          <code id="contentToCopy" class="language-html">
                                                             <!-- Style css -->
-                                                             <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter.min.css" />
+                                                           <link rel="stylesheet" href="http://kidevs.xyz/nilys/v1/nylis-newletter-v1.css"></link>
 
                                                              <!-- Script js -->
-                                                            <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost" data-api-url="http://localhost/public/contact/create"  data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
+                                                            <script src="http://kidevs.xyz/nilys/v1/nylis-newletter-v1.js" id="kknewsletter442"   data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
                                                             </code>
                                                         </pre>
                                                     </div>
