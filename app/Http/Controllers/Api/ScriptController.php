@@ -26,20 +26,24 @@ class ScriptController extends Controller
         ]);
     }
 
-    public function getPopupcontent($groupuid, $url)
+    public function getPopupContent(Request $request)
     {
-        $this->reponseApi = ["statut" => false, "error" => '',"data" => ''];
+        $this->responseApi = ["statut" => false, "error" => '',"data" => 'i'];
 
-        $popupId = PopupGroupCondition::where('url',$url)->get('popup_id');
+        $popupId = PopupGroupCondition::where('url',$request->url)->first()->popup_id;
+
+
         if($popupId){
-            $this->response["data"] = Popup::find($popupId)->get('popup_content');
-            $this->response["statut"] = true;
+            $popupContent = Popup::where('id',$popupId)->first()->popup_content;
+            $this->responseApi["data"] = $popupContent;
+            $this->responseApi["statut"] = true;
+            return response()->json($this->responseApi, 200);
         }else{
-            $this->response["status"] = false;
-            $this->response["error"] = "This url does not match any Popup ";
+            $this->responseApi["status"] = $request->url;
+            $this->responseApi["error"] = "This url does not match any Popup ";
+            return response()->json($this->responseApi, 500);
         }
-        $this->response["data"] = Popup::find($popupId)->get('popup_content');
 
-        return response()->json($this->reponseApi, 200);
+
     }
 }
