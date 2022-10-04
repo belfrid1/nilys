@@ -27,7 +27,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">eCommerce</li>
+                            <li class="breadcrumb-item text-muted">Settings</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -37,98 +37,98 @@
                     <div class="d-flex align-items-center gap-2 gap-lg-3">
                         <!--begin::Filter menu-->
                         <div class="m-0">
-                            <!--begin::Menu toggle-->
-                            <a href="#" class="btn btn-sm btn-flex bg-body btn-color-gray-700 btn-active-color-primary fw-bold" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-                                <span class="svg-icon svg-icon-6 svg-icon-muted me-1">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="currentColor" />
-												</svg>
-											</span>
-                                <!--end::Svg Icon-->Filter</a>
-                            <!--end::Menu toggle-->
+{{--                            <!--begin::Menu toggle-->--}}
+{{--                            <a href="#" class="btn btn-sm btn-flex bg-body btn-color-gray-700 btn-active-color-primary fw-bold" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">--}}
+{{--                                <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->--}}
+{{--                                <span class="svg-icon svg-icon-6 svg-icon-muted me-1">--}}
+{{--                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                        <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="currentColor" />--}}
+{{--                                    </svg>--}}
+{{--                                </span>--}}
+{{--                                <!--end::Svg Icon-->--}}
+{{--                                Filter--}}
+{{--                            </a>--}}
+{{--                            <!--end::Menu toggle-->--}}
                             <!--begin::Menu 1-->
-                            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_632223a1294a7">
-                                <!--begin::Header-->
-                                <div class="px-7 py-5">
-                                    <div class="fs-5 text-dark fw-bold">Filter Options</div>
-                                </div>
-                                <!--end::Header-->
-                                <!--begin::Menu separator-->
-                                <div class="separator border-gray-200"></div>
-                                <!--end::Menu separator-->
-                                <!--begin::Form-->
-                                <div class="px-7 py-5">
-                                    <!--begin::Input group-->
-                                    <div class="mb-10">
-                                        <!--begin::Label-->
-                                        <label class="form-label fw-semibold">Status:</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <div>
-                                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_632223a1294a7" data-allow-clear="true">
-                                                <option></option>
-                                                <option value="1">Approved</option>
-                                                <option value="2">Pending</option>
-                                                <option value="2">In Process</option>
-                                                <option value="2">Rejected</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="mb-10">
-                                        <!--begin::Label-->
-                                        <label class="form-label fw-semibold">Member Type:</label>
-                                        <!--end::Label-->
-                                        <!--begin::Options-->
-                                        <div class="d-flex">
-                                            <!--begin::Options-->
-                                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                                <input class="form-check-input" type="checkbox" value="1" />
-                                                <span class="form-check-label">Author</span>
-                                            </label>
-                                            <!--end::Options-->
-                                            <!--begin::Options-->
-                                            <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                                <span class="form-check-label">Customer</span>
-                                            </label>
-                                            <!--end::Options-->
-                                        </div>
-                                        <!--end::Options-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="mb-10">
-                                        <!--begin::Label-->
-                                        <label class="form-label fw-semibold">Notifications:</label>
-                                        <!--end::Label-->
-                                        <!--begin::Switch-->
-                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                            <label class="form-check-label">Enabled</label>
-                                        </div>
-                                        <!--end::Switch-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Actions-->
-                                    <div class="d-flex justify-content-end">
-                                        <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                                    </div>
-                                    <!--end::Actions-->
-                                </div>
-                                <!--end::Form-->
-                            </div>
+{{--                            <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_632223a1294a7">--}}
+{{--                                <!--begin::Header-->--}}
+{{--                                <div class="px-7 py-5">--}}
+{{--                                    <div class="fs-5 text-dark fw-bold">Filter Options</div>--}}
+{{--                                </div>--}}
+{{--                                <!--end::Header-->--}}
+{{--                                <!--begin::Menu separator-->--}}
+{{--                                <div class="separator border-gray-200"></div>--}}
+{{--                                <!--end::Menu separator-->--}}
+{{--                                <!--begin::Form-->--}}
+{{--                                <div class="px-7 py-5">--}}
+{{--                                    <!--begin::Input group-->--}}
+{{--                                    <div class="mb-10">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label class="form-label fw-semibold">Status:</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Input-->--}}
+{{--                                        <div>--}}
+{{--                                            <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_632223a1294a7" data-allow-clear="true">--}}
+{{--                                                <option></option>--}}
+{{--                                                <option value="1">Approved</option>--}}
+{{--                                                <option value="2">Pending</option>--}}
+{{--                                                <option value="2">In Process</option>--}}
+{{--                                                <option value="2">Rejected</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Input-->--}}
+{{--                                    </div>--}}
+{{--                                    <!--end::Input group-->--}}
+{{--                                    <!--begin::Input group-->--}}
+{{--                                    <div class="mb-10">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label class="form-label fw-semibold">Member Type:</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Options-->--}}
+{{--                                        <div class="d-flex">--}}
+{{--                                            <!--begin::Options-->--}}
+{{--                                            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">--}}
+{{--                                                <input class="form-check-input" type="checkbox" value="1" />--}}
+{{--                                                <span class="form-check-label">Author</span>--}}
+{{--                                            </label>--}}
+{{--                                            <!--end::Options-->--}}
+{{--                                            <!--begin::Options-->--}}
+{{--                                            <label class="form-check form-check-sm form-check-custom form-check-solid">--}}
+{{--                                                <input class="form-check-input" type="checkbox" value="2" checked="checked" />--}}
+{{--                                                <span class="form-check-label">Customer</span>--}}
+{{--                                            </label>--}}
+{{--                                            <!--end::Options-->--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Options-->--}}
+{{--                                    </div>--}}
+{{--                                    <!--end::Input group-->--}}
+{{--                                    <!--begin::Input group-->--}}
+{{--                                    <div class="mb-10">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label class="form-label fw-semibold">Notifications:</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Switch-->--}}
+{{--                                        <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">--}}
+{{--                                            <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />--}}
+{{--                                            <label class="form-check-label">Enabled</label>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Switch-->--}}
+{{--                                    </div>--}}
+{{--                                    <!--end::Input group-->--}}
+{{--                                    <!--begin::Actions-->--}}
+{{--                                    <div class="d-flex justify-content-end">--}}
+{{--                                        <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>--}}
+{{--                                        <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>--}}
+{{--                                    </div>--}}
+{{--                                    <!--end::Actions-->--}}
+{{--                                </div>--}}
+{{--                                <!--end::Form-->--}}
+{{--                            </div>--}}
                             <!--end::Menu 1-->
                         </div>
                         <!--end::Filter menu-->
-                        <!--begin::Secondary button-->
-                        <!--end::Secondary button-->
                         <!--begin::Primary button-->
-                        <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
+{{--                        <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>--}}
                         <!--end::Primary button-->
                     </div>
                     <!--end::Actions-->
@@ -148,7 +148,7 @@
                             <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x border-transparent fs-4 fw-semibold mb-15">
                                 <!--begin:::Tab item-->
                                 <li class="nav-item">
-                                    <a class="nav-link text-active-primary pb-5 active" data-bs-toggle="tab" href="#kt_ecommerce_settings_general">
+                                    <a class="nav-link text-active-primary pb-5 active" data-bs-toggle="tab" href="#general">
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
                                         <span class="svg-icon svg-icon-2 me-2">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,21 +160,19 @@
                                 <!--end:::Tab item-->
                                 <!--begin:::Tab item-->
                                 <li class="nav-item">
-                                    <a class="nav-link text-active-primary pb-5" data-bs-toggle="tab" href="#kt_ecommerce_settings_store">
-                                        <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm004.svg-->
-                                        <span class="svg-icon svg-icon-2 me-2">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path opacity="0.3" d="M18 10V20C18 20.6 18.4 21 19 21C19.6 21 20 20.6 20 20V10H18Z" fill="currentColor" />
-															<path opacity="0.3" d="M11 10V17H6V10H4V20C4 20.6 4.4 21 5 21H12C12.6 21 13 20.6 13 20V10H11Z" fill="currentColor" />
-															<path opacity="0.3" d="M10 10C10 11.1 9.1 12 8 12C6.9 12 6 11.1 6 10H10Z" fill="currentColor" />
-															<path opacity="0.3" d="M18 10C18 11.1 17.1 12 16 12C14.9 12 14 11.1 14 10H18Z" fill="currentColor" />
-															<path opacity="0.3" d="M14 4H10V10H14V4Z" fill="currentColor" />
-															<path opacity="0.3" d="M17 4H20L22 10H18L17 4Z" fill="currentColor" />
-															<path opacity="0.3" d="M7 4H4L2 10H6L7 4Z" fill="currentColor" />
-															<path d="M6 10C6 11.1 5.1 12 4 12C2.9 12 2 11.1 2 10H6ZM10 10C10 11.1 10.9 12 12 12C13.1 12 14 11.1 14 10H10ZM18 10C18 11.1 18.9 12 20 12C21.1 12 22 11.1 22 10H18ZM19 2H5C4.4 2 4 2.4 4 3V4H20V3C20 2.4 19.6 2 19 2ZM12 17C12 16.4 11.6 16 11 16H6C5.4 16 5 16.4 5 17C5 17.6 5.4 18 6 18H11C11.6 18 12 17.6 12 17Z" fill="currentColor" />
-														</svg>
-													</span>
-                                        <!--end::Svg Icon-->Store</a>
+                                    <a class="nav-link text-active-primary pb-5" data-bs-toggle="tab" href="#email">
+                                        <span class="menu-icon">
+                                                <!--begin::Svg Icon | path: icons/duotune/general/gen016.svg-->
+                                                <span class="svg-icon svg-icon-2 me-3">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M15.43 8.56949L10.744 15.1395C10.6422 15.282 10.5804 15.4492 10.5651 15.6236C10.5498 15.7981 10.5815 15.9734 10.657 16.1315L13.194 21.4425C13.2737 21.6097 13.3991 21.751 13.5557 21.8499C13.7123 21.9488 13.8938 22.0014 14.079 22.0015H14.117C14.3087 21.9941 14.4941 21.9307 14.6502 21.8191C14.8062 21.7075 14.9261 21.5526 14.995 21.3735L21.933 3.33649C22.0011 3.15918 22.0164 2.96594 21.977 2.78013C21.9376 2.59432 21.8452 2.4239 21.711 2.28949L15.43 8.56949Z" fill="currentColor" />
+                                                        <path opacity="0.3" d="M20.664 2.06648L2.62602 9.00148C2.44768 9.07085 2.29348 9.19082 2.1824 9.34663C2.07131 9.50244 2.00818 9.68731 2.00074 9.87853C1.99331 10.0697 2.04189 10.259 2.14054 10.4229C2.23919 10.5869 2.38359 10.7185 2.55601 10.8015L7.86601 13.3365C8.02383 13.4126 8.19925 13.4448 8.37382 13.4297C8.54839 13.4145 8.71565 13.3526 8.85801 13.2505L15.43 8.56548L21.711 2.28448C21.5762 2.15096 21.4055 2.05932 21.2198 2.02064C21.034 1.98196 20.8409 1.99788 20.664 2.06648Z" fill="currentColor" />
+                                                    </svg>
+                                                </span>
+                                <!--end::Svg Icon-->
+                                            </span>
+                                        E-mail
+                                    </a>
                                 </li>
                                 <!--end:::Tab item-->
                                 <!--begin:::Tab item-->
@@ -182,190 +180,167 @@
                                     <a class="nav-link text-active-primary pb-5" data-bs-toggle="tab" href="#kt_ecommerce_settings_localization">
                                         <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
                                         <span class="svg-icon svg-icon-2 me-2">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor" />
-															<path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor" />
-														</svg>
-													</span>
-                                        <!--end::Svg Icon-->Localization</a>
-                                </li>
-                                <!--end:::Tab item-->
-                                <!--begin:::Tab item-->
-                                <li class="nav-item">
-                                    <a class="nav-link text-active-primary pb-5" data-bs-toggle="tab" href="#kt_ecommerce_settings_products">
-                                        <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm005.svg-->
-                                        <span class="svg-icon svg-icon-2 me-2">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path opacity="0.3" d="M20 22H4C3.4 22 3 21.6 3 21V2H21V21C21 21.6 20.6 22 20 22Z" fill="currentColor" />
-															<path d="M12 14C9.2 14 7 11.8 7 9V5C7 4.4 7.4 4 8 4C8.6 4 9 4.4 9 5V9C9 10.7 10.3 12 12 12C13.7 12 15 10.7 15 9V5C15 4.4 15.4 4 16 4C16.6 4 17 4.4 17 5V9C17 11.8 14.8 14 12 14Z" fill="currentColor" />
-														</svg>
-													</span>
-                                        <!--end::Svg Icon-->Products</a>
-                                </li>
-                                <!--end:::Tab item-->
-                                <!--begin:::Tab item-->
-                                <li class="nav-item">
-                                    <a class="nav-link text-active-primary pb-5" data-bs-toggle="tab" href="#kt_ecommerce_settings_customers">
-                                        <!--begin::Svg Icon | path: icons/duotune/communication/com014.svg-->
-                                        <span class="svg-icon svg-icon-2 me-2">
-														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-															<path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="currentColor" />
-															<rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="currentColor" />
-															<path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="currentColor" />
-															<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="currentColor" />
-														</svg>
-													</span>
-                                        <!--end::Svg Icon-->Customers</a>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="currentColor" />
+                                                <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                        <!--end::Svg Icon-->
+                                        API
+                                    </a>
                                 </li>
                                 <!--end:::Tab item-->
                             </ul>
                             <!--end:::Tabs-->
                             <!--begin:::Tab content-->
-                            <div class="tab-content" id="myTabContent">
+                            <div class="tab-content card" id="myTabContent">
                                 <!--begin:::Tab pane-->
-                                <div class="tab-pane fade show active" id="kt_ecommerce_settings_general" role="tabpanel">
+                                <div class="tab-pane fade show active" id="general" role="tabpanel">
                                     <!--begin::Form-->
-                                    <form id="kt_ecommerce_settings_general_form" class="form" action="#">
-                                        <!--begin::Heading-->
-                                        <div class="row mb-7">
-                                            <div class="col-md-9 offset-md-3">
-                                                <h2>General Settings</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Meta Title</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="meta_title" value="" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Meta Tag Description</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <textarea class="form-control form-control-solid" name="meta_description"></textarea>
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Meta Keywords</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set keywords for the store separated by a comma."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="meta_keywords" value="" data-kt-ecommerce-settings-type="tagify" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Theme</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set theme style for the store."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="w-100">
-                                                    <!--begin::Select2-->
-                                                    <select class="form-select form-select-solid" name="theme" data-control="select2" data-hide-search="true" data-placeholder="Select a layout">
-                                                        <option></option>
-                                                        <option value="Default" selected="selected">Default</option>
-                                                        <option value="Minimalist">Minimalist</option>
-                                                        <option value="Dark">Dark</option>
-                                                        <option value="High_Contrast">High Contrast</option>
-                                                    </select>
-                                                    <!--end::Select2-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Default Layout</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set default layout style for the store."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="w-100">
-                                                    <!--begin::Select2-->
-                                                    <select class="form-select form-select-solid" name="layout" data-control="select2" data-hide-search="true" data-placeholder="Select a layout">
-                                                        <option></option>
-                                                        <option value="Default" selected="selected">Default</option>
-                                                        <option value="Electronics">Electronics</option>
-                                                        <option value="Fashion">Fashion</option>
-                                                        <option value="Home">Home</option>
-                                                        <option value="Dining">Dining</option>
-                                                        <option value="Interior">Interior</option>
-                                                    </select>
-                                                    <!--end::Select2-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Action buttons-->
-                                        <div class="row py-5">
-                                            <div class="col-md-9 offset-md-3">
-                                                <div class="d-flex">
-                                                    <!--begin::Button-->
-                                                    <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
-                                                    <!--end::Button-->
-                                                    <!--begin::Button-->
-                                                    <button type="submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary">
-                                                        <span class="indicator-label">Save</span>
-                                                        <span class="indicator-progress">Please wait...
-																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                                    </button>
-                                                    <!--end::Button-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Action buttons-->
-                                    </form>
+{{--                                    <form id="general_form" class="form" action="#">--}}
+{{--                                        <!--begin::Heading-->--}}
+{{--                                        <div class="row mb-7">--}}
+{{--                                            <div class="col-md-9 offset-md-3">--}}
+{{--                                                <h2>General Settings</h2>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Heading-->--}}
+{{--                                        <!--begin::Input group-->--}}
+{{--                                        <div class="row fv-row mb-7">--}}
+{{--                                            <div class="col-md-3 text-md-end">--}}
+{{--                                                <!--begin::Label-->--}}
+{{--                                                <label class="fs-6 fw-semibold form-label mt-3">--}}
+{{--                                                    <span class="required">Meta Title</span>--}}
+{{--                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the title of the store for SEO."></i>--}}
+{{--                                                </label>--}}
+{{--                                                <!--end::Label-->--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-9">--}}
+{{--                                                <!--begin::Input-->--}}
+{{--                                                <input type="text" class="form-control form-control-solid" name="meta_title" value="" />--}}
+{{--                                                <!--end::Input-->--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Input group-->--}}
+{{--                                        <!--begin::Input group-->--}}
+{{--                                        <div class="row fv-row mb-7">--}}
+{{--                                            <div class="col-md-3 text-md-end">--}}
+{{--                                                <!--begin::Label-->--}}
+{{--                                                <label class="fs-6 fw-semibold form-label mt-3">--}}
+{{--                                                    <span>Meta Tag Description</span>--}}
+{{--                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the description of the store for SEO."></i>--}}
+{{--                                                </label>--}}
+{{--                                                <!--end::Label-->--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-9">--}}
+{{--                                                <!--begin::Input-->--}}
+{{--                                                <textarea class="form-control form-control-solid" name="meta_description"></textarea>--}}
+{{--                                                <!--end::Input-->--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Input group-->--}}
+{{--                                        <!--begin::Input group-->--}}
+{{--                                        <div class="row fv-row mb-7">--}}
+{{--                                            <div class="col-md-3 text-md-end">--}}
+{{--                                                <!--begin::Label-->--}}
+{{--                                                <label class="fs-6 fw-semibold form-label mt-3">--}}
+{{--                                                    <span>Meta Keywords</span>--}}
+{{--                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set keywords for the store separated by a comma."></i>--}}
+{{--                                                </label>--}}
+{{--                                                <!--end::Label-->--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-9">--}}
+{{--                                                <!--begin::Input-->--}}
+{{--                                                <input type="text" class="form-control form-control-solid" name="meta_keywords" value="" data-kt-ecommerce-settings-type="tagify" />--}}
+{{--                                                <!--end::Input-->--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Input group-->--}}
+{{--                                        <!--begin::Input group-->--}}
+{{--                                        <div class="row fv-row mb-7">--}}
+{{--                                            <div class="col-md-3 text-md-end">--}}
+{{--                                                <!--begin::Label-->--}}
+{{--                                                <label class="fs-6 fw-semibold form-label mt-3">--}}
+{{--                                                    <span>Theme</span>--}}
+{{--                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set theme style for the store."></i>--}}
+{{--                                                </label>--}}
+{{--                                                <!--end::Label-->--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-9">--}}
+{{--                                                <div class="w-100">--}}
+{{--                                                    <!--begin::Select2-->--}}
+{{--                                                    <select class="form-select form-select-solid" name="theme" data-control="select2" data-hide-search="true" data-placeholder="Select a layout">--}}
+{{--                                                        <option></option>--}}
+{{--                                                        <option value="Default" selected="selected">Default</option>--}}
+{{--                                                        <option value="Minimalist">Minimalist</option>--}}
+{{--                                                        <option value="Dark">Dark</option>--}}
+{{--                                                        <option value="High_Contrast">High Contrast</option>--}}
+{{--                                                    </select>--}}
+{{--                                                    <!--end::Select2-->--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Input group-->--}}
+{{--                                        <!--begin::Input group-->--}}
+{{--                                        <div class="row fv-row mb-7">--}}
+{{--                                            <div class="col-md-3 text-md-end">--}}
+{{--                                                <!--begin::Label-->--}}
+{{--                                                <label class="fs-6 fw-semibold form-label mt-3">--}}
+{{--                                                    <span>Default Layout</span>--}}
+{{--                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set default layout style for the store."></i>--}}
+{{--                                                </label>--}}
+{{--                                                <!--end::Label-->--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-9">--}}
+{{--                                                <div class="w-100">--}}
+{{--                                                    <!--begin::Select2-->--}}
+{{--                                                    <select class="form-select form-select-solid" name="layout" data-control="select2" data-hide-search="true" data-placeholder="Select a layout">--}}
+{{--                                                        <option></option>--}}
+{{--                                                        <option value="Default" selected="selected">Default</option>--}}
+{{--                                                        <option value="Electronics">Electronics</option>--}}
+{{--                                                        <option value="Fashion">Fashion</option>--}}
+{{--                                                        <option value="Home">Home</option>--}}
+{{--                                                        <option value="Dining">Dining</option>--}}
+{{--                                                        <option value="Interior">Interior</option>--}}
+{{--                                                    </select>--}}
+{{--                                                    <!--end::Select2-->--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Input group-->--}}
+{{--                                        <!--begin::Action buttons-->--}}
+{{--                                        <div class="row py-5">--}}
+{{--                                            <div class="col-md-9 offset-md-3">--}}
+{{--                                                <div class="d-flex">--}}
+{{--                                                    <!--begin::Button-->--}}
+{{--                                                    <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>--}}
+{{--                                                    <!--end::Button-->--}}
+{{--                                                    <!--begin::Button-->--}}
+{{--                                                    <button type="submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary">--}}
+{{--                                                        <span class="indicator-label">Save</span>--}}
+{{--                                                        <span class="indicator-progress">Please wait...--}}
+{{--																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>--}}
+{{--                                                    </button>--}}
+{{--                                                    <!--end::Button-->--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <!--end::Action buttons-->--}}
+{{--                                    </form>--}}
                                     <!--end::Form-->
+                                    Comming soon
                                 </div>
                                 <!--end:::Tab pane-->
                                 <!--begin:::Tab pane-->
-                                <div class="tab-pane fade" id="kt_ecommerce_settings_store" role="tabpanel">
+                                <!--begin::Content-->
+                                <div class="tab-pane fade flex-start" id="email" role="tabpanel">
+
                                     <!--begin::Form-->
-                                    <form id="kt_ecommerce_settings_general_store" class="form" action="#">
+                                    <form id="general_form" class="form" action="{{route('edit.setting_mail',$setting_mail)}}">
                                         <!--begin::Heading-->
                                         <div class="row mb-7">
                                             <div class="col-md-9 offset-md-3">
-                                                <h2>Store Settings</h2>
+                                                <h2>Compose Mail Subjet and Content</h2>
                                             </div>
                                         </div>
                                         <!--end::Heading-->
@@ -374,14 +349,14 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Store Name</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the name of the store"></i>
+                                                    <span class="required">Subject</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the mail subjet"></i>
                                                 </label>
                                                 <!--end::Label-->
                                             </div>
                                             <div class="col-md-9">
                                                 <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="store_name" value="" />
+                                                <input type="text" class="form-control form-control-solid" name="mail_subject" value="{{ $setting_mail->subject ?? ''}}" />
                                                 <!--end::Input-->
                                             </div>
                                         </div>
@@ -391,114 +366,159 @@
                                             <div class="col-md-3 text-md-end">
                                                 <!--begin::Label-->
                                                 <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Store Owner</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store owner's name"></i>
+                                                    <span>Mail content</span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the mail content."></i>
                                                 </label>
                                                 <!--end::Label-->
                                             </div>
                                             <div class="col-md-9">
                                                 <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="store_owner" value="" />
+                                                <textarea id="mail_content_id" class="form-control form-control-solid" name="mail_content" rows="10">{{ $setting_mail->content ?? ''}}</textarea>
                                                 <!--end::Input-->
                                             </div>
                                         </div>
                                         <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Address</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the store's full address."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <textarea class="form-control form-control-solid" name="store_address"></textarea>
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Geocode</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the store geocode manually (optional)"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="store_geocode" value="" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Email</span>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="email" class="form-control form-control-solid" name="store_email" value="" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Phone</span>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="store_phone" value="" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Fax</span>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="store_fax" value="" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Action buttons-->
-                                        <div class="row py-5">
+                                        <div class="row mb-7">
                                             <div class="col-md-9 offset-md-3">
-                                                <div class="d-flex">
-                                                    <!--begin::Button-->
-                                                    <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
-                                                    <!--end::Button-->
-                                                    <!--begin::Button-->
-                                                    <button type="submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary">
-                                                        <span class="indicator-label">Save</span>
-                                                        <span class="indicator-progress">Please wait...
-																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                                    </button>
-                                                    <!--end::Button-->
+                                                <h2>Set Mail API credentials (Mailjet)</h2>
+                                            </div>
+                                        </div>
+                                        <!--begin::Input group-->
+                                        <div class="row fv-row mb-7">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Api key </span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set mailjet API Key"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="apikey" value="{{ $setting_mail->apikey ?? ''}}" />
+                                                <!--end::Input-->
+                                            </div>
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="row fv-row mb-7">
+                                            <div class="col-md-3 text-md-end">
+                                                <!--begin::Label-->
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Api Secret </span>
+                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set Secret Key"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                            </div>
+                                            <div class="col-md-9">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control form-control-solid" name="apisecret" value="{{ $setting_mail->apisecret ?? ''}}" />
+                                                <!--end::Input-->
+                                            </div>
+                                        </div>
+                                        <!--end::Input group-->
+                                        <div class="row mb-7">
+                                            <div class="col-md-9 offset-md-3">
+                                                <h2>Set SMTP Parameters</h2>
+                                            </div>
+                                        </div>
+                                        <!--begin::Input group-->
+                                        <div class="row g-9 mb-8">
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="required">Host</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify the host"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <input type="text" value="{{ $setting_mail->host ?? ''}}" class="form-control form-control-solid ps-12" id="" name="host" placeholder="">
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="required">port</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify the port"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <input type="text" value="{{ $setting_mail->port ?? ''}}" class="form-control form-control-solid ps-12" id="" name="port" placeholder="">
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Input group-->
+
+
+
+                                        <!--begin::Input group-->
+                                        <div class="row g-9 mb-8">
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="required">MailJet Username</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify the Mailjet Username"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <input type="text" value="{{ $setting_mail->username ?? ''}}" class="form-control form-control-solid ps-12" id="" name="username" placeholder="">
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="required">Mailjet Password</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify the Mailjet password"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <input type="password" value="{{ $setting_mail->password ?? ''}}" class="form-control form-control-solid ps-12" id="" name="password" placeholder="">
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Input group-->
+
+
+                                        <!--begin::Input group-->
+                                        <div class="row g-9 mb-8">
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="required">From Address</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify from address "></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <input type="text" value="{{ $setting_mail->from_address ?? ''}}" class="form-control form-control-solid ps-12" id="" name="from_address" placeholder="">
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Input group-->
+
+
+                                        <!--begin::Action buttons-->
+                                        <div class="d-flex flex-end pt-10">
+                                            <div class="row py-5">
+                                                <div class="col-md-9 offset-md-3">
+                                                    <div class="d-flex">
+                                                        <!--begin::Button-->
+                                                        <button type="submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary">
+                                                            <span class="indicator-label">Save</span>
+                                                            <span class="indicator-progress">Please wait...
+                                                                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                                        </button>
+                                                        <!--end::Button-->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -506,6 +526,7 @@
                                     </form>
                                     <!--end::Form-->
                                 </div>
+                                <!--end::Content-->
                                 <!--end:::Tab pane-->
                                 <!--begin:::Tab pane-->
                                 <div class="tab-pane fade" id="kt_ecommerce_settings_localization" role="tabpanel">
@@ -923,411 +944,7 @@
                                     <!--end::Form-->
                                 </div>
                                 <!--end:::Tab pane-->
-                                <!--begin:::Tab pane-->
-                                <div class="tab-pane fade" id="kt_ecommerce_settings_products" role="tabpanel">
-                                    <!--begin::Form-->
-                                    <form id="kt_ecommerce_settings_general_products" class="form" action="#">
-                                        <!--begin::Heading-->
-                                        <div class="row mb-7">
-                                            <div class="col-md-9 offset-md-3">
-                                                <h2>Cateogries Settings</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Category Product Count</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Show the number of products inside the subcategories in the storefront header category menu. Be warned, this will cause an extreme performance hit for stores with a lot of subcategories!"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="category_product_count" id="category_product_count_yes" checked="checked" />
-                                                        <label class="form-check-label" for="category_product_count_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="category_product_count" id="category_product_count_no" />
-                                                        <label class="form-check-label" for="category_product_count_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-16">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Default Items Per Page</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Determines how many items are shown per page"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="products_items_per_page" value="10" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Heading-->
-                                        <div class="row mb-7">
-                                            <div class="col-md-9 offset-md-3">
-                                                <h2>Reviews Settings</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Allow Reviews</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for registered customers"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="allow_reviews" id="allow_reviews_yes" checked="checked" />
-                                                        <label class="form-check-label" for="allow_reviews_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="allow_reviews" id="allow_reviews_no" />
-                                                        <label class="form-check-label" for="allow_reviews_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-16">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Allow Guest Reviews</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable review entries for public guest customers"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="allow_guest_reviews" id="allow_guest_reviews_yes" />
-                                                        <label class="form-check-label" for="allow_guest_reviews_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="allow_guest_reviews" id="allow_guest_reviews_no" checked="checked" />
-                                                        <label class="form-check-label" for="allow_guest_reviews_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Heading-->
-                                        <div class="row mb-7">
-                                            <div class="col-md-9 offset-md-3">
-                                                <h2>Vouchers Settings</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Minimum Vouchers</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Minimum number of vouchers customers can attach to an order"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="products_min_voucher" value="1" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-16">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Maximum Vouchers</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Maximum number of vouchers customers can attach to an order"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="products_max_voucher" value="10" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Heading-->
-                                        <div class="row mb-7">
-                                            <div class="col-md-9 offset-md-3">
-                                                <h2>Tax Settings</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Display Prices with Tax</span>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="product_tax" id="product_tax_yes" checked="checked" />
-                                                        <label class="form-check-label" for="product_tax_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="product_tax" id="product_tax_no" />
-                                                        <label class="form-check-label" for="product_tax_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Default Tax Rate</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Determines the tax percentage (%) applied to orders"></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="products_tax_rate" value="15%" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Action buttons-->
-                                        <div class="row py-5">
-                                            <div class="col-md-9 offset-md-3">
-                                                <div class="d-flex">
-                                                    <!--begin::Button-->
-                                                    <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
-                                                    <!--end::Button-->
-                                                    <!--begin::Button-->
-                                                    <button type="submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary">
-                                                        <span class="indicator-label">Save</span>
-                                                        <span class="indicator-progress">Please wait...
-																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                                    </button>
-                                                    <!--end::Button-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Action buttons-->
-                                    </form>
-                                    <!--end::Form-->
-                                </div>
-                                <!--end:::Tab pane-->
-                                <!--begin:::Tab pane-->
-                                <div class="tab-pane fade" id="kt_ecommerce_settings_customers" role="tabpanel">
-                                    <!--begin::Form-->
-                                    <form id="kt_ecommerce_settings_general_customers" class="form" action="#">
-                                        <!--begin::Heading-->
-                                        <div class="row mb-7">
-                                            <div class="col-md-9 offset-md-3">
-                                                <h2>Customers Settings</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Customers Online</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable tracking customers online status."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_online" id="customers_online_yes" checked="checked" />
-                                                        <label class="form-check-label" for="customers_online_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_online" id="customers_online_no" />
-                                                        <label class="form-check-label" for="customers_online_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Customers Activity</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable tracking customers activity."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_activity" id="customers_activity_yes" checked="checked" />
-                                                        <label class="form-check-label" for="customers_activity_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_activity" id="customers_activity_no" />
-                                                        <label class="form-check-label" for="customers_activity_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Customer Searches</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable logging customers search keywords."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_searches" id="customers_searches_yes" checked="checked" />
-                                                        <label class="form-check-label" for="customers_searches_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_searches" id="customers_searches_no" />
-                                                        <label class="form-check-label" for="customers_searches_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Allow Guest Checkout</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enable/disable guest customers to checkout."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_guest_checkout" id="customers_guest_checkout_yes" />
-                                                        <label class="form-check-label" for="customers_guest_checkout_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_guest_checkout" id="customers_guest_checkout_no" checked="checked" />
-                                                        <label class="form-check-label" for="customers_guest_checkout_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span>Login Display Prices</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Only show prices when customers log in."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <div class="d-flex mt-3">
-                                                    <!--begin::Radio-->
-                                                    <div class="form-check form-check-custom form-check-solid me-5">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_login_prices" id="customers_login_prices_yes" />
-                                                        <label class="form-check-label" for="customers_login_prices_yes">Yes</label>
-                                                    </div>
-                                                    <div class="form-check form-check-custom form-check-solid">
-                                                        <input class="form-check-input" type="radio" value="" name="customers_login_prices" id="customers_login_prices_no" checked="checked" />
-                                                        <label class="form-check-label" for="customers_login_prices_no">No</label>
-                                                    </div>
-                                                    <!--end::Radio-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="row fv-row mb-7">
-                                            <div class="col-md-3 text-md-end">
-                                                <!--begin::Label-->
-                                                <label class="fs-6 fw-semibold form-label mt-3">
-                                                    <span class="required">Max Login Attempts</span>
-                                                    <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Set the max number of login attempts before the customer account is locked for 1 hour."></i>
-                                                </label>
-                                                <!--end::Label-->
-                                            </div>
-                                            <div class="col-md-9">
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid" name="customer_login_attempts" value="" />
-                                                <!--end::Input-->
-                                            </div>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Action buttons-->
-                                        <div class="row py-5">
-                                            <div class="col-md-9 offset-md-3">
-                                                <div class="d-flex">
-                                                    <!--begin::Button-->
-                                                    <button type="reset" data-kt-ecommerce-settings-type="cancel" class="btn btn-light me-3">Cancel</button>
-                                                    <!--end::Button-->
-                                                    <!--begin::Button-->
-                                                    <button type="submit" data-kt-ecommerce-settings-type="submit" class="btn btn-primary">
-                                                        <span class="indicator-label">Save</span>
-                                                        <span class="indicator-progress">Please wait...
-																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                                    </button>
-                                                    <!--end::Button-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Action buttons-->
-                                    </form>
-                                    <!--end::Form-->
-                                </div>
-                                <!--end:::Tab pane-->
+
                             </div>
                             <!--end:::Tab content-->
                         </div>
@@ -1340,36 +957,44 @@
             <!--end::Content-->
         </div>
         <!--end::Content wrapper-->
-        <!--begin::Footer-->
-        <div id="kt_app_footer" class="app-footer">
-            <!--begin::Footer container-->
-            <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
-                <!--begin::Copyright-->
-                <div class="text-dark order-2 order-md-1">
-                    <span class="text-muted fw-semibold me-1">2022&copy;</span>
-                    <a href="https://keenthemes.com/" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
-                </div>
-                <!--end::Copyright-->
-                <!--begin::Menu-->
-                <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                    <li class="menu-item">
-                        <a href="https://keenthemes.com/" target="_blank" class="menu-link px-2">About</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="https://devs.keenthemes.com/" target="_blank" class="menu-link px-2">Support</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-                    </li>
-                </ul>
-                <!--end::Menu-->
-            </div>
-            <!--end::Footer container-->
-        </div>
-        <!--end::Footer-->
     </div>
     <!--end:::Main-->
 @endsection
 
+@section('javascripts')*
+<script src="{{asset('assets/js/custom/apps/inbox/compose.js')}}"></script>
 
+<script src="{{ asset('assets/plugins/custom/ckeditor4/ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace('mail_content_id', {
+        height: 400,
+        filebrowserImageBrowseUrl: '/file-manager?type=Images',
+        filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
+        filebrowserBrowseUrl: '/file-manager?type=Files',
+        filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
+    });
+</script>
+@if(Session::has('error'))
+    <script type="text/javascript">
+        toastr.error(`<b> {{session('error') }} !</b>`, {
+            closeButton: true,
+            positionClass: "toast-top-right",
+            showDuration: 1000,
+            hideDuration: 10000000,
+        });
+    </script>
+@endif
+@if(Session::has('success'))
+
+    <script type="text/javascript">
+        toastr.success(`<b> {{ session('success') }} !</b>`, {
+            closeButton: true,
+            positionClass: "toast-top-right",
+            showDuration: 1000,
+            hideDuration: 10000000,
+        });
+    </script>
+@endif
+
+@endsection
 

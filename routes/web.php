@@ -97,8 +97,10 @@ Route::get('public/api/test', [App\Http\Controllers\Api\ContactController::class
 
 
 
+//all settings route
 
+Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
+Route::get('/settings/edit/setting-mail', [SettingsController::class, 'editSettingMail'])->name('edit.setting_mail');
 
-Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
 
 

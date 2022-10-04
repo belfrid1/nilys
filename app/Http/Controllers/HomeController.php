@@ -30,7 +30,6 @@ class HomeController extends Controller
     {
 
 
-
         $domainLastAddCount = count(Domain::where('created_at', '>=', Carbon::now()->subdays(15))->get());
         $domainLastUpdateCount = count(Domain::where('updated_at', '>=', Carbon::now()->subdays(15))->get());
         $data["domainsCount"] = count(Domain::all());

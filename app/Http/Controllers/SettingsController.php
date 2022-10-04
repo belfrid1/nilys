@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Popup;
 use App\Models\PopupGroup;
+use App\Models\SettingApi;
+use App\Models\SettingEmail;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -20,11 +22,21 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        $popups = Popup::all();
 
-        $popupgroups = PopupGroup::all();
+        $setting_mail = SettingEmail::where('id',1)->first();
+        $setting_api = SettingApi::where('id',1)->first();
 
-
-        return view('back.setting.index', compact('popups','popupgroups'));
+        return view('back.setting.index', compact('setting_mail','setting_api'));
     }
+
+//    public function editSettingMail()
+//    {
+//
+//        return view('back.setting.index', compact());
+//    }
+//    public function editSettingApi()
+//    {
+//
+//        return view('back.setting.index', compact());
+//    }
 }
