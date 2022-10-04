@@ -93,6 +93,7 @@ Route::get('contact/sent-mail', [ContactController::class, "send_mail"])->name("
 
 //api for contact
 Route::get('public/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
+Route::get('public/script/popup-content', [App\Http\Controllers\Api\ScriptController::class, "getPopupcontent"]);
 Route::get('public/api/test', [App\Http\Controllers\Api\ContactController::class, "test"]);
 
 

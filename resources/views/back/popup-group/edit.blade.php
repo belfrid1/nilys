@@ -296,8 +296,8 @@
         // Adding a row inside the tbody.
         $('#tbody').append(`<tr id="cond_row${++rowIdx}">
           <td>
-            <select name="selects[]" onchange="handlePopup(this)" class="form-select" aria-label="Default select example">
-                <option  selected>----Popups----</option>
+            <select name="selects[]" onchange="handlePopup(this)" class="form-select" aria-label="Default select example" required>
+                <option  value=""  selected>----Popups----</option>
                 @foreach($popups as $popup)
                 <option value="{{$popup->slug}}"> {{$popup->name}}</option>
                 @endforeach

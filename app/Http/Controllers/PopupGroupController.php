@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Domain;
 use App\Models\Popup;
 use App\Models\PopupGroup;
+use App\Models\PopupGroupCondition;
 use Illuminate\Http\Request;
 use Nette\Utils\ArrayList;
 
@@ -103,23 +104,39 @@ class PopupGroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->selects) {
-            for ($i = 0; $i < count($request->selects); $i++) {
-                // $urls = explode("\n", $request->textareas[$i]);
-                $conditions = array($request->selects[$i] => ''.$request->textareas[$i]);
 
-
-            }
-        }
-        dd($conditions);
         request()->validate([
-            'name' => 'required|unique:popup_groups'
+            'name' => 'required|string|max:255'
         ]);
         $group = PopupGroup::find($id);
 
         $group->update([
             'name' => $request->name
         ]);
+        if($request->selects) {
+            for ($i = 0; $i < count($request->selects); $i++) {
+
+                if($request->selects[$i] == null){
+                    return redirect()->route('groups.edit')->with(['error' => "Please select the popup"]);
+
+                }else{
+                    // $urls = explode("\n", $request->textareas[$i]);
+                    $conditions = array($request->selects[$i] => ''.$request->textareas[$i]);
+
+                    $popup_id = Popup::where('slug',$request->selects[$i])->first()->id;
+                    request()->validate([
+                        'url' => 'required|url'
+                    ]);
+
+                    PopupGroupCondition::create(
+                        [
+                            'popup_id' => $popup_id,
+                            'url' => $request->textareas[$i]
+                        ]
+                    );
+                }
+            }
+        }
 
         return redirect()->route('groups.index')->with(['success' => "Update successfully completed"]);
     }
