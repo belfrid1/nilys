@@ -165,7 +165,7 @@
                                                              <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter.min.css" />
 
                                                              <!-- Script js -->
-                                                            <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost" data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF" data-popup-group-guid="XXX-GROUP23-234434"></script>
+                                                            <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost" data-api-url="http://localhost/public/contact/create"  data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
                                                             </code>
                                                         </pre>
                                                     </div>
