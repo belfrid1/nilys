@@ -16105,8 +16105,8 @@ var KTChartsWidget36 = function () {
 
         var options = {
             series: [{
-                name: 'Inbound Calls',
-                data: [65, 80, 80, 60, 60, 45, 45, 80, 80, 70, 70, 90, 90, 80, 80, 80, 60, 60, 50]
+                name: "Nombres d'inscrits",
+                data: [ 90, 80, 80, 80, 60, 60, 50]
             }],
             chart: {
                 fontFamily: 'inherit',
