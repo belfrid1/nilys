@@ -88,13 +88,13 @@ class PopupGroupController extends Controller
     {
 
         //get group id with slug
-        $groupId = PopupGroup::firstwhere('slug',$slug)->id;
+        $groupId = PopupGroup::firstwhere('slug', $slug)->id;
 
         //get all popups of group
-        $popups = Popup::where('popupgroup_id',$groupId)->get();
-        $group = PopupGroup::firstWhere('slug',$slug);
+        $popups = Popup::where('popupgroup_id', $groupId)->get();
+        $group = PopupGroup::firstWhere('slug', $slug);
 
-        return view('back.popup-group.edit', compact('group','popups'));
+        return view('back.popup-group.edit', compact('group', 'popups'));
     }
 
     /**, specified resource in storage.
@@ -108,25 +108,24 @@ class PopupGroupController extends Controller
         request()->validate([
             'name' => 'required|string|max:255'
         ]);
-        $group = PopupGroup::find($id);
+        $group = PopupGroup::where(["guid" => $id]);
 
         $group->update([
             'name' => $request->name
         ]);
-        if($request->selects) {
+        if ($request->selects) {
             for ($i = 0; $i < count($request->selects); $i++) {
 
-                if($request->selects[$i] == null){
+                if ($request->selects[$i] == null) {
                     return redirect()->route('groups.edit')->with(['error' => "Please select the popup"]);
-
-                }else{
+                } else {
                     // $urls = explode("\n", $request->textareas[$i]);
-                    $conditions = array($request->selects[$i] => ''.$request->textareas[$i]);
+                    $conditions = array($request->selects[$i] => '' . $request->textareas[$i]);
 
-                    $popup_id = Popup::where('slug',$request->selects[$i])->first()->id;
-                    request()->validate([
+                    $popup_id = Popup::where('slug', $request->selects[$i])->first()->id;
+                    /*request()->validate([
                         'url' => 'required|url'
-                    ]);
+                    ]);*/
 
                     PopupGroupCondition::create(
                         [
@@ -150,10 +149,10 @@ class PopupGroupController extends Controller
      */
     public function destroy($slug)
     {
-        $popupGroup = PopupGroup::where('slug',$slug);
+        $popupGroup = PopupGroup::where('slug', $slug);
         try {
             $popupGroup->delete();
-        }catch (\Exception $exceptione){
+        } catch (\Exception $exceptione) {
             return redirect()->back()->with(['error' => $exceptione->getMessage()]);
         }
 
