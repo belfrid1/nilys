@@ -58,4 +58,8 @@ class HomeController extends Controller
 
         return view('back.dashboard', compact(['data']));
     }
+
+    public function getRegistrations(){
+
+    }
 }
