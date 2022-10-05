@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\Popup;
+use App\Models\PopupGroupCondition;
+use App\Models\SettingEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
@@ -37,25 +41,40 @@ class ContactController extends Controller
         $checkRules = [
             'firstname' => ['bail', 'required', 'max:255'],
             'email' => ['bail', 'required', 'max:255', 'email'],
-            'domain' => ['bail', 'required', 'max:255'],
-            'url' => ['bail', 'required', 'max:255'],
-            'popup_guid' => ['bail', 'required', 'max:255'],
-            'group_guid' => ['bail', 'required', 'max:255']
+            'url' => ['bail', 'required', 'max:255']
         ];
 
         $validated = Validator::make($request->all(), $checkRules);
 
         if (!$validated->fails()) {
-            $popup = Contact::create([
-                'firstname' => $request->firstname,
-                'email' => $request->email,
-                'domain' => $request->domain,
-                'url' => $request->url,
-                'popup_guid' => $request->popup_guid,
-                'popupgroup_guid' => $request->group_guid
-            ]);
+            // check if user has allready suscribe to the newletter of this page
+            $checkSubscribe = Contact::where(
+                [
+                    "email" => $request->email,
+                    "url" => $request->url
+                ]
+            );
+            if ($checkSubscribe->count() == 0) {
+                // getting popup & group uuid détail
+                $popupCondition = PopupGroupCondition::where(['url' => $request->url]);
+                $domain = str_replace(["http://", "https://", "www."], "", $request->url);
+                if ($popupCondition->count() > 0) {
+                    $popup =  Popup::where(["id" => $popupCondition->first()->popup_id]);
+                    $contact = Contact::create([
+                        'firstname' => $request->firstname,
+                        'email' => $request->email,
+                        'domain' => $domain,
+                        'url' => $request->url,
+                        'status' => 0,
+                        'popup_guid' => $popup->first()->id,
+                        'popupgroup_guid' => $popup->first()->popupgroup_id
+                    ]);
 
-            if ($popup) {
+                    if ($contact) {
+                        $this->reponseApi["statut"] = true;
+                    }
+                }
+            } else {
                 $this->reponseApi["statut"] = true;
             }
         } else {
@@ -67,5 +86,12 @@ class ContactController extends Controller
         }
 
         return response()->json($this->reponseApi, 200);
+    }
+
+
+
+    public function getCreate()
+    {
+        return response()->json(["job" => "listen"], 200);
     }
 }
