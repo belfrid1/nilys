@@ -1,7 +1,6 @@
 @extends('layouts.base')
 
 @section('app_main')
-    <link rel="stylesheet" href="https://kidevs.xyz/nilys/v1/kknewsletter.min.css" />
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
         <!--begin::Content wrapper-->

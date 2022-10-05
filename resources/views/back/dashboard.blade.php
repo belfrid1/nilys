@@ -355,7 +355,7 @@
                                 <h3 class="card-title align-items-start flex-column">
                                     <span class="card-label fw-bold text-dark">Contacts</span>
                                     {{ $registrationsByDay['today'] }} registration for today
-                                    <span class="text-gray-400 mt-1 fw-semibold fs-6">Nombres d'inscrits par jour</span>
+                                    <span class="text-gray-400 mt-1 fw-semibold fs-6">Number of registrants per day</span>
                                 </h3>
                                 <!--end::Title-->
                                 <!--begin::Toolbar-->

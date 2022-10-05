@@ -58,14 +58,37 @@ class HomeController extends Controller
         $registrationsByDay = $this->getRegistrations();
 
 
+
         return view('back.dashboard', compact(['data'],['registrationsByDay']));
     }
 
     public function getRegistrations(){
 
-       $today = now();
-       $nbContact = Contact::where('created_at',$today)->count();
+       // stat on 2 weeks
+       $interval = 14 ;
+        $registrationsByDay = [];
+        $y = [];
+        $x = [];
+        $registrationsByDay = [];
+       for($i= 0; $i <= $interval;$i++){
+           $date = Carbon::today()->modify('-'.$i.' day');
+           $nbContactForDate = Contact::whereDate('created_at', $date)->get()->count();
+           $registrationsByDay[$date->format('Y-m-d')] = $nbContactForDate;
+            $y[] =  $nbContactForDate ;
+           $x[] = $date->format('Y-m-d');
 
-       return $registrationsByDay = ['today'=>$nbContact];
+       }
+        $todaydate = Carbon::today();
+        $nbContactForDate = Contact::whereDate('created_at', $todaydate)->get()->count();
+
+
+
+       $x = json_encode(array_values($x));
+
+
+        $x = ['', '8 AM', '81 AM', '9 AM', '10 AM', '11 AM', '12 PM', '13 PM', '14 PM', '15 PM', '16 PM', '17 PM', '18 PM', '18:20 PM', '18:20 PM', '19 PM', '20 PM', '21 PM', ''];
+        $y =[ 90, 80, 80, 80, 60, 60, 50];
+
+       return $registrationsByDay = ['x'=>$registrationsByDay, 'y'=> $y, 'today' =>$nbContactForDate ];
     }
 }
