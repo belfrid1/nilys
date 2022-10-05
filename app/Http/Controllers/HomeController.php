@@ -55,11 +55,17 @@ class HomeController extends Controller
         $data["popupsLastUpdateCount"] = $popupLastUpdateCount;
         $data["popupsLastAddCount"] = $popupLastAddCount;
 
+        $registrationsByDay = $this->getRegistrations();
 
-        return view('back.dashboard', compact(['data']));
+
+        return view('back.dashboard', compact(['data'],['registrationsByDay']));
     }
 
     public function getRegistrations(){
 
+       $today = now();
+       $nbContact = Contact::where('created_at',$today)->count();
+
+       return $registrationsByDay = ['today'=>$nbContact];
     }
 }
