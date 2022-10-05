@@ -90,9 +90,9 @@ Route::get('/popup/delete/{popup}', [PopupController::class, 'destroy'])->name('
 
 //api for contact
 Route::middleware(['cors'])->group(function () {
-    Route::get('public/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
-    Route::get('public/script/popup-content', [App\Http\Controllers\Api\ScriptController::class, "getPopupContent"]);
-    Route::get('public/api/test', [App\Http\Controllers\Api\ContactController::class, "test"]);
+    Route::get('api/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
+    Route::get('api/script/popup-content', [App\Http\Controllers\Api\ScriptController::class, "getPopupContent"]);
+    Route::get('api/test', [App\Http\Controllers\Api\ContactController::class, "test"]);
 
 });
 Route::resource('contact', ContactController::class);
