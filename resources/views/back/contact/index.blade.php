@@ -85,7 +85,7 @@
                                                 <td>{{ $contact->created_at }}</td>
                                                 <td>{{ $contact->updated_at }}</td>
                                                 <td>
-                                                    <a href="{{ route("contact.send_mail", $contact) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="Sent Mail">
+                                                    <a href="{{ route("contact.send_mail", $contact->id) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="Sent Mail">
                                                         <span class="menu-icon">
                                                             <!--begin::Svg Icon | path: icons/duotune/general/gen016.svg-->
                                                             <span class="svg-icon svg-icon-2 me-3">
@@ -188,9 +188,35 @@
         });
     </script>
 
+    @if(Session::has('error'))
+        <script type="text/javascript">
+            toastr.error(`<b> {{session('error') }} !</b>`, {
+                closeButton: true,
+                positionClass: "toast-top-right",
+                showDuration: 1000,
+                hideDuration: 10000000,
+            });
+        </script>
+    @endif
+    @if(Session::has('success'))
+
+        <script type="text/javascript">
+            toastr.success(`<b> {{ session('success') }} !</b>`, {
+                closeButton: true,
+                positionClass: "toast-top-right",
+                showDuration: 1000,
+                hideDuration: 10000000,
+            });
+        </script>
+    @endif
+
     <!-- src="" -->
     <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
         data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
         data-popup-group-guid="XXX-GROUP23-234434">
     </script>
+
+
 @endsection
+
+
