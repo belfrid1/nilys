@@ -89,7 +89,7 @@ Route::get('/popup/delete/{popup}', [PopupController::class, 'destroy'])->name('
 
 // contact all route
 Route::resource('contact', ContactController::class);
-Route::get('contact/sent-mail', [ContactController::class, "send_mail"])->name("contact.send_mail");
+Route::get('contact/sent-mail/{id}', [\App\Http\Controllers\Mail\MailController::class,'sendMail'])->name("contact.send_mail");
 
 //api for contact
 Route::get('public/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
@@ -106,25 +106,3 @@ Route::get('/settings/edit/setting_api', [SettingsController::class, 'editSettin
 
 
 
-// mail route
-Route::get('send-mail', function () {
-
-
-
-    $details = [
-
-        'title' => 'Mail from ItSolutionStuff.com',
-
-        'body' => 'This is for testing email using smtp'
-
-    ];
-
-
-
-    \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\NilysMail($details));
-
-
-
-    dd("Email is Sent.");
-
-});

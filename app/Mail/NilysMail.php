@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\SettingEmail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 class NilysMail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $details;
 
     /**
      * Create a new message instance.
@@ -28,8 +30,9 @@ class NilysMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Mail from ItSolutionStuff.com')
-
-            ->view('emails.myTestMail');
+        $subject = SettingEmail::latest()->first()->suject;
+        return $this->from('belfrid1@gmail.com')
+            ->subject($subject)
+            ->view('emails.nilysEmail');
     }
 }
