@@ -87,14 +87,17 @@ Route::get('/popup/delete/{popup}', [PopupController::class, 'destroy'])->name('
 
 
 
-// contact all route
+
+//api for contact
+Route::middleware(['cors'])->group(function () {
+    Route::get('public/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
+    Route::get('public/script/popup-content', [App\Http\Controllers\Api\ScriptController::class, "getPopupContent"]);
+    Route::get('public/api/test', [App\Http\Controllers\Api\ContactController::class, "test"]);
+
+});
 Route::resource('contact', ContactController::class);
 Route::get('contact/sent-mail/{id}', [\App\Http\Controllers\Mail\MailController::class,'sendMail'])->name("contact.send_mail");
 
-//api for contact
-Route::get('public/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
-Route::get('public/script/popup-content', [App\Http\Controllers\Api\ScriptController::class, "getPopupContent"]);
-Route::get('public/api/test', [App\Http\Controllers\Api\ContactController::class, "test"]);
 
 
 
