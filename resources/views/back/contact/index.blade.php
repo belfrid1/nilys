@@ -87,6 +87,7 @@
                                                     <a href="{{ route('contact.send_mail', $contact) }}"
                                                         class="btn btn-icon btn-bg-light btn-active-color-warning  me-1"
                                                         data-toggle="tooltip" data-placement="top" title="Sent Mail">
+                                                    </a>
                                                     <a href="{{ route("contact.send_mail", $contact->id) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="Sent Mail">
                                                         <span class="menu-icon">
                                                             <!--begin::Svg Icon | path: icons/duotune/general/gen016.svg-->
@@ -104,7 +105,6 @@
                                                             <!--end::Svg Icon-->
                                                         </span>
                                                     </a>
-
                                                 </td>
                                             </tr>
                                         @endforeach
