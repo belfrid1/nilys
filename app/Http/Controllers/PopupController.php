@@ -48,7 +48,9 @@ class PopupController extends Controller
 
         request()->validate([
             'name' => 'required|string|max:255|unique:popups',
-            'popup_content' => 'required',
+            'email_subject' => 'required|string',
+            'email_content' => 'required|string',
+            'popup_content' => 'required|string',
             'popup_group' => 'required',
         ]);
 
@@ -73,6 +75,8 @@ class PopupController extends Controller
         $popup = Popup::create([
             'name' => $request->name,
             'popup_content' => $request->popup_content,
+            'email_subject' => $request->email_subject,
+            'email_content' => $request->email_content,
             'popupgroup_id' => $request->popup_group,
             'default' => $request->boolean('default'),
             'enable' => $request->boolean('enable'),
@@ -113,12 +117,15 @@ class PopupController extends Controller
     {
 
         request()->validate([
-            'name' => 'required|string|max:255'
+            'name' => 'required|string|max:255',
+            'email_subject' => 'required|string',
+            'email_content' => 'required|string',
+            'popup_content' => 'required|string',
+            'popup_group' => 'required',
         ]);
 
 
         if($request->default){
-            dd($request->default);
             $old_default_popups =  Popup::where(['default'=>true, 'popupgroup_id'=> $request->popup_group])->get();
             foreach ($old_default_popups as $old_default_popup ){
                 $old_default_popup->update([
@@ -139,6 +146,8 @@ class PopupController extends Controller
         $popup->update([
             'name' => $request->name,
             'popup_content' => $request->popup_content,
+            'email_subject' => $request->email_subject,
+            'email_content' => $request->email_content,
             'popupgroup_id' => $request->popup_group,
             'default' => $request->boolean('default'),
             'enable' => $request->boolean('enable'),

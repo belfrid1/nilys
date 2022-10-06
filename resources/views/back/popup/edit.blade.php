@@ -132,40 +132,6 @@
 
 
                                             <!--begin::Input group-->
-                                            <div class="row g-9 mb-8">
-                                                <!--begin::Col-->
-                                                <div class="col-md-6 fv-row">
-                                                    <!--begin::Label-->
-                                                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                        <span class="required">Popup Subject</span>
-                                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify  Popup subject"></i>
-                                                    </label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" value="{{ $popup->subject ?? ''}}" class="form-control form-control-solid ps-12" id="" name="subject" placeholder="">
-                                                    <!--end::Input-->
-                                                </div>
-                                                <!--end::Col-->
-                                                <!--begin::Col-->
-                                                <div class="col-md-6 fv-row">
-                                                    <!--begin::Label-->
-                                                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                        <span class="required">Email</span>
-                                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify Popup Email"></i>
-                                                    </label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" value="{{ $popup->email ?? ''}}" class="form-control form-control-solid ps-12" id="" name="email" placeholder="">
-                                                    <!--end::Input-->
-                                                </div>
-                                                <!--end::Col-->
-                                            </div>
-                                            <!--end::Input group-->
-
-
-
-
-                                            <!--begin::Input group-->
                                             <div class="fv-row mb-10">
                                                 <!--begin::Label-->
                                                 <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
@@ -180,6 +146,38 @@
                                             <!--end::Input group-->
 
 
+                                            <!--begin::Input group-->
+                                            <div class="row g-9 mb-8">
+                                                <!--begin::Col-->
+                                                <div class="col-md-6 fv-row">
+                                                    <!--begin::Label-->
+                                                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                        <span class="required">Email Subject</span>
+                                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify Email subject"></i>
+                                                    </label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Input-->
+                                                    <input type="text" value="{{ $popup->email_subject ?? ''}}" class="form-control form-control-solid ps-12" id="" name="email_subject" placeholder="Type a Email subject">
+                                                    <!--end::Input-->
+                                                </div>
+                                                <!--end::Col-->
+
+                                            </div>
+                                            <!--end::Input group-->
+
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-10">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="required">Email Content</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="type  Popup content"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <textarea id="email_content_id" name="email_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a Email content" required> {{ $popup->email_content ?? ''}}</textarea>
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Input group-->
 
 
                                             <!--begin::Input group-->
@@ -299,6 +297,16 @@
 <script src="{{ asset('assets/plugins/custom/ckeditor4/ckeditor/ckeditor.js') }}"></script>
 <script>
     CKEDITOR.replace('content_id', {
+        height: 300,
+        filebrowserImageBrowseUrl: '/file-manager?type=Images',
+        filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
+        filebrowserBrowseUrl: '/file-manager?type=Files',
+        filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
+    });
+</script>
+
+<script>
+    CKEDITOR.replace('email_content_id', {
         height: 300,
         filebrowserImageBrowseUrl: '/file-manager?type=Images',
         filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',

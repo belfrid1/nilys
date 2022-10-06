@@ -122,6 +122,59 @@
                                             </div>
                                             <!--end::Input group-->
 
+
+                                            <!--bloc conditions begin-->
+                                            <div class="col">
+                                                <div class="d-flex justify-content-between">
+                                                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                        <span class="">Conditions</span>
+                                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Select popup and add url filter to save a condition"></i>
+                                                    </label>
+                                                    <span id="add_condition_btn" class="btn btn-sm btn-primary m-5">Add Condition</span>
+                                                </div>
+                                                <table id="MyTable" class="table table-striped">
+                                                    <tbody id="tbody">
+
+                                                    @foreach($popupsCondtions as $popupsCondtion)
+                                                        <tr id="">
+                                                            <td>
+                                                                <select name="selects[]" onchange="handlePopup(this)" class="form-select" aria-label="Default select example" required>
+                                                                    <option  value=""  >----Choose Popup----</option>
+                                                                    @foreach($popups as $popup)
+                                                                        <option value="{{$popup->slug}}" @if($popup->id == $popupsCondtion->id) selected @endif> {{$popup->name}}</option>
+                                                                    @endforeach
+
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-floating">
+                                                                    <textarea required class="form-control url_cond_text" name="textareas[]"  placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px;white-space: pre-line">@foreach($cdtions[$popupsCondtion->slug] as $cdtion)   {{ $cdtion ?? ''}}&#13  @endforeach</textarea>
+                                                                    <label for="floatingTextarea2">url</label>
+                                                                </div>
+                                                            </td>
+
+
+                                                            <td>
+                                                                <a href="{{route('delete.condition',$popupsCondtion->slug)}}" id="condition_rm_btn" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
+                                                                    <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                                                    <span class="svg-icon svg-icon-3">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
+                                                                            <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor" />
+                                                                            <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <!--end::Svg Icon-->
+                                                                </a>
+
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--bloc conditions end-->
+
                                             <!--begin::Notice-->
                                             <div class="notice bg-light-primary rounded border-primary border border-dashed p-6">
                                                 <div class="d-flex justify-content-between">
@@ -176,22 +229,7 @@
                                             <!--end::Notice-->
 
                                         </div>
-                                        <!--bloc conditions begin-->
-                                        <div class="col">
-                                            <div class="d-flex justify-content-between">
-                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
-                                                    <span class="">Conditions</span>
-                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Select popup and add url filter to save a condition"></i>
-                                                </label>
-                                                <span id="add_condition_btn" class="btn btn-sm btn-primary mr-0">Add Condition</span>
-                                            </div>
-                                            <table id="MyTable" class="table table-striped">
-                                                <tbody id="tbody">
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!--bloc conditions end-->
                                     </div>
                                     <!--end::Step 1-->
                                     <!--begin::Actions-->
@@ -297,7 +335,7 @@
         $('#tbody').append(`<tr id="cond_row${++rowIdx}">
           <td>
             <select name="selects[]" onchange="handlePopup(this)" class="form-select" aria-label="Default select example" required>
-                <option  value=""  selected>----Popups----</option>
+                <option  value=""  selected>----Choose Popup----</option>
                 @foreach($popups as $popup)
                 <option value="{{$popup->slug}}"> {{$popup->name}}</option>
                 @endforeach

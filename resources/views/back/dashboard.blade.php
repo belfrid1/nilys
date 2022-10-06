@@ -12,13 +12,13 @@
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Default</h1>
+                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Dashboard</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="index.html" class="text-muted text-hover-primary">Home</a>
+                            <a href="{{route('home')}}" class="text-muted text-hover-primary">Home</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -86,7 +86,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly added</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently added</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["domainsLastAddCount"] }} </span>
@@ -99,7 +99,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly modified</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently modified</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["domainsLastUpdateCount"] }}</span>
@@ -112,7 +112,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-primary fw-semibold fs-6 me-2">Total </a>
+                                    <span href="#" class="text-primary fw-semibold fs-6 me-2">Total </span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["domainsCount"] }} </span>
@@ -159,7 +159,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly added</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently added</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["groupsLastAddCount"] }} </span>
@@ -172,7 +172,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly modified</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently modified</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["groupsLastUpdateCount"] }}</span>
@@ -185,7 +185,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-primary fw-semibold fs-6 me-2">Total </a>
+                                    <span href="#" class="text-primary fw-semibold fs-6 me-2">Total </span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["groupsCount"] }} </span>
@@ -232,7 +232,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly added</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently added</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["popupsLastAddCount"] }} </span>
@@ -245,7 +245,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly modified</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently modified</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["groupsLastUpdateCount"] }}</span>
@@ -258,7 +258,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-primary fw-semibold fs-6 me-2">Total </a>
+                                    <span href="#" class="text-primary fw-semibold fs-6 me-2">Total </span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["popupsCount"] }} </span>
@@ -305,7 +305,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly added</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently added</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["contactsLastAddCount"] }} </span>
@@ -318,7 +318,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-black-50 fw-semibold fs-6 me-2">Recenttly modified</a>
+                                    <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently modified</span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["contactsLastUpdateCount"] }}</span>
@@ -331,7 +331,7 @@
                                 <!--begin::Item-->
                                 <div class="d-flex flex-stack">
                                     <!--begin::Section-->
-                                    <a href="#" class="text-primary fw-semibold fs-6 me-2">Total </a>
+                                    <span href="#" class="text-primary fw-semibold fs-6 me-2">Total </span>
                                     <!--end::Section-->
                                     <!--begin::Action-->
                                     <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["contactsCount"] }} </span>

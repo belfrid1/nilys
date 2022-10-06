@@ -16,8 +16,8 @@ class CreatePopupsTable extends Migration
         Schema::create('popups', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('subject')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email_subject');
+            $table->string('email_content');
             $table->text('popup_content');
             $table->boolean('enable');
             $table->boolean('default');

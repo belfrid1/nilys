@@ -140,6 +140,41 @@
 
 
 
+                                            <!--begin::Input group-->
+                                            <div class="row g-9 mb-8">
+                                                <!--begin::Col-->
+                                                <div class="col-md-6 fv-row">
+                                                    <!--begin::Label-->
+                                                    <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                        <span class="required">Email Subject</span>
+                                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify Email subject"></i>
+                                                    </label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Input-->
+                                                    <input type="text" value="{{ old('name') }}" class="form-control form-control-solid ps-12" id="" name="email_subject" placeholder="Type a Email subject">
+                                                    <!--end::Input-->
+                                                </div>
+                                                <!--end::Col-->
+
+                                            </div>
+                                            <!--end::Input group-->
+
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-10">
+                                                <!--begin::Label-->
+                                                <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                    <span class="required">Email Content</span>
+                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="type  Popup content"></i>
+                                                </label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <textarea id="create_email_content_id" name="email_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a Email content" required> {{ old('popup_content') }}</textarea>
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Input group-->
+
+
+
 
                                             <!--begin::Input group-->
                                             <div class="row g-9 mb-8">
@@ -238,6 +273,16 @@
 <script>
     CKEDITOR.replace('content_id', {
         height: 400,
+        filebrowserImageBrowseUrl: '/file-manager?type=Images',
+        filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
+        filebrowserBrowseUrl: '/file-manager?type=Files',
+        filebrowserUploadUrl: '/file-manager/upload?type=Files&_token={{ csrf_token() }}'
+    });
+</script>
+
+<script>
+    CKEDITOR.replace('create_email_content_id', {
+        height: 300,
         filebrowserImageBrowseUrl: '/file-manager?type=Images',
         filebrowserImageUploadUrl: '/file-manager/upload?type=Images&_token={{ csrf_token() }}',
         filebrowserBrowseUrl: '/file-manager?type=Files',

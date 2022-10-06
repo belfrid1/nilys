@@ -26,7 +26,7 @@ class CreateSettingEmails extends Migration
             $table->string('encryption')->default('tls');
             $table->string('from_address');
             $table->string('mailler')->default('smtp');
-            \App\Models\PopupGroup::addSlugColumn($table);
+            \App\Models\SettingEmail::addSlugColumn($table);
             $table->timestamps();
         });
     }

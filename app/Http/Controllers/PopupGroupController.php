@@ -90,11 +90,40 @@ class PopupGroupController extends Controller
         //get group id with slug
         $groupId = PopupGroup::firstwhere('slug', $slug)->id;
 
+
+
+
         //get all popups of group
         $popups = Popup::where('popupgroup_id', $groupId)->get();
+
+        //get condtions
+        $allConditions = [];
+        $cdtions = [];
+        $popupsCondtions = [];
+
+
+        foreach ($popups as $popup){
+
+            // for find condition popup
+//            $allConditions = PopupGroupCondition::where('popup_id',$popup->id)->get();
+            $condition = PopupGroupCondition::where('popup_id',$popup->id)->first();
+
+
+
+            //get group popup conditions
+            if($condition){
+                $popupsCondtions[] =  $popup;
+
+                    if($popup->id == $condition->popup->id ){
+                        $cdtions[$popup->slug] =  json_decode($condition->url);
+                    }
+            }
+        }
+
+        // get groups  with slig
         $group = PopupGroup::firstWhere('slug', $slug);
 
-        return view('back.popup-group.edit', compact('group', 'popups'));
+        return view('back.popup-group.edit', compact('group', 'popups','cdtions','popupsCondtions'));
     }
 
     /**, specified resource in storage.
@@ -108,36 +137,67 @@ class PopupGroupController extends Controller
         request()->validate([
             'name' => 'required|string|max:255'
         ]);
+
         $group = PopupGroup::where(["guid" => $id]);
 
         $group->update([
             'name' => $request->name
         ]);
         if ($request->selects) {
+
             for ($i = 0; $i < count($request->selects); $i++) {
 
                 if ($request->selects[$i] == null) {
                     return redirect()->route('groups.edit')->with(['error' => "Please select the popup"]);
                 } else {
-                    // $urls = explode("\n", $request->textareas[$i]);
-                    $conditions = array($request->selects[$i] => '' . $request->textareas[$i]);
+//                    str_replace(' ', '', $request->textareas[$i]);
 
-                    $popup_id = Popup::where('slug', $request->selects[$i])->first()->id;
-                    /*request()->validate([
-                        'url' => 'required|url'
-                    ]);*/
+                     $urls = explode("\n", trim(str_replace(' ', '', trim(preg_replace('/\r/', '', trim(preg_replace('/\t+/', '', $request->textareas[$i])))))));
+//                    dd($request->textareas[$i],);
 
-                    PopupGroupCondition::create(
-                        [
-                            'popup_id' => $popup_id,
-                            'url' => $request->textareas[$i]
-                        ]
-                    );
+                    //check il url is valid
+
+                    foreach ($urls as $url){
+                        $regex = "((https?|ftp)\:\/\/)?"; // SCHEME
+                        $regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?"; // User and Pass
+                        $regex .= "([a-z0-9-.]*)\.([a-z]{2,3})"; // Host or IP
+                        $regex .= "(\:[0-9]{2,5})?"; // Port
+                        $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path
+                        $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query
+                        $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor
+
+                        if(!preg_match("/^$regex$/i", $url)) // `i` flag for case-insensitive
+                        {
+                            return redirect()->back()->with(['error' => "Please check urls, you have enter a unvalid url"]);
+                        }
+                    }
+
+                    $popup = Popup::where('slug', $request->selects[$i])->first();
+
+                    if($popup){
+                        $popupGroupCondition = PopupGroupCondition::where('popup_id',$popup->id)->first();
+
+                       if($popupGroupCondition){
+                           $popupGroupCondition->update([
+                               'popup_id' => $popup->id,
+                               'url' => json_encode($urls)
+                           ]);
+                       }else{
+                           PopupGroupCondition::create([
+                               'popup_id' => $popup->id,
+                               'url' => json_encode($urls)
+                           ]);
+                       }
+
+                    }else{
+                        return redirect()->route('groups.index')->with(['error' => "Can't edit Popup Group , Popup does not exist"]);
+                    }
+
                 }
             }
         }
 
-        return redirect()->route('groups.index')->with(['success' => "Update successfully completed"]);
+        return redirect()->route('groups.index')->with(['success' => "Popup group Update successfully completed"]);
     }
 
 
@@ -158,5 +218,22 @@ class PopupGroupController extends Controller
 
         // Redirection route "posts.index"
         return redirect()->back()->with(['success' => "Deletion successfully completed"]);
+    }
+
+
+    public function destroyCdtion($slug)
+    {
+
+        $popup = Popup::where('slug',$slug)->first();
+        $popupGroupConditions = PopupGroupCondition::where('popup_id', $popup->id)->first();
+
+        try {
+            $popupGroupConditions->delete();
+        } catch (\Exception $exceptione) {
+            return redirect()->back()->with(['error' => $exceptione->getMessage()]);
+        }
+
+        // Redirection route "posts.index"
+        return redirect()->back()->with(['success' => "Conditions Deletion successfully completed"]);
     }
 }

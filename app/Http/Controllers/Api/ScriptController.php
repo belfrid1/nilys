@@ -28,18 +28,24 @@ class ScriptController extends Controller
 
     public function getPopupContent(Request $request)
     {
+
+        $guid = "1234e5678-eazerty57-47mp-23kn";
         $this->responseApi = ["statut" => false, "error" => '', "data" => 'i'];
 
-        $popup = PopupGroupCondition::where('url', $request->url);
 
-        if ($popup->count() > 0) {
-            $popupId = $popup->first()->popup_id;
-            $popupContent = Popup::where('id', $popupId)->first()->popup_content;
-            $this->responseApi["data"] = $popupContent;
-            $this->responseApi["statut"] = true;
-        } else {
-            $this->responseApi["status"] = false;
-            $this->responseApi["error"] = "This url does not match any Popup";
+        $allPopup = Popup::where('guid',$guid)->get();
+        $urls = [];
+        foreach ($allPopup as $popup){
+            $conditions  = PopupGroupCondition::where('popup_id', $popup->id)->first();
+
+                $urls = $conditions->url;
+
+                foreach ($urls as $url){
+                    if($url === $request->url ){
+                        $this->responseApi["data"] = $popup->popup_content;
+                        $this->responseApi["statut"] = true;
+                    }
+                }
         }
 
         return response()->json($this->responseApi, 200);

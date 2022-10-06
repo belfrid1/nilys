@@ -16,7 +16,7 @@ class CreateSettingApis extends Migration
         Schema::create('setting_apis', function (Blueprint $table) {
             $table->id();
             $table->string('website_url');
-            \App\Models\PopupGroup::addSlugColumn($table);
+            \App\Models\SettingApi::addSlugColumn($table);
             $table->timestamps();
         });
     }

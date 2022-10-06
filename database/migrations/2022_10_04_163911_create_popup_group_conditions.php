@@ -15,7 +15,8 @@ class CreatePopupGroupConditions extends Migration
     {
         Schema::create('popup_group_conditions', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->json('url')->default(new \Illuminate\Database\Query\Expression('(JSON_ARRAY())'));
+            \App\Models\PopupGroupCondition::addSlugColumn($table);
             $table->unsignedBigInteger('popup_id');
             $table->foreign('popup_id')->references('id')->on('popups');
 

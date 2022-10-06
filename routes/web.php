@@ -88,6 +88,8 @@ Route::get('/popup/delete/{popup}', [PopupController::class, 'destroy'])->name('
 
 
 
+
+
 //api for contact
 Route::middleware(['cors'])->group(function () {
     Route::get('api/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
@@ -106,6 +108,11 @@ Route::get('contact/sent-mail/{id}', [\App\Http\Controllers\Mail\MailController:
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
 Route::get('/settings/edit/setting_mail', [SettingsController::class, 'editSettingMail'])->name('edit.setting_mail');
 Route::get('/settings/edit/setting_api', [SettingsController::class, 'editSettingApi'])->name('edit.setting_api');
+
+
+/// conditions route
+Route::get('/conditions/delete/{cdtion}', [PopupGroupController::class, 'destroyCdtion'])->name('delete.condition');
+
 
 
 
