@@ -151,7 +151,7 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" value="{{ old('name') }}" class="form-control form-control-solid ps-12" id="" name="email_subject" placeholder="Type a Email subject">
+                                                    <input type="email" value="{{ old('name') }}" class="form-control form-control-solid ps-12" id="" name="email_subject" placeholder="Type a Email subject">
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Col-->
