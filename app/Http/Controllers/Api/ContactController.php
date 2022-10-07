@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Popup;
+use App\Models\PopupGroup;
 use App\Models\PopupGroupCondition;
 use App\Models\SettingEmail;
 use Illuminate\Http\Request;
@@ -35,7 +36,9 @@ class ContactController extends Controller
      */
     public function create(Request $request)
     {
-        $this->reponseApi = ["statut" => false, "error" => ''];
+        $guid = "1234e5678-eazerty57-47mp-23kn";
+
+        $this->reponseApi = ["statut" => false,   "error" => '', "message"=> ''];
 
         // Check input
         $checkRules = [
@@ -45,37 +48,89 @@ class ContactController extends Controller
         ];
 
         $validated = Validator::make($request->all(), $checkRules);
-
         if (!$validated->fails()) {
-            // check if user has allready suscribe to the newletter of this page
-            $checkSubscribe = Contact::where(
-                [
-                    "email" => $request->email,
-                    "url" => $request->url
-                ]
-            );
-            if ($checkSubscribe->count() == 0) {
-                // getting popup & group uuid détail
-                $popupCondition = PopupGroupCondition::where(['url' => $request->url]);
-                $domain = str_replace(["http://", "https://", "www."], "", $request->url);
-                if ($popupCondition->count() > 0) {
-                    $popup =  Popup::where(["id" => $popupCondition->first()->popup_id]);
-                    $contact = Contact::create([
-                        'firstname' => $request->firstname,
-                        'email' => $request->email,
-                        'domain' => $domain,
-                        'url' => $request->url,
-                        'status' => 0,
-                        'popup_guid' => $popup->first()->id,
-                        'popupgroup_guid' => $popup->first()->popupgroup_id
-                    ]);
 
-                    if ($contact) {
-                        $this->reponseApi["statut"] = true;
+            // get group to get popup
+            // groupe help us to make the research on one part of conditions table
+            $group = PopupGroup::where('guid',$guid)->first();
+
+            // get all popup related to the group to reduce the search of url
+            // we need poppup id to get conditons , check if conditions url is request url and save popup id
+            $allPopup = Popup::where('popupgroup_id',$group->id)->get();
+
+            $domain = str_replace(["http://", "https://", "www."], "", $request->url);
+
+            $urls = [];
+            foreach ($allPopup as $popup){
+
+                $popupCondition = PopupGroupCondition::where(['popup_id' => $popup->id])->first();
+
+                if ($popupCondition) {
+                    $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
+                    $urls = $popupCondition->url;
+                    $arrayUrl = json_decode($urls);
+                    foreach ($arrayUrl as $url){
+
+                        if($url == $request->url ){
+
+                            // check if user has allready suscribe to the newletter of this page
+                            $checkSubscribe = Contact::where(
+                                [
+                                    "email" => $request->email,
+                                    "url" => $request->url
+                                ]
+                            );
+
+
+                            if ($checkSubscribe->count() == 0) {
+//                                dd($checkSubscribe,$request->url,$popupCondition,$arrayUrl,$popup,$popupCondition->popup_id);
+                                $contact = Contact::create([
+                                    'firstname' => $request->firstname,
+                                    'email' => $request->email,
+                                    'domain' => $domain,
+                                    'url' => $request->url,
+                                    'status' => 0,
+                                    'popup_guid' => $popup->slug,
+                                    'popupgroup_guid' => $group->guid
+                                ]);
+
+                                if ($contact) {
+                                    $this->reponseApi["statut"] = true;
+                                    $this->reponseApi["error"] = "";
+                                    $this->reponseApi["message"] = "Contact created";
+                                }else{
+                                    $this->reponseApi["statut"] = false;
+                                    $this->reponseApi["error"] = "Unable to create contact";
+                                }
+
+                            } else {
+                                // to edit
+//                                dd($group->guid,'edit',$checkSubscribe,$request->url,$popupCondition,$arrayUrl,$popup,$popupCondition->popup_id);
+                                if ($popupCondition) {
+                                    $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
+                                    $checkSubscribe->update([
+                                        'firstname' => $request->firstname,
+                                        'email' => $request->email,
+                                        'domain' => $domain,
+                                        'url' => $request->url,
+                                        'status' => 0,
+                                        'popup_guid' => $popup->slug,
+                                        'popupgroup_guid' => $group->guid
+                                    ]);
+                                    $this->reponseApi["statut"] = true;
+                                    $this->reponseApi["error"] = "";
+                                    $this->reponseApi["message"] = "Contact edited";
+                                }else{
+                                    $this->reponseApi["error"] = "Editing contact : This Url does not exist ";
+                                }
+                            }
+
+                        }
                     }
                 }
-            } else {
-                $this->reponseApi["statut"] = true;
+                else{
+                    $this->reponseApi["error"] = "Contact creating : This Url does not exist";
+                }
             }
         } else {
             if (!empty($validated->messages()->get('firstname'))) {

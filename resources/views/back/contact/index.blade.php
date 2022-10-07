@@ -1,4 +1,4 @@
-@extends('layouts.base')
+    @extends('layouts.base')
 
 @section('app_main')
     <!--begin::Main-->
@@ -180,6 +180,12 @@
     <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
         data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
         data-popup-group-guid="XXX-GROUP23-234434">
+    </script>
+
+
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/popup.script.css">
+
+    <script src="http://127.0.0.1:8000/assets/js/popup.script.js" id="kknewsletter442"  data-popup-group-guid="XXX-GROUP23-234434">
     </script>
 
 

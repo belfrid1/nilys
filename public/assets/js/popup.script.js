@@ -128,7 +128,8 @@ let kknewsletter442Config = {
     domain: window.location.origin,
     api: 'api/contact/create',
     remember_day: 10,
-    website: 'https://newsletter.nilys.com/'
+    // website: 'https://newsletter.nilys.com/'
+    website: '127.0.0.1:8000/'
 }
 
 
@@ -174,6 +175,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
             let api_url = kknewsletter442Config.website + kknewsletter442Config.api +
                 `?firstname=${document.getElementById("kknewsletter442-name").value}&email=${document.getElementById("kknewsletter442-email").value}&url=${kknewsletter442Config.domain}`;
 
+            console.log(api_url);
             fetch(api_url)
                 .then((response) => response.json())
                 .then((data) => {
@@ -183,11 +185,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
                         kknewsletterFormUI("finish");
                         kknewsletterFormApiReponse('success', kknewsletterDefaultSuccessMessage);
                     } else {
+                        console.log(api_url);
                         kknewsletterFormApiReponse('error', data.error ? "âŠ—" + data.error :
                             kknewsletterDefaultErrorMessage);
                     }
                 })
                 .catch((error) => {
+                    console.log('errue catch '+api_url);
                     kknewsletterFormUI("default");
                     kknewsletterFormApiReponse('error', "âŠ—" + kknewsletterDefaultErrorMessage);
                 });

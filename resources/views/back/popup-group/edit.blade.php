@@ -215,7 +215,7 @@
                                                         <pre style="white-space: pre-line;">
                                                          <code id="contentToCopy" class="language-html">
                                                             <!-- Style css -->
-                                                           <link rel="stylesheet" href="http://kidevs.xyz/nilys/v1/nylis-newletter-v1.css"></link>
+                                                           <link rel="stylesheet" href="http://kidevs.xyz/nilys/v1/nylis-newletter-v1.css">
 
                                                              <!-- Script js -->
                                                             <script src="http://kidevs.xyz/nilys/v1/nylis-newletter-v1.js" id="kknewsletter442"   data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
