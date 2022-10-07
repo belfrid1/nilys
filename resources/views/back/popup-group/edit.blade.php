@@ -215,10 +215,10 @@
                                                         <pre style="white-space: pre-line;">
                                                          <code id="contentToCopy" class="language-html">
                                                             <!-- Style css -->
-                                                           <link rel="stylesheet" href="http://kidevs.xyz/nilys/v1/nylis-newletter-v1.css">
+                                                           <link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">
 
                                                              <!-- Script js -->
-                                                            <script src="http://kidevs.xyz/nilys/v1/nylis-newletter-v1.js" id="kknewsletter442"   data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
+                                                            <script src="https://newsletter.nilys.com/assets/js/popup.script.js?v=1" id="kknewsletter442"   data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
                                                             </code>
                                                         </pre>
                                                     </div>

@@ -128,8 +128,7 @@ let kknewsletter442Config = {
     domain: window.location.origin,
     api: 'api/contact/create',
     remember_day: 10,
-    // website: 'https://newsletter.nilys.com/'
-    website: '127.0.0.1:8000/'
+    website: 'https://newsletter.nilys.com/'
 }
 
 
