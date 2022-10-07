@@ -11,7 +11,7 @@ class Popup extends Model
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ['name','email','sujet','popup_content','popupgroup_id','enable','default'];
+    protected $fillable = ['name','email','sujet','popup_content','popupgroup_id','enable','default','email_subject','email','email_content'];
 
     public function popupgroup(){
         return $this->belongsTo(PopupGroup::class);
