@@ -15,13 +15,15 @@ class MailController extends Controller
         $contact = Contact::find($contactId);
         $contactEmail =  $contact->email;
 
-        $subject = SettingEmail::latest()->first()->sujbect;
-        $content = SettingEmail::latest()->first()->content;
+        $settingEmail = SettingEmail::latest()->first();
 
-        if(!$subject){
+        if(!$settingEmail){
             return redirect()->route('contact.index')->with(['error' => "Please define a default content email and subjet"]);
         }
 
+
+        $subject = $settingEmail->subject;
+        $content = $settingEmail->content;
         $details = [
             'title' => $subject,
             'body' => $content,
