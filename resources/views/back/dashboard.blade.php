@@ -399,8 +399,8 @@
 
     <script type='text/javascript'>
 
-        let xr = <?php echo json_encode($registrationsByDay["x"]); ?>;
-        let x = xr.reverse();
+        let x = <?php echo json_encode($registrationsByDay["x"]); ?>;
+        // let x = xr.reverse();
         // var x = JSON.parse(JSON.stringify());
         let y = <?php echo json_encode($registrationsByDay["y"]); ?>;
 
