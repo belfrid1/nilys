@@ -15,7 +15,7 @@ class MailController extends Controller
         $contact = Contact::find($contactId);
         $contactEmail =  $contact->email;
 
-        $subject = SettingEmail::latest()->first()->suject;
+        $subject = SettingEmail::latest()->first()->sujbect;
         $content = SettingEmail::latest()->first()->content;
 
         $details = [
