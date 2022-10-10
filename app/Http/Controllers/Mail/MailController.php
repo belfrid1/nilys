@@ -18,6 +18,10 @@ class MailController extends Controller
         $subject = SettingEmail::latest()->first()->sujbect;
         $content = SettingEmail::latest()->first()->content;
 
+        if(!$subject){
+            return redirect()->route('contact.index')->with(['error' => "Please define a default content email and subjet"]);
+        }
+
         $details = [
             'title' => $subject,
             'body' => $content,
