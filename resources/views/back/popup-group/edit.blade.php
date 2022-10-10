@@ -133,7 +133,7 @@
                                                     <span id="add_condition_btn" class="btn btn-sm btn-primary m-5">Add Condition</span>
                                                 </div>
                                                 <table id="MyTable" class="table table-striped">
-                                                    <tbody id="tbody">
+                                                    <tbody id="tbody_condi">
 
                                                     @foreach($popupsCondtions as $popupsCondtion)
                                                         <tr id="">
@@ -212,16 +212,16 @@
                                                     <div class="mb-3 mb-md-0 fw-semibold">
                                                         <h4 class="text-gray-900 fw-bold">Script</h4>
 
+
                                                         <pre style="white-space: pre-line;">
                                                          <code id="contentToCopy" class="language-html">
-                                                            <!-- Style css -->
-                                                           <link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">
+                                                             <textarea name="" id="" cols="170" rows="5"><!-- Style css -->&#13<link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">&#13<!-- Script js -->&#13<script type="text/javascript" src="https://kidevs.xyz/nilys/kknewsletter.js?z" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script></textarea>
+{{--                                                            <!-- Style css -->--}}
+{{--                                                           <link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">--}}
 
-                                                             <!-- Script js -->
-                                                             <script src="https://kidevs.xyz/nilys/kknewsletter.js?z" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
-
-{{--                                                            <script src="https://newsletter.nilys.com/assets/js/popup.script.js?v=1" id="kknewsletter442"   data-popup-group-guid="{{ $group->guid ?? ''}}"></script>--}}
-                                                            </code>
+{{--                                                             <!-- Script js -->--}}
+{{--                                                             <script type="text/javascript" src="https://kidevs.xyz/nilys/kknewsletter.js?z" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script>--}}
+                                                         </code>
                                                         </pre>
                                                     </div>
                                                     <!--end::Content-->
@@ -334,7 +334,7 @@
     $('#add_condition_btn').on('click', function() {
         console.log('add condition');
         // Adding a row inside the tbody.
-        $('#tbody').append(`<tr id="cond_row${++rowIdx}">
+        $('#tbody_condi').append(`<tr id="cond_row${++rowIdx}">
           <td>
             <select name="selects[]" onchange="handlePopup(this)" class="form-select" aria-label="Default select example" required>
                 <option  value=""  selected>----Choose Popup----</option>
@@ -400,45 +400,56 @@
 </script>
 @endif
 
-<script type="text/javascript">
-    function handlePopup() {
-        console.log("jhgfdsdffg");
-        const tbody = document.getElementById('tbody')
-        const selects = tbody.getElementsByTagName('select')
-        // const textareas = tbody.getElementsByTagName('textarea')
-        // let conditions = [];
-        // conditions
-        let selectsValues = [];
-        for (let i = 0; i < selects.length; i++) {
-            selectsValues.push(selects[i].value);
-        }
-        for (let i = 0; i < selectsValues.length; i++) {
-            let tmp = [...selectsValues];
-            console.log("%%%%%%%%%%%% tmp %%%%%%%%%%%");
-            console.log(tmp);
-            console.log("%%%%%%%%%%%% tmpVal %%%%%%%%%%%");
-            console.log("")
-            let tmpVal = tmp.splice(i, 1);
-            if (tmp.include(tmpVal)) {
-                console.log("il y a deja ce popup");
-                break;
-            }
-        }
-        console.log("il n'y pas ce popup");
-        // console.log(conditions);
-    }
-</script>
+{{--<script type="text/javascript">--}}
+{{--    function handlePopup() {--}}
+{{--        console.log("jhgfdsdffg");--}}
+{{--        const tbody = document.getElementById('tbody')--}}
+{{--        const selects = tbody.getElementsByTagName('select')--}}
+{{--        // const textareas = tbody.getElementsByTagName('textarea')--}}
+{{--        // let conditions = [];--}}
+{{--        // conditions--}}
+{{--        let selectsValues = [];--}}
+{{--        for (let i = 0; i < selects.length; i++) {--}}
+{{--            selectsValues.push(selects[i].value);--}}
+{{--        }--}}
+{{--        for (let i = 0; i < selectsValues.length; i++) {--}}
+{{--            let tmp = [...selectsValues];--}}
+{{--            console.log("%%%%%%%%%%%% tmp %%%%%%%%%%%");--}}
+{{--            console.log(tmp);--}}
+{{--            console.log("%%%%%%%%%%%% tmpVal %%%%%%%%%%%");--}}
+{{--            console.log("")--}}
+{{--            let tmpVal = tmp.splice(i, 1);--}}
+{{--            if (tmp.include(tmpVal)) {--}}
+{{--                console.log("il y a deja ce popup");--}}
+{{--                break;--}}
+{{--            }--}}
+{{--        }--}}
+{{--        console.log("il n'y pas ce popup");--}}
+{{--        // console.log(conditions);--}}
+{{--    }--}}
+{{--</script>--}}
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-<script type="text/javascript">
-    hljs.highlightAll();
-    document.querySelectorAll("code").forEach(function(element) {
-        element.innerHTML = element.innerHTML
-            .replace(/&/g, "&amp;").replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    });
-</script>
+{{--<script type="text/javascript">--}}
+{{--    hljs.highlightAll();--}}
+{{--    document.querySelectorAll("code").forEach(function(element) {--}}
+{{--        element.innerHTML = element.innerHTML--}}
+{{--            .replace(/&/g, "&amp;").replace(/</g, "&lt;")--}}
+{{--            .replace(/>/g, "&gt;")--}}
+{{--            .replace(/"/g, "&quot;")--}}
+{{--            .replace(/'/g, "&#039;");--}}
+{{--    });--}}
+{{--</script>--}}
+
+{{--<script type="text/javascript">--}}
+{{--    hljs.highlightAll();--}}
+{{--    document.querySelectorAll("code").forEach(function(element) {--}}
+{{--        element.innerHTML = element.innerHTML--}}
+{{--            .replace(/&/g, "").replace(/</g, "&lt;")--}}
+{{--            .replace(/>/g, "&gt;")--}}
+{{--            .replace(/"/g, "")--}}
+{{--            .replace(/'/g, "");--}}
+{{--    });--}}
+{{--</script>--}}
 @endsection
