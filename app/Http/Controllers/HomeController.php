@@ -83,12 +83,15 @@ class HomeController extends Controller
 
 
 
-       $x = json_encode(array_values($x));
 
 
-        $x = ['', '8 AM', '81 AM', '9 AM', '10 AM', '11 AM', '12 PM', '13 PM', '14 PM', '15 PM', '16 PM', '17 PM', '18 PM', '18:20 PM', '18:20 PM', '19 PM', '20 PM', '21 PM', ''];
-        $y =[ 90, 80, 80, 80, 60, 60, 50];
+       $x = array_values($x);
+//       $x = ["2022-01-45", "2002-78-566", "vol"];
+//       $absisse = "ddedfefef";
+//        $x = ['81 AM', '9 AM', '10 AM', '11 AM', '12 PM'];
+//        $x = [ 90, 80, 80, 80, 60, 60, 50];
+//        $y = "je suis la variable string";
 
-       return $registrationsByDay = ['x'=>$registrationsByDay, 'y'=> $y, 'today' =>$nbContactForDate ];
+       return $registrationsByDay = ['x'=>$x, 'y'=> $y, 'today' =>$nbContactForDate ];
     }
 }

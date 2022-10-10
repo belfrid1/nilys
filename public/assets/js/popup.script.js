@@ -96,8 +96,8 @@ function kknewsletterFormApiReponse(reponseType, reponseMessage) {
 /***
  * Detail et GET User Configuration
  **/
-let kknewsletterDefaultSuccessMessage = "âœ“ You have successfully subscribed to our newsletter";
-let kknewsletterDefaultErrorMessage = "âŠ— Something went wrong, please try again later";
+let kknewsletterDefaultSuccessMessage = "Ã¢Å“â€œ You have successfully subscribed to our newsletter";
+let kknewsletterDefaultErrorMessage = "Ã¢Å â€” Something went wrong, please try again later";
 let kknewsletter442GetScript = document.getElementById("kknewsletter442");
 let kknewsletterCookies = 'kknewsletter-cookies';
 let kknewsletter442Modal = `<div  id="newsletter-bbloc442" class="nylis-modal-hide">
@@ -109,7 +109,7 @@ let kknewsletter442Modal = `<div  id="newsletter-bbloc442" class="nylis-modal-hi
             <form method="GET" action="#">
                 <div style="width:100%" data-newsletter-content='newsletter-bbloc442'>
                     <h2>Newsletter</h2>
-                    <p>Want to get updates to your mailbox? ðŸ“¬ <br>Subscribe to our newsletter!</p>
+                    <p>Want to get updates to your mailbox? Ã°Å¸â€œÂ¬ <br>Subscribe to our newsletter!</p>
                 </div>
                 <p class="statut-reponse">Message de retour test</p>
                 <input name="kknewsletter442-name" id="kknewsletter442-name" type="text" required
@@ -185,14 +185,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
                         kknewsletterFormApiReponse('success', kknewsletterDefaultSuccessMessage);
                     } else {
                         console.log(api_url);
-                        kknewsletterFormApiReponse('error', data.error ? "âŠ—" + data.error :
+                        kknewsletterFormApiReponse('error', data.error ? "Ã¢Å â€”" + data.error :
                             kknewsletterDefaultErrorMessage);
                     }
                 })
                 .catch((error) => {
                     console.log('errue catch '+api_url);
                     kknewsletterFormUI("default");
-                    kknewsletterFormApiReponse('error', "âŠ—" + kknewsletterDefaultErrorMessage);
+                    kknewsletterFormApiReponse('error', "Ã¢Å â€”" + kknewsletterDefaultErrorMessage);
                 });
         })
     }

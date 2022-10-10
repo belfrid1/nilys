@@ -16103,10 +16103,12 @@ var KTChartsWidget36 = function () {
         var basesuccessColor = KTUtil.getCssVariableValue('--kt-success');
         var lightsuccessColor = KTUtil.getCssVariableValue('--kt-success');
 
+        console.log(x);
+        console.log(y);
         var options = {
             series: [{
                 name: "Nombres d'inscrits",
-                data: [ 90, 80, 80, 80, 60, 60, 50]
+                data: y
             }],
             chart: {
                 fontFamily: 'inherit',
@@ -16141,14 +16143,15 @@ var KTChartsWidget36 = function () {
                 colors: [baseprimaryColor, basesuccessColor]
             },
             xaxis: {
-                categories: ['', '8 AM', '81 AM', '9 AM', '10 AM', '11 AM', '12 PM', '13 PM', '14 PM', '15 PM', '16 PM', '17 PM', '18 PM', '18:20 PM', '18:20 PM', '19 PM', '20 PM', '21 PM', ''],
+                // categories: ['', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '13 PM', '14 PM', '15 PM', '16 PM', '17 PM', '18 PM', '18:20 PM', '18:20 PM', '19 PM', '20 PM', '21 PM', ''],
+                categories: x,
                 axisBorder: {
-                    show: false,
+                    "show": false,
                 },
                 axisTicks: {
                     show: false
                 },
-                tickAmount: 6,
+                tickAmount: 10,
                 labels: {
                     rotate: 0,
                     rotateAlways: true,
@@ -16175,9 +16178,9 @@ var KTChartsWidget36 = function () {
                 }
             },
             yaxis: {
-                max: 120,
-                min: 30,
-                tickAmount: 6,
+                max: 10,
+                min: 0,
+                tickAmount: 5,
                 labels: {
                     style: {
                         colors: labelColor,

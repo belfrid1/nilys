@@ -538,7 +538,7 @@
                                         <div class="card-header">
                                             <!--begin::Card title-->
                                             <div class="card-title fs-3 fw-bold">
-                                               Nilis API Setting
+                                               Nilys API Setting
                                             </div>
                                             <!--end::Card title-->
                                         </div>

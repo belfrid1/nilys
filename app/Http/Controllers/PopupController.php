@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Domain;
 use App\Models\Popup;
 use App\Models\PopupGroup;
+use App\Models\SettingEmail;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 
@@ -34,8 +35,9 @@ class PopupController extends Controller
      */
     public function create()
     {
+        $setting_mail = SettingEmail::latest()->first();
         $popupgroups = PopupGroup::all();
-        return  view("back.popup.create", compact('popupgroups'));
+        return  view("back.popup.create", compact('popupgroups','setting_mail'));
     }
 
     /**
@@ -52,6 +54,7 @@ class PopupController extends Controller
             'popup_content' => 'required|string',
             'popup_group' => 'required',
         ]);
+
 
         if($request->default){
 
@@ -70,12 +73,13 @@ class PopupController extends Controller
                     ->with(['error' => "Please define a default popup for the selected group"]);
             }
         }
-
+        $popup_content = strip_tags($request->popup_content);
+        $email_content = strip_tags( $request->email_content);
         $popup = Popup::create([
             'name' => $request->name,
-            'popup_content' => $request->popup_content,
+            'popup_content' => $popup_content,
             'email_subject' => $request->email_subject,
-            'email_content' => $request->email_content,
+            'email_content' => $email_content,
             'popupgroup_id' => $request->popup_group,
             'default' => $request->boolean('default'),
             'enable' => $request->boolean('enable'),
@@ -140,13 +144,14 @@ class PopupController extends Controller
                     ->with(['error' => "Please define a default popup for the selected group"]);
             }
         }
-
+        $popup_content = strip_tags($request->popup_content);
+        $email_content = strip_tags( $request->email_content);
         $popup = Popup::find($id);
         $popup->update([
             'name' => $request->name,
-            'popup_content' => $request->popup_content,
+            'popup_content' => $popup_content,
             'email_subject' => $request->email_subject,
-            'email_content' => $request->email_content,
+            'email_content' => $email_content,
             'popupgroup_id' => $request->popup_group,
             'default' => $request->boolean('default'),
             'enable' => $request->boolean('enable'),

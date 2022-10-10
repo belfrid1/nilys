@@ -37,10 +37,12 @@ class MailController extends Controller
 
         $contact = Contact::find($contactId);
 
-        $contact->update([
-                'status' => 1
+         $editcontact = $contact->update([
+                'status' => true
             ]
         );
+
+
 
         return redirect()->route('contact.index')->with(['success' => "Email sent successfully !"]);
 

@@ -151,7 +151,7 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="email" value="{{ old('email_subject') }}" class="form-control form-control-solid ps-12" id="" name="email_subject" placeholder="Type a Email subject">
+                                                    <input type="text" value="{{ $setting_mail->subject }}" class="form-control form-control-solid ps-12" id="" name="email_subject" placeholder="Type a Email subject">
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Col-->
@@ -168,7 +168,7 @@
                                                 </label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <textarea id="create_email_content_id" name="email_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a Email content" required> {{ old('email_content') }}</textarea>
+                                                <textarea id="create_email_content_id" name="email_content" class="form-control form-control-solid ps-12" rows="10" data-kt-element="input" placeholder="Type a Email content" required> {{ $setting_mail->content }}</textarea>
                                                 <!--end::Input-->
                                             </div>
                                             <!--end::Input group-->

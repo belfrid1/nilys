@@ -34,10 +34,11 @@ class SettingsController extends Controller
 
         $setting_mail = SettingEmail::latest()->first();
 
+        $content = strip_tags($request->mail_content);
        if($setting_mail){
            $setting_mail->update(
                ['subject' => $request->mail_subject,
-                   'content' => $request->mail_content,
+                   'content' => $content,
                    'apikey' => $request->apikey,
                    'secretkey' => $request->secretkey,
                    'host' => $request->host,
@@ -48,9 +49,10 @@ class SettingsController extends Controller
                ]
            );
        }else{
+           $content = strip_tags($request->mail_content);
            $setting_mail = SettingEmail::create([
                'subject' => $request->mail_subject,
-               'content' => $request->mail_content,
+               'content' => $content,
                'apikey' => $request->apikey,
                'secretkey' => $request->secretkey,
                'host' => $request->host,

@@ -84,10 +84,10 @@
                                                 <td>{{ $contact->created_at }}</td>
                                                 <td>{{ $contact->updated_at }}</td>
                                                 <td>
-                                                    <a href="{{ route('contact.send_mail', $contact) }}"
-                                                        class="btn btn-icon btn-bg-light btn-active-color-warning  me-1"
-                                                        data-toggle="tooltip" data-placement="top" title="Sent Mail">
-                                                    </a>
+{{--                                                    <a href="{{ route('contact.send_mail', $contact) }}"--}}
+{{--                                                        class="btn btn-icon btn-bg-light btn-active-color-warning  me-1"--}}
+{{--                                                        data-toggle="tooltip" data-placement="top" title="Sent Mail">--}}
+{{--                                                    </a>--}}
                                                     <a href="{{ route("contact.send_mail", $contact->id) }}" class="btn btn-icon btn-bg-light btn-active-color-warning  me-1" data-toggle="tooltip" data-placement="top" title="Sent Mail">
                                                         <span class="menu-icon">
                                                             <!--begin::Svg Icon | path: icons/duotune/general/gen016.svg-->
@@ -176,17 +176,17 @@
         </script>
     @endif
 
-    <!-- src="" -->
-    <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"
-        data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"
-        data-popup-group-guid="XXX-GROUP23-234434">
-    </script>
+{{--    <!-- src="" -->--}}
+{{--    <script src="https://kidevs.xyz/nilys/v1/kknewsletter442.min.js" id="kknewsletter442" data-api-domain="Localhost"--}}
+{{--        data-api-url="http://localhost/public/contact/create" data-popup-guid="EZRET-UDJ24354-TRGF"--}}
+{{--        data-popup-group-guid="XXX-GROUP23-234434">--}}
+{{--    </script>--}}
 
 
-    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/popup.script.css">
+{{--    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/popup.script.css">--}}
 
-    <script src="http://127.0.0.1:8000/assets/js/popup.script.js" id="kknewsletter442"  data-popup-group-guid="XXX-GROUP23-234434">
-    </script>
+{{--    <script src="http://127.0.0.1:8000/assets/js/popup.script.js" id="kknewsletter442"  data-popup-group-guid="XXX-GROUP23-234434">--}}
+{{--    </script>--}}
 
 
 @endsection

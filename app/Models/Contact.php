@@ -9,7 +9,7 @@ class Contact extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['firstname', 'email', 'domain', 'url', 'popup_guid', 'popupgroup_guid'];
+    protected $fillable = ['firstname', 'email', 'domain', 'url', 'popup_guid', 'popupgroup_guid','status'];
 
     // public function popupgroup(){
     //     return $this->belongsTo(PopupGroup::class);
