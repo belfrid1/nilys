@@ -218,7 +218,9 @@
                                                            <link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">
 
                                                              <!-- Script js -->
-                                                            <script src="https://newsletter.nilys.com/assets/js/popup.script.js?v=1" id="kknewsletter442"   data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
+                                                             <script src="https://kidevs.xyz/nilys/kknewsletter.js?z" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script>
+
+{{--                                                            <script src="https://newsletter.nilys.com/assets/js/popup.script.js?v=1" id="kknewsletter442"   data-popup-group-guid="{{ $group->guid ?? ''}}"></script>--}}
                                                             </code>
                                                         </pre>
                                                     </div>
