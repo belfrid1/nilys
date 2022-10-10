@@ -46,11 +46,13 @@ class HomeController extends Controller
         $groupLastAddCount = count(PopupGroup::where('created_at', '>=', Carbon::now()->subdays(15))->get());
         $groupLastUpdateCount = count(PopupGroup::where('updated_at', '>=', Carbon::now()->subdays(15))->get());
         $data["groupsCount"] = count(PopupGroup::all());
+
         $data["groupsLastUpdateCount"] = $groupLastUpdateCount;
         $data["groupsLastAddCount"] = $groupLastAddCount;
 
         $popupLastAddCount = count(Popup::where('created_at', '>=', Carbon::now()->subdays(15))->get());
         $popupLastUpdateCount = count(Popup::where('updated_at', '>=', Carbon::now()->subdays(15))->get());
+
         $data["popupsCount"] = count(Popup::all());
         $data["popupsLastUpdateCount"] = $popupLastUpdateCount;
         $data["popupsLastAddCount"] = $popupLastAddCount;

@@ -305,7 +305,7 @@
                                         <span href="#" class="text-black-50 fw-semibold fs-6 me-2">Recently modified</span>
                                         <!--end::Section-->
                                         <!--begin::Action-->
-                                        <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["groupsLastUpdateCount"] }}</span>
+                                        <span class="h-auto btn-color-gray-400 btn-active-color-primary justify-content-end"> {{ $data["popupsLastUpdateCount"] }}</span>
                                         <!--end::Action-->
                                     </div>
                                     <!--end::Item-->
