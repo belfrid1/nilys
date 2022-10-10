@@ -106,7 +106,7 @@ Route::get('contact/sent-mail/{id}', [\App\Http\Controllers\Mail\MailController:
 //all settings route
 
 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
-Route::get('/settings/edit/setting_mail', [SettingsController::class, 'editSettingMail'])->name('edit.setting_mail');
+Route::post('/settings/edit/setting_mail', [SettingsController::class, 'editSettingMail'])->name('edit.setting_mail');
 Route::get('/settings/edit/setting_api', [SettingsController::class, 'editSettingApi'])->name('edit.setting_api');
 
 

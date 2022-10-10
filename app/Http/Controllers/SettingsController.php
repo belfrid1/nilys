@@ -37,7 +37,7 @@ class SettingsController extends Controller
         $content = strip_tags($request->mail_content);
        if($setting_mail){
            $setting_mail->update(
-               ['subject' => $request->mail_subject,
+               ['subject' => $request->subject,
                    'content' => $content,
                    'apikey' => $request->apikey,
                    'secretkey' => $request->secretkey,
@@ -48,10 +48,14 @@ class SettingsController extends Controller
                    'from_address' => $request->from_address,
                ]
            );
+
+           $setting_api = $this->getSettingApi();
+           return view('back.setting.index', compact('setting_mail','setting_api'))->with(['success' => "Email settings updated successfully"]);
        }else{
            $content = strip_tags($request->mail_content);
+
            $setting_mail = SettingEmail::create([
-               'subject' => $request->mail_subject,
+               'subject' => $request->subject,
                'content' => $content,
                'apikey' => $request->apikey,
                'secretkey' => $request->secretkey,
@@ -62,10 +66,11 @@ class SettingsController extends Controller
                'from_address' => $request->from_address,
 
            ]);
+
+           $setting_api = $this->getSettingApi();
+           return view('back.setting.index', compact('setting_mail','setting_api'))->with(['success' => "Email settings created successfully"]);
        }
 
-        $setting_api = $this->getSettingApi();
-        return view('back.setting.index', compact('setting_mail','setting_api'));
     }
     public function editSettingApi(Request  $request)
     {

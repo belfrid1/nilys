@@ -348,7 +348,8 @@
                                         <!--end::Card header-->
 
                                         <!--begin::Form-->
-                                        <form id="general_form" class="form"   action="{{route('edit.setting_mail',$setting_mail)}}">
+                                        <form id="general_form" class="form"  method="post"  action="{{route('edit.setting_mail',$setting_mail)}}">
+                                            @csrf
                                             <!--begin::Card body-->
                                             <div class="card-body p-9">
                                                 <!--begin::Row-->
@@ -365,7 +366,7 @@
                                                     <!--end::Col-->
                                                     <!--begin::Col-->
                                                     <div class="col-xl-9 fv-row">
-                                                        <input type="text" class="form-control form-control-solid" name="mail_subject" value="{{ $setting_mail->subject ?? ''}}" />
+                                                        <input type="text" class="form-control form-control-solid" name="subject" value="{{ $setting_mail->subject ?? ''}}" />
                                                     </div>
                                                 </div>
                                                 <!--end::Row-->
