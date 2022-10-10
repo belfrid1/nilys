@@ -272,7 +272,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ old('name') }}" placeholder="https://domaineName.com" required>
+                                        <input type="text" class="form-control" id="validationCustom01" name="name" value="{{ old('name') }}" placeholder="domaineName.com" required>
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
