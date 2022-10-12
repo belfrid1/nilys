@@ -215,12 +215,12 @@
 
                                                         <pre style="white-space: pre-line;">
                                                          <code id="contentToCopy" class="language-html">
-                                                             <textarea name="" id="" cols="170" rows="5"><!-- Style css -->&#13<link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">&#13<!-- Script js -->&#13<script type="text/javascript" src="https://kidevs.xyz/nilys/kknewsletter.js?z" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script></textarea>
+                                                             <textarea readonly name="" id="" cols="170" rows="5"><!-- Style css -->&#13<link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">&#13<!-- Script js -->&#13<script type="text/javascript" src="https://newsletter.nilys.com/assets/js/popup.script.js?v=2" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script></textarea>
 {{--                                                            <!-- Style css -->--}}
 {{--                                                           <link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">--}}
 
 {{--                                                             <!-- Script js -->--}}
-{{--                                                             <script type="text/javascript" src="https://kidevs.xyz/nilys/kknewsletter.js?z" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script>--}}
+{{--                                                             <script type="text/javascript" src="https://kidevs.xyz/nilys/kknewsletter.js?v=2" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script>--}}
                                                          </code>
                                                         </pre>
                                                     </div>
