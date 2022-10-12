@@ -2,9 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Helper\EmailSenderHelper;
+use App\Http\Controllers\Mail\MailController;
 use App\Models\Contact;
 use App\Models\SettingEmail;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class EmailCron extends Command
@@ -43,26 +46,13 @@ class EmailCron extends Command
         // Email adresse who not receive newsletter
         $contacts = Contact::where(["status" => 0]);
         if ($contacts->count() > 0) {
-            $notReceivedEmailList = $contacts->pluck("email")->toArray();
-
-            $emailSetting = SettingEmail::first();
-            $details = [
-                'subject' => $emailSetting->subject,
-                'body' => $emailSetting->content,
-                'notReceivedEmailList' => $notReceivedEmailList
-            ];
-
-            // send email
-            Mail::send([], [], function ($message) use ($details) {
-                $message->to($details["notReceivedEmailList"])
-                    ->subject($details["subject"])
-                    ->setBody($details["body"])
-                    ->setBody($details["body"], 'text/html');
-            });
-
-            // save email send, statut
-            $contactReceived = new Contact();
-            $contactReceived->update(["status" => 1], ["whereIn" => implode(",", $notReceivedEmailList)]);
+            // send email & save in Database
+            $emailSendReponse = EmailSenderHelper::sendTo($contacts);
+            if ($emailSendReponse["reponse"]) {
+                $contacts->update(["status" => "1"]);
+            } else {
+                Log::info($emailSendReponse["detail"]["error"]);
+            }
         }
     }
 }

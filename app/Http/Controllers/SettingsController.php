@@ -26,7 +26,7 @@ class SettingsController extends Controller
         $setting_mail = SettingEmail::latest()->first();
         $setting_api = SettingApi::latest()->first();
 
-        return view('back.setting.index', compact('setting_mail','setting_api'));
+        return view('back.setting.index', compact('setting_mail', 'setting_api'));
     }
 
     public function editSettingMail(Request $request)
@@ -34,54 +34,56 @@ class SettingsController extends Controller
 
         $setting_mail = SettingEmail::latest()->first();
 
-        $content = strip_tags($request->mail_content);
-       if($setting_mail){
-           $setting_mail->update(
-               ['subject' => $request->subject,
-                   'content' => $content,
-                   'apikey' => $request->apikey,
-                   'secretkey' => $request->secretkey,
-                   'host' => $request->host,
-                   'port' => $request->port,
-                   'username' => $request->username,
-                   'password' => $request->password,
-                   'from_address' => $request->from_address,
-               ]
-           );
+        //$content = strip_tags($request->mail_content);
+        $content = $request->mail_content;
+        if ($setting_mail) {
+            $setting_mail->update(
+                [
+                    'subject' => $request->subject,
+                    'content' => $content,
+                    'apikey' => $request->apikey,
+                    'secretkey' => $request->secretkey,
+                    'host' => $request->host,
+                    'port' => $request->port,
+                    'username' => $request->username,
+                    'password' => $request->password,
+                    'from_address' => $request->from_address,
+                ]
+            );
 
-           $setting_api = $this->getSettingApi();
-           return view('back.setting.index', compact('setting_mail','setting_api'))->with(['success' => "Email settings updated successfully"]);
-       }else{
-           $content = strip_tags($request->mail_content);
+            $setting_api = $this->getSettingApi();
+            return view('back.setting.index', compact('setting_mail', 'setting_api'))->with(['success' => "Email settings updated successfully"]);
+        } else {
+            $content = strip_tags($request->mail_content);
 
-           $setting_mail = SettingEmail::create([
-               'subject' => $request->subject,
-               'content' => $content,
-               'apikey' => $request->apikey,
-               'secretkey' => $request->secretkey,
-               'host' => $request->host,
-               'port' => $request->port,
-               'username' => $request->username,
-               'password' => $request->password,
-               'from_address' => $request->from_address,
+            $setting_mail = SettingEmail::create([
+                'subject' => $request->subject,
+                'content' => $content,
+                'apikey' => $request->apikey,
+                'secretkey' => $request->secretkey,
+                'host' => $request->host,
+                'port' => $request->port,
+                'username' => $request->username,
+                'password' => $request->password,
+                'from_address' => $request->from_address,
 
-           ]);
+            ]);
 
-           $setting_api = $this->getSettingApi();
-           return view('back.setting.index', compact('setting_mail','setting_api'))->with(['success' => "Email settings created successfully"]);
-       }
-
+            $setting_api = $this->getSettingApi();
+            return view('back.setting.index', compact('setting_mail', 'setting_api'))->with(['success' => "Email settings created successfully"]);
+        }
     }
     public function editSettingApi(Request  $request)
     {
         $setting_api = SettingApi::latest()->first();
 
-        if($setting_api){
+        if ($setting_api) {
             $setting_api->update(
-                ['website_url' => $request->website_url,
+                [
+                    'website_url' => $request->website_url,
                 ]
             );
-        }else{
+        } else {
             $setting_api = SettingApi::create([
                 'website_url' => $request->website_url,
 
@@ -89,31 +91,31 @@ class SettingsController extends Controller
         }
 
         $setting_mail = $this->getSettingMail();
-        return view('back.setting.index', compact('setting_api','setting_mail'));
+        return view('back.setting.index', compact('setting_api', 'setting_mail'));
     }
 
 
-    private function getSettingMail(){
+    private function getSettingMail()
+    {
 
         $setting_mail = SettingEmail::latest()->first();
 
-        if($setting_mail){
-            return $setting_mail ;
-        }else {
-            return new SettingEmail() ;
+        if ($setting_mail) {
+            return $setting_mail;
+        } else {
+            return new SettingEmail();
         }
-
     }
 
-    private function getSettingApi(){
+    private function getSettingApi()
+    {
 
         $setting_api = SettingApi::latest()->first();
 
-        if($setting_api){
-            return $setting_api ;
-        }else {
-            return new SettingApi() ;
+        if ($setting_api) {
+            return $setting_api;
+        } else {
+            return new SettingApi();
         }
-
     }
 }

@@ -26,8 +26,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->command('email:cron')->cron('0 0 */10 * *');
-        //$schedule->command('email:cron')->everyFourMinutes();
+        //$schedule->command('email:cron')->cron('0 0 */110 * *');
+        $schedule->command('email:cron')->everyMinute();
     }
 
     /**

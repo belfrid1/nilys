@@ -95,10 +95,9 @@ Route::middleware(['cors'])->group(function () {
     Route::get('api/contact/create', [App\Http\Controllers\Api\ContactController::class, "create"]);
     Route::get('api/script/popup-content', [App\Http\Controllers\Api\ScriptController::class, "getPopupContent"]);
     Route::get('api/test', [App\Http\Controllers\Api\ContactController::class, "test"]);
-
 });
 Route::resource('contact', ContactController::class);
-Route::get('contact/sent-mail/{id}', [\App\Http\Controllers\Mail\MailController::class,'sendMail'])->name("contact.send_mail");
+Route::get('contact/sent-mail/{id}', [\App\Http\Controllers\Mail\MailController::class, 'sendMail'])->name("contact.send_mail");
 
 
 
@@ -112,7 +111,3 @@ Route::get('/settings/edit/setting_api', [SettingsController::class, 'editSettin
 
 /// conditions route
 Route::get('/conditions/delete/{cdtion}', [PopupGroupController::class, 'destroyCdtion'])->name('delete.condition');
-
-
-
-
