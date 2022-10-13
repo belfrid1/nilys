@@ -143,11 +143,25 @@
 @section('javascripts')
     <script type="text/javascript">
         $(document).ready(function() {
+
+            let date = new Date();
+            let day = date.getDate();
+            let month = date.getMonth();
+            let year = date.getFullYear();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+
+            // let n = d.getTime();
+            console.log(date);
+            console.log(month);
+            console.log(year);
             $('#table_contacts').DataTable({
                 dom: 'Bfrtip',
                 buttons: [{
                     extend: 'csv',
+                    title: 'nilys-newsletter-contacts-'+year+month+day+'-'+hours+minutes,
                     text: '↓ Expot to csv',
+                    fieldSeparator: ';',
                     className: 'btn btn-sm btn-light-success'
                 }]
             });
