@@ -50,6 +50,7 @@ class EmailCron extends Command
             $emailSendReponse = EmailSenderHelper::sendTo($contacts);
             if ($emailSendReponse["reponse"]) {
                 $contacts->update(["status" => "1"]);
+                Log::info("Cron is working fine !");
             } else {
                 Log::info($emailSendReponse["detail"]["error"]);
             }
