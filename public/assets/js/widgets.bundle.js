@@ -7097,10 +7097,12 @@ var KTChartsWidget18 = function () {
         var labelColor = KTUtil.getCssVariableValue('--kt-gray-900');
         var borderColor = KTUtil.getCssVariableValue('--kt-border-dashed-color');
 
+        console.log(xGroupName);
+        console.log(yGroupNB);
         var options = {
             series: [{
-                name: 'Spent time',
-                data: [54, 42, 75, 110, 23, 87, 50]
+                name: 'Nb of registrant',
+                data: yGroupNB
             }],
             chart: {
                 fontFamily: 'inherit',
@@ -7141,7 +7143,7 @@ var KTChartsWidget18 = function () {
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['QA Analysis', 'Marketing', 'Web Dev', 'Maths', 'Front-end Dev', 'Physics', 'Phylosophy'],
+                categories: xGroupName,
                 axisBorder: {
                     show: false,
                 },
@@ -7170,7 +7172,7 @@ var KTChartsWidget18 = function () {
                         fontSize: '13px'
                     },
                     formatter: function(val) {
-                        return val + "H";
+                        return val ;
                     }
                 }
             },
@@ -7204,7 +7206,7 @@ var KTChartsWidget18 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return  + val + ' hours'
+                        return  + val
                     }
                 }
             },
@@ -16103,12 +16105,12 @@ var KTChartsWidget36 = function () {
         var basesuccessColor = KTUtil.getCssVariableValue('--kt-success');
         var lightsuccessColor = KTUtil.getCssVariableValue('--kt-success');
 
-        console.log(x);
-        console.log(y);
+        console.log(xContactDate);
+        console.log(yContactNB);
         var options = {
             series: [{
-                name: "Nombres d'inscrits",
-                data: y
+                name: "Registrant",
+                data: yContactNB
             }],
             chart: {
                 fontFamily: 'inherit',
@@ -16144,7 +16146,7 @@ var KTChartsWidget36 = function () {
             },
             xaxis: {
                 // categories: ['', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '13 PM', '14 PM', '15 PM', '16 PM', '17 PM', '18 PM', '18:20 PM', '18:20 PM', '19 PM', '20 PM', '21 PM', ''],
-                categories: x,
+                categories: xContactDate,
                 axisBorder: {
                     "show": false,
                 },

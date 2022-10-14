@@ -28,8 +28,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
         $domainLastAddCount = count(Domain::where('created_at', '>=', Carbon::now()->subdays(15))->get());
         $domainLastUpdateCount = count(Domain::where('updated_at', '>=', Carbon::now()->subdays(15))->get());
         $data["domainsCount"] = count(Domain::all());
@@ -58,10 +56,10 @@ class HomeController extends Controller
         $data["popupsLastAddCount"] = $popupLastAddCount;
 
         $registrationsByDay = $this->getRegistrations();
+        $getRegistrantByGroup = $this->getRegistrantByGroup();
 
 
-
-        return view('back.dashboard', compact(['data'],['registrationsByDay']));
+        return view('back.dashboard', compact(['data'],['registrationsByDay'],['getRegistrantByGroup']));
     }
 
     public function getRegistrations(){
@@ -83,10 +81,6 @@ class HomeController extends Controller
         $todaydate = Carbon::today();
         $nbContactForDate = Contact::whereDate('created_at', $todaydate)->get()->count();
 
-
-
-
-
        $x = array_values($x);
 //       $x = ["2022-01-45", "2002-78-566", "vol"];
 //       $absisse = "ddedfefef";
@@ -95,5 +89,19 @@ class HomeController extends Controller
 //        $y = "je suis la variable string";
 
        return $registrationsByDay = ['x'=>$x, 'y'=> $y, 'today' =>$nbContactForDate ];
+    }
+    public function getRegistrantByGroup(){
+
+        $groups = PopupGroup::all();
+        $x = [];
+        $y = [];
+        foreach ($groups as $group){
+            $x[] = $group->name ;
+            $y[] = Contact::where('popupgroup_guid', $group->guid)->get()->count();
+        }
+        $xGroup = array_values($x);
+        $yGroup = array_values($y);
+        $nbContactTodayGroup = [];
+        return $getRegistrantByGroup = ['x'=>$xGroup, 'y'=> $yGroup, 'today' =>$nbContactTodayGroup  ];
     }
 }
