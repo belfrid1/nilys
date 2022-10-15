@@ -36,7 +36,7 @@ class ContactController extends Controller
      */
     public function create(Request $request)
     {
-        $guid = $request->;
+        $guid = "1234e5678-eazerty57-47mp-23kn";
 
         $this->reponseApi = ["statut" => false,   "error" => '', "message"=> ''];
 

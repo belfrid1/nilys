@@ -123,7 +123,6 @@ let kknewsletter442Modal = `<div  id="newsletter-bbloc442" style="z-index: 9999"
     </div>
 </div>`;
 
-
 let kknewsletter442Config = {
     domain: window.location.origin,
     api: 'api/contact/create',
