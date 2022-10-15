@@ -70,15 +70,16 @@ function kknewsletterFormUI(statut = "loading") {
 // API call function
 // - get newsletter content
 function kknewsletterContentFormApi(config) {
-    console.log('check guid before get content'+config.groupuid);
     fetch(config.website+"api/script/popup-content?url="+config.domain+"&guid="+config.groupuid)
         .then((response) => response.json())
         .then((data) => {
             if (data.statut) {
+                console.log('check guid before get content'+config.groupuid);
                 document.querySelector("div[data-newsletter-content='newsletter-bbloc442']").innerHTML = data.data;
             }
         })
         .catch((error) => {
+            console.log('check guid before get content in error'+config.groupuid);
             console.log(error);
         });
 }
