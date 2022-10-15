@@ -53,7 +53,7 @@ class ScriptController extends Controller
                         $this->responseApi["statut"] = true;
                     }else{
                         // get the default content
-                        $defaultPopup = Popup::where(['popupgroup_id'=>$guid ],['default'=> true])->first();
+                        $defaultPopup = Popup::where(['popupgroup_id'=>$guid,'default'=> true ])->first();
                         $this->responseApi["data"] = $defaultPopup->popup_content;
                         $this->responseApi["statut"] = true;
                     }
