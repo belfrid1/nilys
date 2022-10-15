@@ -109,7 +109,7 @@ let kknewsletter442Modal = `<div  id="newsletter-bbloc442" class="nylis-modal-hi
             <form method="GET" action="#">
                 <div style="width:100%" data-newsletter-content='newsletter-bbloc442'>
                     <h2>Newsletter</h2>
-                    <p>Want to get updates to your mailbox? Ã°Å¸â€œÂ¬ <br>Subscribe to our newsletter!</p>
+                    <p>Want to get updates to your mailbox?  <br>Subscribe to our newsletter!</p>
                 </div>
                 <p class="statut-reponse">Message de retour test</p>
                 <input name="kknewsletter442-name" id="kknewsletter442-name" type="text" required
