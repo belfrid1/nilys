@@ -30,7 +30,7 @@ class ScriptController extends Controller
     public function getPopupContent(Request $request)
     {
 
-        $guid = "1234e5678-eazerty57-47mp-23kn";
+        $guid = $request->guid;
         $this->responseApi = ["statut" => false, "error" => '', "data" => 'i'];
 
         $group = PopupGroup::where('guid',$guid)->first();
@@ -51,13 +51,15 @@ class ScriptController extends Controller
 
                         $this->responseApi["data"] = $popup->popup_content;
                         $this->responseApi["statut"] = true;
+                    }else{
+                        // get the default content
+                        $defaultPopup = Popup::where(['popupgroup_id'=>$guid ],['default'=> true])->first();
+                        $this->responseApi["data"] = $defaultPopup->popup_content;
+                        $this->responseApi["statut"] = true;
                     }
                 }
             }
-
-
         }
-
         return response()->json($this->responseApi, 200);
     }
 }

@@ -70,7 +70,8 @@ function kknewsletterFormUI(statut = "loading") {
 // API call function
 // - get newsletter content
 function kknewsletterContentFormApi(config) {
-    fetch(config.website+"api/script/popup-content?url="+config.domain)
+    console.log('check guid before get content'+config.groupuid);
+    fetch(config.website+"api/script/popup-content?url="+config.domain+"&guid="+config.groupuid)
         .then((response) => response.json())
         .then((data) => {
             if (data.statut) {
@@ -122,12 +123,16 @@ let kknewsletter442Modal = `<div  id="newsletter-bbloc442" style="z-index: 9999"
         </div>
     </div>
 </div>`;
+let kknewsletterGroupUUID = kknewsletter442GetScript.getAttribute("data-popup-group-guid");
+
+console.log("group UUID est: "+kknewsletterGroupUUID);
 
 let kknewsletter442Config = {
     domain: window.location.origin,
     api: 'api/contact/create',
     remember_day: 10,
-    website: 'https://newsletter.nilys.com/'
+    website: 'https://newsletter.nilys.com/',
+    groupuid: kknewsletterGroupUUID
 }
 
 
@@ -168,10 +173,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
             // Init form
             kknewsletterFormUI("loading");
-
+            console.log('check guid before create contact'+kknewsletterGroupUUID);
             // api fetch call
             let api_url = kknewsletter442Config.website + kknewsletter442Config.api +
-                `?firstname=${document.getElementById("kknewsletter442-name").value}&email=${document.getElementById("kknewsletter442-email").value}&url=${kknewsletter442Config.domain}`;
+                `?firstname=${document.getElementById("kknewsletter442-name").value}&email=${document.getElementById("kknewsletter442-email").value}&url=${kknewsletter442Config.domain}&guid=${kknewsletterGroupUUID}`;
 
             console.log(api_url);
             fetch(api_url)
