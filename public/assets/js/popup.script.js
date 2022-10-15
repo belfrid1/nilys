@@ -100,7 +100,7 @@ let kknewsletterDefaultSuccessMessage = "You have successfully subscribed to our
 let kknewsletterDefaultErrorMessage = "Something went wrong, please try again later";
 let kknewsletter442GetScript = document.getElementById("kknewsletter442");
 let kknewsletterCookies = 'kknewsletter-cookies';
-let kknewsletter442Modal = `<div  id="newsletter-bbloc442" class="nylis-modal-hide">
+let kknewsletter442Modal = `<div  id="newsletter-bbloc442" style="z-index: 9999" class="nylis-modal-hide">
     <div class="modal-content">
         <div class="progress-bar">
             <div class="progress-bar-value"></div>
