@@ -185,14 +185,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
                         kknewsletterFormApiReponse('success', kknewsletterDefaultSuccessMessage);
                     } else {
                         console.log(api_url);
-                        kknewsletterFormApiReponse('error', data.error ? "Ã¢Å â€”" + data.error :
+                        kknewsletterFormApiReponse('error', data.error ? " " + data.error :
                             kknewsletterDefaultErrorMessage);
                     }
                 })
                 .catch((error) => {
                     console.log('errue catch '+api_url);
                     kknewsletterFormUI("default");
-                    kknewsletterFormApiReponse('error', "Ã¢Å â€”" + kknewsletterDefaultErrorMessage);
+                    kknewsletterFormApiReponse('error', " " + kknewsletterDefaultErrorMessage);
                 });
         })
     }
