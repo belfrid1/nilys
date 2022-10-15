@@ -96,8 +96,8 @@ function kknewsletterFormApiReponse(reponseType, reponseMessage) {
 /***
  * Detail et GET User Configuration
  **/
-let kknewsletterDefaultSuccessMessage = "Ã¢Å“â€œ You have successfully subscribed to our newsletter";
-let kknewsletterDefaultErrorMessage = "Ã¢Å â€” Something went wrong, please try again later";
+let kknewsletterDefaultSuccessMessage = "You have successfully subscribed to our newsletter";
+let kknewsletterDefaultErrorMessage = "Something went wrong, please try again later";
 let kknewsletter442GetScript = document.getElementById("kknewsletter442");
 let kknewsletterCookies = 'kknewsletter-cookies';
 let kknewsletter442Modal = `<div  id="newsletter-bbloc442" class="nylis-modal-hide">
