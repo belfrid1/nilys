@@ -73,8 +73,8 @@ class PopupController extends Controller
                     ->with(['error' => "Please define a default popup for the selected group"]);
             }
         }
-        $popup_content = strip_tags($request->popup_content);
-        $email_content = strip_tags( $request->email_content);
+        $popup_content = $request->popup_content;
+        $email_content = $request->email_content;
         $popup = Popup::create([
             'name' => $request->name,
             'popup_content' => $popup_content,
@@ -144,8 +144,8 @@ class PopupController extends Controller
                     ->with(['error' => "Please define a default popup for the selected group"]);
             }
         }
-        $popup_content = strip_tags($request->popup_content);
-        $email_content = strip_tags( $request->email_content);
+        $popup_content = $request->popup_content;
+        $email_content =  $request->email_content;
         $popup = Popup::find($id);
         $popup->update([
             'name' => $request->name,

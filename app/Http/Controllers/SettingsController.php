@@ -54,7 +54,7 @@ class SettingsController extends Controller
             $setting_api = $this->getSettingApi();
             return view('back.setting.index', compact('setting_mail', 'setting_api'))->with(['success' => "Email settings updated successfully"]);
         } else {
-            $content = strip_tags($request->mail_content);
+            $content = $request->mail_content;
 
             $setting_mail = SettingEmail::create([
                 'subject' => $request->subject,

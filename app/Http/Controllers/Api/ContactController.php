@@ -61,7 +61,7 @@ class ContactController extends Controller
 
             $urls = [];
             foreach ($allPopup as $popup){
-
+                //check
                 $popupCondition = PopupGroupCondition::where(['popup_id' => $popup->id])->first();
 
                 if ($popupCondition) {
@@ -105,7 +105,6 @@ class ContactController extends Controller
                             } else {
                                 // to edit
 //                                dd($group->guid,'edit',$checkSubscribe,$request->url,$popupCondition,$arrayUrl,$popup,$popupCondition->popup_id);
-                                if ($popupCondition) {
                                     $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
                                     $checkSubscribe->update([
                                         'firstname' => $request->firstname,
@@ -119,16 +118,52 @@ class ContactController extends Controller
                                     $this->reponseApi["statut"] = true;
                                     $this->reponseApi["error"] = "";
                                     $this->reponseApi["message"] = "Contact edited";
-                                }else{
-                                    $this->reponseApi["error"] = "Editing contact : This Url does not exist ";
-                                }
                             }
 
                         }
                     }
                 }
                 else{
-                    $this->reponseApi["error"] = "Contact creating : This Url does not exist";
+                    $defaultPopup = Popup::where('popupgroup_id','=',$group->id)->where('default','=' ,true) ->first();
+                   if($defaultPopup){
+                       $checkSubscribe = Contact::where(
+                           [
+                               "email" => $request->email,
+                               "url" => $request->url
+                           ]
+                       );
+                       if ($checkSubscribe->count() == 0){
+                           $contact = Contact::create([
+                               'firstname' => $request->firstname,
+                               'email' => $request->email,
+                               'domain' => $domain,
+                               'url' => $request->url,
+                               'status' => 0,
+                               'popup_guid' => $defaultPopup->slug,
+                               'popupgroup_guid' => $group->guid
+                           ]);
+                           if($contact){
+                               $this->reponseApi["statut"] = true;
+                               $this->reponseApi["error"] = "Contact created";
+                               $this->reponseApi["message"] = "Contact created default popup";
+                           }
+                       }else{
+                           $checkSubscribe->update([
+                               'firstname' => $request->firstname,
+                               'email' => $request->email,
+                               'domain' => $domain,
+                               'url' => $request->url,
+                               'status' => 0,
+                               'popup_guid' => $defaultPopup->slug,
+                               'popupgroup_guid' => $group->guid
+                           ]);
+                           $this->reponseApi["statut"] = true;
+                           $this->reponseApi["error"] = "";
+                           $this->reponseApi["message"] = "Contact edited with default popup";
+                       }
+                   }else{
+                       $this->reponseApi["error"] = "Default popup does not existe !";
+                   }
                 }
             }
         } else {
