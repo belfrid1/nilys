@@ -98,8 +98,8 @@ function kknewsletterFormApiReponse(reponseType, reponseMessage) {
 /***
  * Detail et GET User Configuration
  **/
-let kknewsletterDefaultSuccessMessage = "You have successfully subscribed to our newsletter";
-let kknewsletterDefaultErrorMessage = "Something went wrong, please try again later";
+let kknewsletterDefaultSuccessMessage = "Merci pour votre inscription à la newsletter\n";
+let kknewsletterDefaultErrorMessage = "Impossible de s'inscrire, Merci de réessayer plus tard.";
 let kknewsletter442GetScript = document.getElementById("kknewsletter442");
 let kknewsletterCookies = 'kknewsletter-cookies';
 let kknewsletter442Modal = `<div  id="newsletter-bbloc442" style="z-index: 9999" class="nylis-modal-hide">
@@ -111,14 +111,14 @@ let kknewsletter442Modal = `<div  id="newsletter-bbloc442" style="z-index: 9999"
             <form method="GET" action="#">
                 <div style="width:100%" data-newsletter-content='newsletter-bbloc442'>
                     <h2>Newsletter</h2>
-                    <p>Want to get updates to your mailbox?  <br>Subscribe to our newsletter!</p>
+                    <p>Vous voulez recevoir des mises à jour dans votre boîte aux lettres ? <br>Inscrivez-vous à notre newsletter !</p>
                 </div>
                 <p class="statut-reponse">Message de retour test</p>
                 <input name="kknewsletter442-name" id="kknewsletter442-name" type="text" required
-                    placeholder="Your name" />
+                    placeholder="Nom et prenoms" />
                 <input name="kknewsletter442-email" id="kknewsletter442-email" type="email" required
-                    placeholder="Your email address" class="email" />
-                <button class="submit">Subscribe</button>
+                    placeholder="Adresse Email" class="email" />
+                <button class="submit">S'inscrire</button>
                 <span class="newsletter-close">x</span>
             </form>
         </div>
