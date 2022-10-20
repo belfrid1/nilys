@@ -72,8 +72,8 @@
                                                 <td>{{ $contact->firstname }}</td>
                                                 <td>{{ $contact->email }}</td>
                                                 <td>{{ $contact->popupgroup_guid }}</td>
-                                                <td>{{ $contact->domain }}</td>
-                                                <td>{{ $contact->url }}</td>
+                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->domain) as $domain) {{ $domain }} |@endforeach" >@foreach (json_decode($contact->domain) as $domain) {{ $domain }} |@endforeach</td>
+                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->url) as $url) {{ $url }} |@endforeach" >@foreach (json_decode($contact->url) as $url) {{ $url }} |@endforeach</td>
                                                 <td>
                                                     @if ($contact->status)
                                                         <span class="badge badge-light-success"> Sent</span>

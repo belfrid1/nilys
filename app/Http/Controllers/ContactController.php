@@ -21,6 +21,8 @@ class ContactController extends Controller
     {
         $contacts = Contact::get();
 
+//        dd($contacts);
+
         return view('back.contact.index', compact('contacts'));
     }
 

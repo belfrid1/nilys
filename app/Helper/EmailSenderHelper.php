@@ -18,6 +18,7 @@ class EmailSenderHelper
 
         $contactList = self::formatContact($contacts->get());
 
+
         if ($settingEmail) {
             try {
                 $mj = new \Mailjet\Client($settingEmail->apikey, $settingEmail->secretkey, true, ['version' => 'v3.1']);
@@ -42,6 +43,12 @@ class EmailSenderHelper
 
                 // Read the response
                 if ($response->success() && $response->getData()) {
+                    for($i = 0;$i< sizeof($contactList); $i++){
+                        $contact = Contact::where('email',$contactList[$i]['Email']);
+                        $contact->update([
+                            'status' => true
+                        ]);
+                    }
                     $sendStatut["reponse"] = true;
                     $sendStatut["detail"] = ['success' => "Email sent successfully !"];
                 }

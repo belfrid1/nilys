@@ -57,14 +57,17 @@ class ContactController extends Controller
             // we need poppup id to get conditons , check if conditions url is request url and save popup id
             $allPopup = Popup::where('popupgroup_id',$group->id)->get();
 
-            $domain = str_replace(["http://", "https://", "www."], "", $request->url);
+
+
 
             $urls = [];
             foreach ($allPopup as $popup){
                 //check
+
                 $popupCondition = PopupGroupCondition::where(['popup_id' => $popup->id])->first();
 
                 if ($popupCondition) {
+                    dd('cond existe');
                     $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
                     $urls = $popupCondition->url;
                     $arrayUrl = json_decode($urls);
@@ -76,18 +79,21 @@ class ContactController extends Controller
                             $checkSubscribe = Contact::where(
                                 [
                                     "email" => $request->email,
-                                    "url" => $request->url
                                 ]
                             );
 
+                            $url[] =$request->url;
+
+                            $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
+                            $domain[] = $domainStrReplace;
 
                             if ($checkSubscribe->count() == 0) {
 //                                dd($checkSubscribe,$request->url,$popupCondition,$arrayUrl,$popup,$popupCondition->popup_id);
                                 $contact = Contact::create([
                                     'firstname' => $request->firstname,
                                     'email' => $request->email,
-                                    'domain' => $domain,
-                                    'url' => $request->url,
+                                    'domain' => json_encode($domain),
+                                    'url' => json_encode($url),
                                     'status' => 0,
                                     'popup_guid' => $popup->slug,
                                     'popupgroup_guid' => $group->guid
@@ -102,15 +108,34 @@ class ContactController extends Controller
                                     $this->reponseApi["error"] = "Unable to create contact";
                                 }
 
-                            } else {
-                                // to edit
+                            }
+                            else {
+                                // update 1 if condition existe
 //                                dd($group->guid,'edit',$checkSubscribe,$request->url,$popupCondition,$arrayUrl,$popup,$popupCondition->popup_id);
                                     $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
+                                    // url is array get old data and add new
+                                    $arrayUrlsOld = json_decode($checkSubscribe->first()->url);
+                                    $arrayDomainsOld = json_decode($checkSubscribe->first()->domain);
+                                    foreach ($arrayUrlsOld as $urlOld){
+                                        if($urlOld !== $request->url){
+
+                                            array_push( $arrayUrlsOld,$request->url);
+                                            $arrayUrlsNew = json_encode($arrayUrlsOld);
+
+                                            // the domain
+                                            $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
+                                            array_push( $arrayDomainsOld,$domainStrReplace);
+                                            $arrayDomainsNew = json_encode($arrayDomainsOld);
+                                        }else{
+                                            $arrayUrlsNew = $arrayUrlsOld;
+                                            $arrayDomainsNew = $arrayDomainsOld;
+                                        }
+                                    }
                                     $checkSubscribe->update([
                                         'firstname' => $request->firstname,
                                         'email' => $request->email,
-                                        'domain' => $domain,
-                                        'url' => $request->url,
+                                        'domain' => $arrayDomainsNew,
+                                        'url' => $arrayUrlsNew,
                                         'status' => 0,
                                         'popup_guid' => $popup->slug,
                                         'popupgroup_guid' => $group->guid
@@ -122,37 +147,65 @@ class ContactController extends Controller
 
                         }
                     }
-                }
-                else{
+                } else{
+                    // create if conditions not existe
                     $defaultPopup = Popup::where('popupgroup_id','=',$group->id)->where('default','=' ,true) ->first();
                    if($defaultPopup){
                        $checkSubscribe = Contact::where(
                            [
                                "email" => $request->email,
-                               "url" => $request->url
                            ]
                        );
                        if ($checkSubscribe->count() == 0){
+
+                           $url[] =$request->url;
+
+                           $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
+                           $domain[] = $domainStrReplace;
                            $contact = Contact::create([
                                'firstname' => $request->firstname,
                                'email' => $request->email,
-                               'domain' => $domain,
-                               'url' => $request->url,
+                               'domain' => json_encode($domain),
+                               'url' => json_encode($url),
                                'status' => 0,
                                'popup_guid' => $defaultPopup->slug,
                                'popupgroup_guid' => $group->guid
                            ]);
                            if($contact){
                                $this->reponseApi["statut"] = true;
-                               $this->reponseApi["error"] = "Contact created";
+                               $this->reponseApi["error"] = "";
                                $this->reponseApi["message"] = "Contact created default popup";
                            }
-                       }else{
+                       }
+                       else{
+
+                           //update 2 contact conditions not existe
+
+                           $UrlsOld = $checkSubscribe->first()->url;
+
+                           $arrayUrlsOld = json_decode($UrlsOld);
+                           $arrayDomainsOld = json_decode($checkSubscribe->first()->domain);
+
+                           foreach ($arrayUrlsOld as $urlOld){
+                               if($urlOld !== $request->url){
+                                    array_push( $arrayUrlsOld,$request->url);
+                                   $arrayUrlsNew = json_encode($arrayUrlsOld);
+
+                                   // the domain
+                                   $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
+                                   array_push( $arrayDomainsOld,$domainStrReplace);
+                                   $arrayDomainsNew = json_encode($arrayDomainsOld);
+
+                               }else{
+                                   $arrayUrlsNew = $arrayUrlsOld;
+                                   $arrayDomainsNew = $arrayDomainsOld;
+                               }
+                           }
                            $checkSubscribe->update([
                                'firstname' => $request->firstname,
                                'email' => $request->email,
-                               'domain' => $domain,
-                               'url' => $request->url,
+                               'domain' => $arrayDomainsNew,
+                               'url' => $arrayUrlsNew,
                                'status' => 0,
                                'popup_guid' => $defaultPopup->slug,
                                'popupgroup_guid' => $group->guid
@@ -182,5 +235,29 @@ class ContactController extends Controller
     public function getCreate()
     {
         return response()->json(["job" => "listen"], 200);
+    }
+
+    private function createContact($firstname,$email,$domain,$url,$status,$popup_guid,$popupgroup_guid){
+        $contact = Contact::create([
+            'firstname' => $firstname,
+            'email' => $email,
+            'domain' => $domain,
+            'url' => json_encode($url),
+            'status' => $status,
+            'popup_guid' => $popup_guid,
+            'popupgroup_guid' => $popupgroup_guid
+        ]);
+    }
+
+    private function updateContact($checkSubscribe,$firstname,$email,$domain,$url,$status,$popup_guid,$popupgroup_guid){
+        $checkSubscribe->update([
+            'firstname' => $firstname,
+            'email' => $email,
+            'domain' => $domain,
+            'url' => json_encode($url),
+            'status' => $status,
+            'popup_guid' => $popup_guid,
+            'popupgroup_guid' => $popupgroup_guid
+        ]);
     }
 }

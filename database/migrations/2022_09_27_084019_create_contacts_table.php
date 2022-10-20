@@ -17,8 +17,8 @@ class CreateContactsTable extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('email');
-            $table->string('domain');
-            $table->string('url');
+            $table->json('domain')->default(new \Illuminate\Database\Query\Expression('(JSON_ARRAY())'));
+            $table->json('url')->default(new \Illuminate\Database\Query\Expression('(JSON_ARRAY())'));
             $table->boolean('status')->default(false);
             $table->string('popup_guid');
             $table->string('popupgroup_guid');
