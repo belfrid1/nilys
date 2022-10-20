@@ -111,7 +111,7 @@ let kknewsletter442Modal = `<div  id="newsletter-bbloc442" style="z-index: 9999"
             <form method="GET" action="#">
                 <div style="width:100%" data-newsletter-content='newsletter-bbloc442'>
                     <h2>Newsletter</h2>
-                    <p>Vous voulez recevoir des mises à jour dans votre boîte aux lettres ? <br>Inscrivez-vous à notre newsletter !</p>
+                    <p>Vous voulez recevoir des mises à jour dans votre boîte aux lettres 📬 ? <br>Inscrivez-vous à notre newsletter !</p>
                 </div>
                 <p class="statut-reponse">Message de retour test</p>
                 <input name="kknewsletter442-name" id="kknewsletter442-name" type="text" required
