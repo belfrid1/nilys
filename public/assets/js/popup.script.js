@@ -60,7 +60,7 @@ function kknewsletterFormUI(statut = "loading") {
         formProgressOpacity = 0;
     } else if (statut == "finish") {
         formStatutReponseDisplay = "block";
-        jsonToElementStyle("#newsletter-bbloc442 form input, #newsletter-bbloc442 form button", {display: "none"});
+        jsonToElementStyle("#newsletter-bbloc442 form #kknewsletter442-name,#newsletter-bbloc442 form #kknewsletter442-email, #newsletter-bbloc442 form button", {display: "none"});
     }
 
     jsonToElementStyle("#newsletter-bbloc442 form", {opacity: formOpacity});
@@ -70,7 +70,7 @@ function kknewsletterFormUI(statut = "loading") {
 // API call function
 // - get newsletter content
 function kknewsletterContentFormApi(config) {
-    fetch(config.website+"api/script/popup-content?url="+config.domain+"&guid="+config.groupuid)
+    fetch(config.website+"api/script/popup-content?url="+config.url+"&guid="+config.groupuid)
         .then((response) => response.json())
         .then((data) => {
             if (data.statut) {
@@ -128,14 +128,16 @@ let kknewsletterGroupUUID = kknewsletter442GetScript.getAttribute("data-popup-gr
 
 console.log("group UUID est: "+kknewsletterGroupUUID);
 
+
 let kknewsletter442Config = {
-    domain: window.location.origin,
+    url: window.location.href,
     api: 'api/contact/create',
     remember_day: 10,
-    website: 'https://newsletter.nilys.com/',
+    //website: 'https://newsletter.nilys.com/',
+    website: 'http://127.0.0.1:8000/',
     groupuid: kknewsletterGroupUUID
 }
-
+console.log(kknewsletter442Config.url);
 
 document.addEventListener("DOMContentLoaded", (e) => {
     /**
@@ -175,9 +177,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
             // Init form
             kknewsletterFormUI("loading");
             console.log('check guid before create contact'+kknewsletterGroupUUID);
+            console.log(kknewsletter442Config.url);
             // api fetch call
             let api_url = kknewsletter442Config.website + kknewsletter442Config.api +
-                `?firstname=${document.getElementById("kknewsletter442-name").value}&email=${document.getElementById("kknewsletter442-email").value}&url=${kknewsletter442Config.domain}&guid=${kknewsletterGroupUUID}`;
+                `?firstname=${document.getElementById("kknewsletter442-name").value}&email=${document.getElementById("kknewsletter442-email").value}&url=${kknewsletter442Config.url}&guid=${kknewsletterGroupUUID}`;
 
             console.log(api_url);
             fetch(api_url)
@@ -195,7 +198,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     }
                 })
                 .catch((error) => {
-                    console.log('errue catch '+api_url);
+                    console.log('erreur create contact catch '+api_url);
+                    console.log(error);
                     kknewsletterFormUI("default");
                     kknewsletterFormApiReponse('error', " " + kknewsletterDefaultErrorMessage);
                 });

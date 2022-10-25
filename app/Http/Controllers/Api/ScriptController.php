@@ -35,7 +35,7 @@ class ScriptController extends Controller
 
         $group = PopupGroup::where('guid',$guid)->first();
 
-        if($group== null){
+        if($group == null){
             $this->responseApi["statut"] = false;
             $this->responseApi["error"] = "no group fund";
             return response()->json($this->responseApi, 500);

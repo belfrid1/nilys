@@ -3,6 +3,8 @@
 namespace App\Helper;
 
 use App\Models\Contact;
+use App\Models\Popup;
+use App\Models\PopupGroup;
 use App\Models\SettingEmail;
 use Mailjet\Resources;
 
@@ -14,49 +16,71 @@ class EmailSenderHelper
     {
         $sendStatut = ["reponse" => false, "detail" => null];
         $settingEmail = SettingEmail::latest()->first();
+
+        // get popup subject and email content
+        // get group before
+        $group = PopupGroup::where('guid',$contacts->first()->popupgroup_guid);
+        if($group){
+            try{
+                $popup = Popup::where('popupgroup_id',$group->first()->id);
+            }catch (\Exception $e) {
+                $sendStatut["detail"] = ['error' => $e];
+            }
+        }else{
+            $sendStatut["detail"] =  ['error' => "Unable to find the group"];
+        }
+
+
+
+
+
         $contactList = null;
 
         $contactList = self::formatContact($contacts->get());
 
-
         if ($settingEmail) {
+
+
             try {
                 $mj = new \Mailjet\Client($settingEmail->apikey, $settingEmail->secretkey, true, ['version' => 'v3.1']);
-
-                $body = [
-                    'Messages' => [
-                        [
-                            'From' => [
-                                'Email' => $settingEmail->username,
-                                'Name' => $settingEmail->from_address
-                            ],
-                            'To' => $contactList,
-                            'Subject' => $settingEmail->subject,
-                            'TextPart' => $settingEmail->content,
-                            'HTMLPart' => $settingEmail->content
+                foreach ($contactList as $contact){
+                    $body = [
+                        'Messages' => [
+                            [
+                                'From' => [
+                                    'Email' => $settingEmail->username,
+                                    'Name' => $settingEmail->from_address
+                                ],
+                                'To' => $contactList,
+                                'Subject' =>  $popup->first()->email_subject,
+                                'TextPart' => $popup->first()->email_content,
+                                'HTMLPart' => $popup->first()->email_content
+                            ]
                         ]
-                    ]
-                ];
+                    ];
 
-                // All resources are located in the Resources class
-                $response = $mj->post(Resources::$Email, ['body' => $body]);
+                    // All resources are located in the Resources class
+                    $response = $mj->post(Resources::$Email, ['body' => $body]);
 
-                // Read the response
-                if ($response->success() && $response->getData()) {
-                    for($i = 0;$i< sizeof($contactList); $i++){
-                        $contact = Contact::where('email',$contactList[$i]['Email']);
-                        $contact->update([
-                            'status' => true
-                        ]);
+                    // Read the response
+                    if ($response->success() && $response->getData()) {
+                        for($i = 0;$i< sizeof($contactList); $i++){
+                            $contact = Contact::where('email',$contactList[$i]['Email']);
+                            $contact->update([
+                                'status' => true
+                            ]);
+                        }
+                        $sendStatut["reponse"] = true;
+                        $sendStatut["detail"] = ['success' => "Email sent successfully !"];
                     }
-                    $sendStatut["reponse"] = true;
-                    $sendStatut["detail"] = ['success' => "Email sent successfully !"];
+
                 }
+
             } catch (\Exception $e) {
                 $sendStatut["detail"] = ['error' => $e];
             }
         } else {
-            $sendStatut["detail"] =  ['error' => "Please define a default content email and subjet"];
+            $sendStatut["detail"] =  ['error' => "Please define a email parameters"];
         }
 
         return $sendStatut;

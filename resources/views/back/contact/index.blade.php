@@ -38,6 +38,7 @@
             </div>
             <!--end::Toolbar-->
             <!--begin::Content-->
+        
             <div id="kt_app_content" class="app-content flex-column-fluid">
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-fluid">
@@ -72,8 +73,8 @@
                                                 <td>{{ $contact->firstname }}</td>
                                                 <td>{{ $contact->email }}</td>
                                                 <td>{{ $contact->popupgroup_guid }}</td>
-                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->domain) as $domain) {{ $domain }} |@endforeach" >@foreach (json_decode($contact->domain) as $domain) {{ $domain }} |@endforeach</td>
-                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->url) as $url) {{ $url }} |@endforeach" >@foreach (json_decode($contact->url) as $url) {{ $url }} |@endforeach</td>
+                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->domain) as $domain)  {{ $domain }}  &#13;&#10; @endforeach" >@foreach (json_decode($contact->domain) as $domain) {{ $domain }} , @endforeach</td>
+                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->url) as $url) {{ $url }}  &#13;&#10; @endforeach" >@foreach (json_decode($contact->url) as $url) {{ $url }} ,  @endforeach</td>
                                                 <td>
                                                     @if ($contact->status)
                                                         <span class="badge badge-light-success"> Sent</span>

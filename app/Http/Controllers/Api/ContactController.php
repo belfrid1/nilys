@@ -84,8 +84,10 @@ class ContactController extends Controller
 
                             $url[] =$request->url;
 
-                            $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
-                            $domain[] = $domainStrReplace;
+                            //get domain from url
+                            $parse = parse_url($request->url);
+                            $domainParsed = $parse['host'];
+                            $domain[] = $domainParsed;
 
                             if ($checkSubscribe->count() == 0) {
 //                                dd($checkSubscribe,$request->url,$popupCondition,$arrayUrl,$popup,$popupCondition->popup_id);
@@ -123,8 +125,11 @@ class ContactController extends Controller
                                             $arrayUrlsNew = json_encode($arrayUrlsOld);
 
                                             // the domain
-                                            $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
-                                            array_push( $arrayDomainsOld,$domainStrReplace);
+                                            //get domain from url
+                                            $parse = parse_url($request->url);
+                                            $domainParsed = $parse['host'];
+                                            // add new domain in old array
+                                            array_push( $arrayDomainsOld,$domainParsed);
                                             $arrayDomainsNew = json_encode($arrayDomainsOld);
                                         }else{
                                             $arrayUrlsNew = $arrayUrlsOld;
@@ -160,8 +165,12 @@ class ContactController extends Controller
 
                            $url[] =$request->url;
 
-                           $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
-                           $domain[] = $domainStrReplace;
+                           //get domain from url
+                           $parse = parse_url($request->url);
+                           $domainParsed = $parse['host'];
+                           $domain[] = $domainParsed;
+
+
                            $contact = Contact::create([
                                'firstname' => $request->firstname,
                                'email' => $request->email,
@@ -192,8 +201,11 @@ class ContactController extends Controller
                                    $arrayUrlsNew = json_encode($arrayUrlsOld);
 
                                    // the domain
-                                   $domainStrReplace = str_replace(["http://", "https://", "www."], "", $request->url);
-                                   array_push( $arrayDomainsOld,$domainStrReplace);
+                                   //get domain from url
+                                   $parse = parse_url($request->url);
+                                   $domainParsed = $parse['host'];
+                                  // add new domain in old array
+                                   array_push( $arrayDomainsOld,$domainParsed);
                                    $arrayDomainsNew = json_encode($arrayDomainsOld);
 
                                }else{
