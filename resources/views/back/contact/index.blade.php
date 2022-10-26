@@ -74,7 +74,7 @@
                                                 <td>{{ $contact->email }}</td>
                                                 <td>{{ $contact->popupgroup_guid }}</td>
                                                 <td data-toggle="tooltip" data-placement="top" title="@foreach(json_decode($contact->domain) as $key=>$domain)@if($key==(count(json_decode($contact->domain))-1)){{str_replace(' ', '', $domain)}}@else{{str_replace(' ', '', $domain)}},&#13;@endif{{""}}@endforeach">{{ count(json_decode($contact->domain)) }}</td>
-                                                <td data-toggle="tooltip" data-placement="top" title="@foreach(json_decode($contact->url) as $key=>$url)@if($key==(count(json_decode($contact->url))-1)){{str_replace(' ', '', $url)}}@else{{str_replace(' ', '', $url)}},&#13;@endif{{""}}@endforeach">{{ count(json_decode($contact->domain)) }}</td>
+                                                <td data-toggle="tooltip" data-placement="top" title="@foreach(json_decode($contact->url) as $key=>$url)@if($key==(count(json_decode($contact->url))-1)){{str_replace(' ', '', $url)}}@else{{str_replace(' ', '', $url)}},&#13;@endif{{""}}@endforeach">{{ count(json_decode($contact->url)) }}</td>
                                                 <td>
                                                     @if ($contact->status)
                                                         <span class="badge badge-light-success"> Sent</span>
