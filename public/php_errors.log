@@ -1,2 +1,0 @@
-[06-Oct-2022 02:29:59 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\PopupGroupController::destroy() in /home/cka/workspace/laravelProjetcs/nilys/app/Http/Controllers/PopupGroupController.php on line 197
-[06-Oct-2022 16:32:08 UTC] PHP Fatal error:  Cannot use [] for reading in /home/cka/workspace/laravelProjetcs/nilys/storage/framework/views/959aa4364ed3787ee4482390b03a65d6532ed21b.php on line 150

@@ -38,7 +38,7 @@
             </div>
             <!--end::Toolbar-->
             <!--begin::Content-->
-        
+
             <div id="kt_app_content" class="app-content flex-column-fluid">
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-fluid">
@@ -73,8 +73,8 @@
                                                 <td>{{ $contact->firstname }}</td>
                                                 <td>{{ $contact->email }}</td>
                                                 <td>{{ $contact->popupgroup_guid }}</td>
-                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->domain) as $domain)  {{ $domain }}  &#13;&#10; @endforeach" >@foreach (json_decode($contact->domain) as $domain) {{ $domain }} , @endforeach</td>
-                                                <td data-toggle="tooltip" data-placement="top" title="@foreach (json_decode($contact->url) as $url) {{ $url }}  &#13;&#10; @endforeach" >@foreach (json_decode($contact->url) as $url) {{ $url }} ,  @endforeach</td>
+                                                <td data-toggle="tooltip" data-placement="top" title="@foreach(json_decode($contact->domain) as $key=>$domain)@if($key==(count(json_decode($contact->domain))-1)){{str_replace(' ', '', $domain)}}@else{{str_replace(' ', '', $domain)}},&#13;@endif{{""}}@endforeach">@foreach(json_decode($contact->domain) as $key => $domain) @if(count(json_decode($contact->domain)) == 1 ) @if($key == 0) {{  $domain }} @endif @else  @if($key == 0) {{  $domain }} ... @endif @endif @endforeach</td>
+                                                <td data-toggle="tooltip" data-placement="top" title="@foreach(json_decode($contact->url) as $key=>$url)@if($key==(count(json_decode($contact->url))-1)){{str_replace(' ', '', $url)}}@else{{str_replace(' ', '', $url)}},&#13;@endif{{""}}@endforeach">@foreach (json_decode($contact->url) as $key => $url) @if(count(json_decode($contact->url)) == 1 ) @if($key == 0) {{  $url }} @endif @else  @if($key == 0) {{  $url }} ... @endif @endif   @endforeach</td>
                                                 <td>
                                                     @if ($contact->status)
                                                         <span class="badge badge-light-success"> Sent</span>

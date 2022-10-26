@@ -21,7 +21,7 @@ class ContactController extends Controller
     {
         $contacts = Contact::get();
 
-//        dd($contacts);
+//        dd(json_decode($contacts[0]->url));
 
         return view('back.contact.index', compact('contacts'));
     }
