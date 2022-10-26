@@ -67,12 +67,11 @@ class ContactController extends Controller
                 $popupCondition = PopupGroupCondition::where(['popup_id' => $popup->id])->first();
 
                 if ($popupCondition) {
-                    dd('cond existe');
+                    //cond existe
                     $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
                     $urls = $popupCondition->url;
                     $arrayUrl = json_decode($urls);
                     foreach ($arrayUrl as $url){
-
                         if($url == $request->url ){
 
                             // check if user has allready suscribe to the newletter of this page
@@ -112,30 +111,36 @@ class ContactController extends Controller
 
                             }
                             else {
-                                // update 1 if condition existe
+                                /*update 1 if condition existe */
 //                                dd($group->guid,'edit',$checkSubscribe,$request->url,$popupCondition,$arrayUrl,$popup,$popupCondition->popup_id);
-                                    $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
-                                    // url is array get old data and add new
-                                    $arrayUrlsOld = json_decode($checkSubscribe->first()->url);
-                                    $arrayDomainsOld = json_decode($checkSubscribe->first()->domain);
-                                    foreach ($arrayUrlsOld as $urlOld){
-                                        if($urlOld !== $request->url){
+                                $popup =  Popup::where(["id" => $popupCondition->popup_id])->first();
 
-                                            array_push( $arrayUrlsOld,$request->url);
-                                            $arrayUrlsNew = json_encode($arrayUrlsOld);
+                                /** the url start*/
+                                $arrayUrlsOld = json_decode($checkSubscribe->first()->url);
+                                $arrayDomainsOld = json_decode($checkSubscribe->first()->domain);
+                                if(in_array($request->url,$arrayUrlsOld)){
+                                    /** keep old url  */
+                                    $arrayUrlsNew = $arrayUrlsOld;
+                                }else{
+                                    /** add new url */
+                                    array_push( $arrayUrlsOld,$request->url);
+                                    $arrayUrlsNew = json_encode($arrayUrlsOld);
+                                }
+                                /** the url end*/
 
-                                            // the domain
-                                            //get domain from url
-                                            $parse = parse_url($request->url);
-                                            $domainParsed = $parse['host'];
-                                            // add new domain in old array
-                                            array_push( $arrayDomainsOld,$domainParsed);
-                                            $arrayDomainsNew = json_encode($arrayDomainsOld);
-                                        }else{
-                                            $arrayUrlsNew = $arrayUrlsOld;
-                                            $arrayDomainsNew = $arrayDomainsOld;
-                                        }
-                                    }
+                                /** the domain start*/
+                                /** get domain from url*/
+                                $parse = parse_url($request->url);
+                                $domainParsed = $parse['host'];
+                                /** check if domain exist*/
+                                if(in_array($domainParsed,$arrayDomainsOld)){
+                                    $arrayDomainsNew = $arrayDomainsOld;
+                                }else{
+                                    /** add new domain in old array*/
+                                    array_push( $arrayDomainsOld,$domainParsed);
+                                    $arrayDomainsNew = json_encode($arrayDomainsOld);
+                                }
+                                /** the domain end*/
                                     $checkSubscribe->update([
                                         'firstname' => $request->firstname,
                                         'email' => $request->email,
@@ -189,30 +194,56 @@ class ContactController extends Controller
                        else{
 
                            //update 2 contact conditions not existe
-
-                           $UrlsOld = $checkSubscribe->first()->url;
-
-                           $arrayUrlsOld = json_decode($UrlsOld);
+                           /** get url old and domain old */
+                           $arrayUrlsOld = json_decode($checkSubscribe->first()->url);
                            $arrayDomainsOld = json_decode($checkSubscribe->first()->domain);
 
-                           foreach ($arrayUrlsOld as $urlOld){
-                               if($urlOld !== $request->url){
-                                    array_push( $arrayUrlsOld,$request->url);
-                                   $arrayUrlsNew = json_encode($arrayUrlsOld);
-
-                                   // the domain
-                                   //get domain from url
-                                   $parse = parse_url($request->url);
-                                   $domainParsed = $parse['host'];
-                                  // add new domain in old array
-                                   array_push( $arrayDomainsOld,$domainParsed);
-                                   $arrayDomainsNew = json_encode($arrayDomainsOld);
-
-                               }else{
-                                   $arrayUrlsNew = $arrayUrlsOld;
-                                   $arrayDomainsNew = $arrayDomainsOld;
-                               }
+                           /** the url start*/
+                           if(in_array($request->url,$arrayUrlsOld)){
+                               /** keep old url  */
+                               $arrayUrlsNew = $arrayUrlsOld;
+                           }else{
+                               /** add new url */
+                               array_push( $arrayUrlsOld,$request->url);
+                               $arrayUrlsNew = json_encode($arrayUrlsOld);
                            }
+                           /** the url end*/
+
+                           /** the domain start*/
+                           /** get domain from url*/
+                           $parse = parse_url($request->url);
+                           $domainParsed = $parse['host'];
+                           /** check if domain exist*/
+                           if(in_array($domainParsed,$arrayDomainsOld)){
+                               $arrayDomainsNew = $arrayDomainsOld;
+                           }else{
+                               /** add new domain in old array*/
+                               array_push( $arrayDomainsOld,$domainParsed);
+                               $arrayDomainsNew = json_encode($arrayDomainsOld);
+                           }
+                           /** the domain end*/
+
+
+//                           foreach ($arrayUrlsOld as $urlOld){
+//                               if($urlOld !== $request->url){
+//                                    array_push( $arrayUrlsOld,$request->url);
+//                                   $arrayUrlsNew = json_encode($arrayUrlsOld);
+//
+//                                   // the domain
+//                                   //get domain from url
+//                                   $parse = parse_url($request->url);
+//                                   $domainParsed = $parse['host'];
+//                                  // add new domain in old array
+//                                   array_push( $arrayDomainsOld,$domainParsed);
+//                                   $arrayDomainsNew = json_encode($arrayDomainsOld);
+//
+//                               }else{
+//                                   $arrayUrlsNew = $arrayUrlsOld;
+//                                   $arrayDomainsNew = $arrayDomainsOld;
+//                               }
+//                           }
+
+
                            $checkSubscribe->update([
                                'firstname' => $request->firstname,
                                'email' => $request->email,
