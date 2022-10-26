@@ -215,7 +215,7 @@
 
                                                         <pre style="white-space: pre-line;">
                                                          <code id="contentToCopy" class="language-html">
-                                                             <textarea readonly name="" id="" cols="170" rows="5"><!-- Style css -->&#13<link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css?v=8">&#13<!-- Script js -->&#13<script type="text/javascript" src="https://newsletter.nilys.com/assets/js/popup.script.js?v=8" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script></textarea>
+                                                             <textarea readonly name="" id="" cols="170" rows="5"><!-- Style css -->&#13<link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css?v=9">&#13<!-- Script js -->&#13<script type="text/javascript" src="https://newsletter.nilys.com/assets/js/popup.script.js?v=9" id="kknewsletter442" data-popup-group-guid="{{ $group->guid ?? ''}}"></script></textarea>
 {{--                                                            <!-- Style css -->--}}
 {{--                                                           <link rel="stylesheet" href="https://newsletter.nilys.com/assets/css/popup.script.css">--}}
 
@@ -352,7 +352,6 @@
             </td>
            <td>
                 <a href="#" id="condition_rm_btn" class="btn btn-icon btn-bg-light btn-active-color-danger " data-toggle="tooltip" data-placement="top" title="delete" onclick="return confirm('Do you really want to remove this line?')">
-                    <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                     <span class="svg-icon svg-icon-3">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor" />
@@ -360,9 +359,7 @@
                             <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor" />
                         </svg>
                     </span>
-                    <!--end::Svg Icon-->
                 </a>
-
             </td>
            </tr>`);
     });

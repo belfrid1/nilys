@@ -133,8 +133,8 @@ let kknewsletter442Config = {
     url: window.location.href,
     api: 'api/contact/create',
     remember_day: 10,
-    //website: 'https://newsletter.nilys.com/',
-    website: 'http://127.0.0.1:8000/',
+    website: 'https://newsletter.nilys.com/',
+    // website: 'http://127.0.0.1:8000/',
     groupuid: kknewsletterGroupUUID
 }
 console.log(kknewsletter442Config.url);
